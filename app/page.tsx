@@ -1,9 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Brain, CheckCircle2, GitCompare, Library, Route } from 'lucide-react';
+import { ArrowRight, Brain, CheckCircle2, GitCompare, Library, Route, Layers, Zap, ScanSearch, FileText } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useLang } from '@/lib/context/LangContext';
+
+const quickActions = [
+  { href: '/flashcards', icon: <Zap className="h-4 w-4" />, labelKey: 'nav.flashcards', hintKey: 'home.quickActions.flashcards.hint' },
+  { href: '/quiz', icon: <ScanSearch className="h-4 w-4" />, labelKey: 'nav.quiz', hintKey: 'home.quickActions.quiz.hint' },
+  { href: '/compare', icon: <GitCompare className="h-4 w-4" />, labelKey: 'nav.compare', hintKey: 'home.quickActions.compare.hint' },
+  { href: '/walkthrough/adapter', icon: <Layers className="h-4 w-4" />, labelKey: 'nav.walkthrough', hintKey: 'home.quickActions.walkthrough.hint' },
+  { href: '/cheatsheet', icon: <FileText className="h-4 w-4" />, labelKey: 'nav.cheatsheet', hintKey: 'home.quickActions.cheatsheet.hint' },
+] as const;
 
 function GuideCard({ icon, title, body }: { icon: ReactNode; title: string; body: string }) {
   return (
@@ -74,6 +82,27 @@ export default function HomePage() {
             <li>{t('home.understand.signal')}</li>
             <li>{t('home.understand.code')}</li>
           </ul>
+        </div>
+      </section>
+
+      <section className="space-y-3">
+        <p className="text-xs font-semibold uppercase tracking-wider text-light-muted dark:text-dark-muted">{t('home.quickActions.title')}</p>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          {quickActions.map(({ href, icon, labelKey, hintKey }) => (
+            <Link
+              key={href}
+              href={href}
+              className="group surface-hover flex flex-col gap-3 rounded-md border border-light-border bg-light-surface p-4 transition hover:border-light-accent/50 dark:border-dark-border dark:bg-dark-surface dark:hover:border-dark-accent/50"
+            >
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-light-bg text-light-muted transition-colors group-hover:text-light-accent dark:bg-dark-bg dark:text-dark-muted dark:group-hover:text-dark-accent">
+                {icon}
+              </div>
+              <div>
+                <p className="text-sm font-semibold leading-snug">{t(labelKey)}</p>
+                <p className="mt-0.5 text-xs text-light-muted dark:text-dark-muted">{t(hintKey)}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
