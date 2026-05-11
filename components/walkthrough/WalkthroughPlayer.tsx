@@ -26,9 +26,9 @@ export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
   }, [stepIndex]);
 
   return (
-    <div className="space-y-5">
-      <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
-        <div>
+    <div className="min-w-0 space-y-5">
+      <div className="flex min-w-0 flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div className="min-w-0">
           <label className="mb-2 block text-sm font-medium text-light-accent dark:text-dark-accent" htmlFor="pattern-walkthrough">
             {t('nav.walkthrough')}
           </label>
@@ -38,7 +38,7 @@ export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
             onChange={(event) => {
               window.location.href = `/walkthrough/${event.target.value}`;
             }}
-            className="h-10 rounded-md border border-transparent bg-light-surface px-3 dark:bg-dark-surface"
+            className="h-10 w-full max-w-full rounded-md border border-transparent bg-light-surface px-3 dark:bg-dark-surface sm:w-auto"
           >
             {patterns.map((item) => (
               <option key={item.slug} value={item.slug}>
@@ -47,12 +47,15 @@ export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
             ))}
           </select>
         </div>
-        <Link href={`/patterns/${pattern.slug}`} className="rounded-md bg-light-surface px-3 py-2 text-sm dark:bg-dark-surface">
+        <Link
+          href={`/patterns/${pattern.slug}`}
+          className="inline-flex w-full justify-center rounded-md bg-light-surface px-3 py-2 text-sm dark:bg-dark-surface sm:w-auto"
+        >
           {t('walk.finish')}
         </Link>
       </div>
 
-      <div className="grid gap-5 lg:grid-cols-[360px_minmax(0,1fr)]">
+      <div className="grid min-w-0 gap-5 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)]">
         <section className="rounded-md bg-light-surface p-5 dark:bg-dark-surface lg:sticky lg:top-20 lg:self-start">
           <StepIndicator current={stepIndex + 1} total={pattern.codeWalkthrough.length} />
           <div className="mt-6">
@@ -63,12 +66,12 @@ export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
               {t('walk.step', { n: stepIndex + 1, total: pattern.codeWalkthrough.length })}
             </p>
           </div>
-          <div className="mt-8 flex gap-2">
+          <div className="mt-8 grid grid-cols-2 gap-2 sm:flex">
             <button
               type="button"
               onClick={() => setStepIndex((value) => Math.max(0, value - 1))}
               disabled={stepIndex === 0}
-              className="inline-flex items-center gap-2 rounded-md bg-light-bg px-3 py-2 text-sm disabled:opacity-40 dark:bg-dark-bg"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-light-bg px-3 py-2 text-sm disabled:opacity-40 dark:bg-dark-bg"
             >
               <ChevronLeft className="h-4 w-4" /> {t('walk.prev')}
             </button>
@@ -76,13 +79,13 @@ export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
               type="button"
               onClick={() => setStepIndex((value) => Math.min(pattern.codeWalkthrough.length - 1, value + 1))}
               disabled={stepIndex === pattern.codeWalkthrough.length - 1}
-              className="inline-flex items-center gap-2 rounded-md bg-light-accent px-3 py-2 text-sm font-medium text-white disabled:opacity-40 dark:bg-dark-accent dark:text-dark-bg"
+              className="inline-flex items-center justify-center gap-2 rounded-md bg-light-accent px-3 py-2 text-sm font-medium text-white disabled:opacity-40 dark:bg-dark-accent dark:text-dark-bg"
             >
               {t('walk.next')} <ChevronRight className="h-4 w-4" />
             </button>
           </div>
         </section>
-        <div ref={codeRef}>
+        <div ref={codeRef} className="min-w-0">
           <CodeBlock code={pattern.code} fileName={pattern.codeFile} highlightLines={step.highlightLines} />
         </div>
       </div>
