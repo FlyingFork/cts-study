@@ -2,7 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { Pattern } from '@/data/patterns';
 import { patterns } from '@/data/patterns';
 import { useLang } from '@/lib/context/LangContext';
@@ -13,6 +13,17 @@ export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
   const [stepIndex, setStepIndex] = useState(0);
   const { lang, t } = useLang();
   const step = pattern.codeWalkthrough[stepIndex];
+  const codeRef = useRef<HTMLDivElement>(null);
+  const isFirstRender = useRef(true);
+
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const firstHighlighted = codeRef.current?.querySelector('[data-highlighted]');
+    firstHighlighted?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, [stepIndex]);
 
   return (
     <div className="space-y-5">
@@ -42,7 +53,7 @@ export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
       </div>
 
       <div className="grid gap-5 lg:grid-cols-[360px_minmax(0,1fr)]">
-        <section className="rounded-md bg-light-surface p-5 dark:bg-dark-surface">
+        <section className="rounded-md bg-light-surface p-5 dark:bg-dark-surface lg:sticky lg:top-20 lg:self-start">
           <StepIndicator current={stepIndex + 1} total={pattern.codeWalkthrough.length} />
           <div className="mt-6">
             <span className={`font-mono text-xs font-bold ${step.roleColor}`}>{step.roleName}</span>
@@ -71,7 +82,9 @@ export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
             </button>
           </div>
         </section>
-        <CodeBlock code={pattern.code} fileName={pattern.codeFile} highlightLines={step.highlightLines} />
+        <div ref={codeRef}>
+          <CodeBlock code={pattern.code} fileName={pattern.codeFile} highlightLines={step.highlightLines} />
+        </div>
       </div>
     </div>
   );

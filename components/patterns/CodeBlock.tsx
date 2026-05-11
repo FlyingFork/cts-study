@@ -59,14 +59,18 @@ export default function CodeBlock({
           lineHeight: '1.65',
           padding: '1rem',
         }}
-        lineProps={(lineNumber) => ({
-          style: highlighted.has(lineNumber)
-            ? {
+        lineProps={(lineNumber) => {
+          if (highlighted.has(lineNumber)) {
+            return {
+              'data-highlighted': 'true',
+              style: {
                 display: 'block',
                 background: theme === 'dark' ? 'rgba(63,185,80,0.16)' : 'rgba(9,105,218,0.12)',
-              }
-            : { display: 'block' },
-        })}
+              },
+            };
+          }
+          return { style: { display: 'block' } };
+        }}
       >
         {code}
       </SyntaxHighlighter>
