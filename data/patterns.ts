@@ -103,8 +103,8 @@ export const patterns: Pattern[] = [
     codeWalkthrough: [
       { stepNumber: 1, title: { en: 'Target interface', ro: 'Interfata Target' }, description: { en: 'The system already knows this interface.', ro: 'Sistemul cunoaste deja aceasta interfata.' }, highlightLines: [9, 10, 11, 12], roleName: 'TARGET', roleColor: 'text-green-400' },
       { stepNumber: 2, title: { en: 'Incompatible class', ro: 'Clasa incompatibila' }, description: { en: 'The adaptee has useful behavior but different method names.', ro: 'Adaptee are comportament util, dar metode diferite.' }, highlightLines: [15, 16, 17, 18, 19, 20, 21, 22], roleName: 'ADAPTEE', roleColor: 'text-orange-400' },
-      { stepNumber: 3, title: { en: 'Translate calls', ro: 'Traduce apeluri' }, description: { en: 'The adapter maps IPrinter calls to LaserPrinter calls.', ro: 'Adapterul mapeaza apelurile IPrinter catre LaserPrinter.' }, highlightLines: [34, 35, 36, 37, 42, 43, 44, 48, 49, 50], roleName: 'ADAPTER', roleColor: 'text-blue-400' },
-      { stepNumber: 4, title: { en: 'Client stays unaware', ro: 'Clientul nu stie diferenta' }, description: { en: 'The client receives IPrinter and does not know what is wrapped.', ro: 'Clientul primeste IPrinter si nu stie ce este impachetat.' }, highlightLines: [54, 55, 56, 57, 58, 59], roleName: 'CLIENT', roleColor: 'text-purple-400' },
+      { stepNumber: 3, title: { en: 'Translate calls', ro: 'Traduce apeluri' }, description: { en: 'The adapter maps IPrinter calls to LaserPrinter calls.', ro: 'Adapterul mapeaza apelurile IPrinter catre LaserPrinter.' }, highlightLines: [38, 39, 41, 42, 46, 47, 48, 51, 52, 54], roleName: 'ADAPTER', roleColor: 'text-blue-400' },
+      { stepNumber: 4, title: { en: 'Client stays unaware', ro: 'Clientul nu stie diferenta' }, description: { en: 'The client receives IPrinter and does not know what is wrapped.', ro: 'Clientul primeste IPrinter si nu stie ce este impachetat.' }, highlightLines: [58, 59, 60, 61, 62, 63, 64, 65], roleName: 'CLIENT', roleColor: 'text-purple-400' },
     ],
     examKeywords: [
       { en: 'external library', ro: 'biblioteca externa' },
@@ -207,10 +207,10 @@ export const patterns: Pattern[] = [
     code: '',
     codeFile: 'DecoratorExample.java',
     codeWalkthrough: [
-      { stepNumber: 1, title: { en: 'Shared component', ro: 'Componenta comuna' }, description: { en: 'Everything implements the same contract.', ro: 'Toate clasele implementeaza acelasi contract.' }, highlightLines: [11, 12, 13, 14], roleName: 'COMPONENT', roleColor: 'text-green-400' },
-      { stepNumber: 2, title: { en: 'Base object', ro: 'Obiect de baza' }, description: { en: 'SimpleCoffee is the undecorated object.', ro: 'SimpleCoffee este obiectul fara decorari.' }, highlightLines: [17, 18, 19, 20, 21], roleName: 'BASE', roleColor: 'text-orange-400' },
-      { stepNumber: 3, title: { en: 'Decorator wraps same interface', ro: 'Decoratorul impacheteaza aceeasi interfata' }, description: { en: 'The abstract decorator both implements and contains ICoffee.', ro: 'Decoratorul abstract implementeaza si contine ICoffee.' }, highlightLines: [25, 26, 27, 28, 29, 35, 36, 37, 38, 39], roleName: 'DECORATOR', roleColor: 'text-blue-400' },
-      { stepNumber: 4, title: { en: 'Stack features', ro: 'Stivuire functionalitati' }, description: { en: 'Concrete decorators add one thing and delegate the rest.', ro: 'Decoratorii concreti adauga un lucru si deleaga restul.' }, highlightLines: [42, 43, 44, 47, 48, 52, 53, 56, 57, 61, 62], roleName: 'ADD-ON', roleColor: 'text-purple-400' },
+      { stepNumber: 1, title: { en: 'Shared component', ro: 'Componenta comuna' }, description: { en: 'Everything implements the same contract.', ro: 'Toate clasele implementeaza acelasi contract.' }, highlightLines: [14, 15, 16, 17], roleName: 'COMPONENT', roleColor: 'text-green-400' },
+      { stepNumber: 2, title: { en: 'Base object', ro: 'Obiect de baza' }, description: { en: 'SimpleCoffee is the undecorated object.', ro: 'SimpleCoffee este obiectul fara decorari.' }, highlightLines: [20, 21, 22, 23, 24, 25], roleName: 'BASE', roleColor: 'text-orange-400' },
+      { stepNumber: 3, title: { en: 'Decorator wraps same interface', ro: 'Decoratorul impacheteaza aceeasi interfata' }, description: { en: 'The abstract decorator both implements and contains ICoffee.', ro: 'Decoratorul abstract implementeaza si contine ICoffee.' }, highlightLines: [29, 30, 32, 33, 38, 40], roleName: 'DECORATOR', roleColor: 'text-blue-400' },
+      { stepNumber: 4, title: { en: 'Stack features', ro: 'Stivuire functionalitati' }, description: { en: 'Concrete decorators add one thing and delegate the rest.', ro: 'Decoratorii concreti adauga un lucru si deleaga restul.' }, highlightLines: [44, 45, 48, 50, 53, 54, 57, 59, 62, 63, 66, 68], roleName: 'ADD-ON', roleColor: 'text-purple-400' },
     ],
     examKeywords: [
       { en: 'dynamically add behavior', ro: 'adauga comportament dinamic' },
@@ -314,10 +314,10 @@ export const patterns: Pattern[] = [
     code: '',
     codeFile: 'CompositeExample.java',
     codeWalkthrough: [
-      { stepNumber: 1, title: { en: 'Common contract', ro: 'Contract comun' }, description: { en: 'File and Folder expose the same operations.', ro: 'File si Folder expun aceleasi operatii.' }, highlightLines: [12, 13, 14, 15, 16, 17], roleName: 'COMPONENT', roleColor: 'text-green-400' },
-      { stepNumber: 2, title: { en: 'Leaf', ro: 'Frunza' }, description: { en: 'A File has no children.', ro: 'Un File nu are copii.' }, highlightLines: [20, 21, 22, 23, 24, 31, 34, 35, 36], roleName: 'LEAF', roleColor: 'text-orange-400' },
-      { stepNumber: 3, title: { en: 'Composite container', ro: 'Container composite' }, description: { en: 'Folder stores children as the shared interface.', ro: 'Folder stocheaza copiii ca interfata comuna.' }, highlightLines: [40, 41, 42, 43, 49, 50, 64, 65, 66, 67, 68], roleName: 'COMPOSITE', roleColor: 'text-blue-400' },
-      { stepNumber: 4, title: { en: 'Recursive use', ro: 'Folosire recursiva' }, description: { en: 'The same call works for files, folders, and nested folders.', ro: 'Acelasi apel merge pentru fisiere, foldere si foldere imbricate.' }, highlightLines: [92, 93, 96, 97, 100, 101, 104, 105], roleName: 'CLIENT', roleColor: 'text-purple-400' },
+      { stepNumber: 1, title: { en: 'Common contract', ro: 'Contract comun' }, description: { en: 'File and Folder expose the same operations.', ro: 'File si Folder expun aceleasi operatii.' }, highlightLines: [14, 15, 16, 17, 18], roleName: 'COMPONENT', roleColor: 'text-green-400' },
+      { stepNumber: 2, title: { en: 'Leaf', ro: 'Frunza' }, description: { en: 'A File has no children.', ro: 'Un File nu are copii.' }, highlightLines: [21, 22, 23, 31, 34, 37, 38, 39], roleName: 'LEAF', roleColor: 'text-orange-400' },
+      { stepNumber: 3, title: { en: 'Composite container', ro: 'Container composite' }, description: { en: 'Folder stores children as the shared interface.', ro: 'Folder stocheaza copiii ca interfata comuna.' }, highlightLines: [43, 44, 45, 51, 52, 63, 64, 65, 66, 67, 68, 69, 70], roleName: 'COMPOSITE', roleColor: 'text-blue-400' },
+      { stepNumber: 4, title: { en: 'Recursive use', ro: 'Folosire recursiva' }, description: { en: 'The same call works for files, folders, and nested folders.', ro: 'Acelasi apel merge pentru fisiere, foldere si foldere imbricate.' }, highlightLines: [94, 95, 96, 98, 99, 101, 102, 103, 104, 107, 109, 110], roleName: 'CLIENT', roleColor: 'text-purple-400' },
     ],
     examKeywords: [
       { en: 'tree structure', ro: 'structura arborescenta' },
@@ -421,10 +421,10 @@ export const patterns: Pattern[] = [
     code: '',
     codeFile: 'FlyweightExample.java',
     codeWalkthrough: [
-      { stepNumber: 1, title: { en: 'Extrinsic parameters', ro: 'Parametri extrinseci' }, description: { en: 'Position and color are passed in, not stored.', ro: 'Pozitia si culoarea sunt transmise, nu stocate.' }, highlightLines: [14, 15, 16, 17], roleName: 'FLYWEIGHT', roleColor: 'text-green-400' },
-      { stepNumber: 2, title: { en: 'Shared model', ro: 'Model partajat' }, description: { en: 'Sprite keeps the heavy state once per type.', ro: 'Sprite pastreaza starea grea o singura data pe tip.' }, highlightLines: [20, 21, 22, 23, 24, 25, 26, 32, 33, 34, 35], roleName: 'INTRINSIC', roleColor: 'text-orange-400' },
-      { stepNumber: 3, title: { en: 'Pool lookup', ro: 'Cautare in pool' }, description: { en: 'Factory creates only missing types.', ro: 'Factory creeaza doar tipurile lipsa.' }, highlightLines: [38, 39, 40, 41, 42, 43, 44, 45, 46], roleName: 'FACTORY', roleColor: 'text-blue-400' },
-      { stepNumber: 4, title: { en: 'Reuse proof', ro: 'Dovada reutilizarii' }, description: { en: 'Same object, different extrinsic values.', ro: 'Acelasi obiect, valori extrinseci diferite.' }, highlightLines: [59, 60, 61, 62, 70, 71, 72, 81], roleName: 'CLIENT', roleColor: 'text-purple-400' },
+      { stepNumber: 1, title: { en: 'Extrinsic parameters', ro: 'Parametri extrinseci' }, description: { en: 'Position and color are passed in, not stored.', ro: 'Pozitia si culoarea sunt transmise, nu stocate.' }, highlightLines: [16, 17, 18, 19], roleName: 'FLYWEIGHT', roleColor: 'text-green-400' },
+      { stepNumber: 2, title: { en: 'Shared model', ro: 'Model partajat' }, description: { en: 'Sprite keeps the heavy state once per type.', ro: 'Sprite pastreaza starea grea o singura data pe tip.' }, highlightLines: [22, 23, 24, 26, 27, 29, 30, 34, 35, 36], roleName: 'INTRINSIC', roleColor: 'text-orange-400' },
+      { stepNumber: 3, title: { en: 'Pool lookup', ro: 'Cautare in pool' }, description: { en: 'Factory creates only missing types.', ro: 'Factory creeaza doar tipurile lipsa.' }, highlightLines: [41, 42, 44, 45, 46, 47, 48], roleName: 'FACTORY', roleColor: 'text-blue-400' },
+      { stepNumber: 4, title: { en: 'Reuse proof', ro: 'Dovada reutilizarii' }, description: { en: 'Same object, different extrinsic values.', ro: 'Acelasi obiect, valori extrinseci diferite.' }, highlightLines: [60, 61, 62, 63, 68, 69, 75, 76, 78], roleName: 'CLIENT', roleColor: 'text-purple-400' },
     ],
     examKeywords: [
       { en: 'memory efficiency', ro: 'eficienta de memorie' },
@@ -527,10 +527,10 @@ export const patterns: Pattern[] = [
     code: '',
     codeFile: 'FacadeExample.java',
     codeWalkthrough: [
-      { stepNumber: 1, title: { en: 'Complex subsystem', ro: 'Subsistem complex' }, description: { en: 'Many classes each expose their own operations.', ro: 'Multe clase expun propriile operatii.' }, highlightLines: [10, 11, 12, 15, 16, 17, 20, 21, 22, 25, 26, 27, 28], roleName: 'SUBSYSTEM', roleColor: 'text-orange-400' },
-      { stepNumber: 2, title: { en: 'Facade owns subsystems', ro: 'Facade detine subsistemele' }, description: { en: 'The facade creates and holds the subsystem instances.', ro: 'Facade creeaza si pastreaza instantele subsistemului.' }, highlightLines: [36, 37, 38, 39, 40, 42, 43, 44, 45, 46, 47], roleName: 'FACADE', roleColor: 'text-blue-400' },
-      { stepNumber: 3, title: { en: 'Simple operations', ro: 'Operatii simple' }, description: { en: 'One method coordinates multiple lower-level calls.', ro: 'O metoda coordoneaza mai multe apeluri low-level.' }, highlightLines: [51, 52, 53, 54, 55, 56, 57, 60, 61, 62, 63, 64], roleName: 'API', roleColor: 'text-green-400' },
-      { stepNumber: 4, title: { en: 'Client uses the front door', ro: 'Clientul foloseste intrarea simpla' }, description: { en: 'The client avoids subsystem ordering details.', ro: 'Clientul evita detaliile de ordine ale subsistemelor.' }, highlightLines: [73, 74, 75, 76, 77, 80, 83], roleName: 'CLIENT', roleColor: 'text-purple-400' },
+      { stepNumber: 1, title: { en: 'Complex subsystem', ro: 'Subsistem complex' }, description: { en: 'Many classes each expose their own operations.', ro: 'Multe clase expun propriile operatii.' }, highlightLines: [11, 12, 13, 14, 17, 18, 19, 22, 23, 24, 26, 29, 30, 31], roleName: 'SUBSYSTEM', roleColor: 'text-orange-400' },
+      { stepNumber: 2, title: { en: 'Facade owns subsystems', ro: 'Facade detine subsistemele' }, description: { en: 'The facade creates and holds the subsystem instances.', ro: 'Facade creeaza si pastreaza instantele subsistemului.' }, highlightLines: [37, 38, 39, 40, 41, 43, 44, 45, 46, 47], roleName: 'FACADE', roleColor: 'text-blue-400' },
+      { stepNumber: 3, title: { en: 'Simple operations', ro: 'Operatii simple' }, description: { en: 'One method coordinates multiple lower-level calls.', ro: 'O metoda coordoneaza mai multe apeluri low-level.' }, highlightLines: [51, 52, 53, 54, 55, 56, 57, 60, 61, 62, 63, 64, 67, 68, 69], roleName: 'API', roleColor: 'text-green-400' },
+      { stepNumber: 4, title: { en: 'Client uses the front door', ro: 'Clientul foloseste intrarea simpla' }, description: { en: 'The client avoids subsystem ordering details.', ro: 'Clientul evita detaliile de ordine ale subsistemelor.' }, highlightLines: [76, 78, 79, 82, 85], roleName: 'CLIENT', roleColor: 'text-purple-400' },
     ],
     examKeywords: [
       { en: 'simplified API', ro: 'API simplificat' },
@@ -630,10 +630,10 @@ export const patterns: Pattern[] = [
     code: '',
     codeFile: 'ProxyExample.java',
     codeWalkthrough: [
-      { stepNumber: 1, title: { en: 'Same interface', ro: 'Aceeasi interfata' }, description: { en: 'Proxy and real subject are substitutable.', ro: 'Proxy si subiectul real sunt substituibile.' }, highlightLines: [17, 18, 19], roleName: 'SUBJECT', roleColor: 'text-green-400' },
-      { stepNumber: 2, title: { en: 'Lazy real object', ro: 'Obiect real lazy' }, description: { en: 'The expensive image loads only when needed.', ro: 'Imaginea costisitoare se incarca doar cand e nevoie.' }, highlightLines: [42, 43, 44, 45, 46, 47, 48, 49], roleName: 'VIRTUAL', roleColor: 'text-blue-400' },
-      { stepNumber: 3, title: { en: 'Protection proxy', ro: 'Proxy de protectie' }, description: { en: 'The proxy filters messages before delegating.', ro: 'Proxy-ul filtreaza mesajele inainte de delegare.' }, highlightLines: [71, 72, 73, 78, 79, 80, 81, 82, 83, 84], roleName: 'PROTECTION', roleColor: 'text-orange-400' },
-      { stepNumber: 4, title: { en: 'Client is unaware', ro: 'Clientul nu stie' }, description: { en: 'The client uses the interface either way.', ro: 'Clientul foloseste interfata in ambele cazuri.' }, highlightLines: [101, 102, 103, 111, 112, 113, 114, 115], roleName: 'CLIENT', roleColor: 'text-purple-400' },
+      { stepNumber: 1, title: { en: 'Same interface', ro: 'Aceeasi interfata' }, description: { en: 'Proxy and real subject are substitutable.', ro: 'Proxy si subiectul real sunt substituibile.' }, highlightLines: [15, 16, 17, 18, 62, 63, 64], roleName: 'SUBJECT', roleColor: 'text-green-400' },
+      { stepNumber: 2, title: { en: 'Lazy real object', ro: 'Obiect real lazy' }, description: { en: 'The expensive image loads only when needed.', ro: 'Imaginea costisitoare se incarca doar cand e nevoie.' }, highlightLines: [40, 42, 50, 51, 52, 53, 54], roleName: 'VIRTUAL', roleColor: 'text-blue-400' },
+      { stepNumber: 3, title: { en: 'Protection proxy', ro: 'Proxy de protectie' }, description: { en: 'The proxy filters messages before delegating.', ro: 'Proxy-ul filtreaza mesajele inainte de delegare.' }, highlightLines: [74, 75, 76, 83, 84, 85, 86, 88], roleName: 'PROTECTION', roleColor: 'text-orange-400' },
+      { stepNumber: 4, title: { en: 'Client is unaware', ro: 'Clientul nu stie' }, description: { en: 'The client uses the interface either way.', ro: 'Clientul foloseste interfata in ambele cazuri.' }, highlightLines: [104, 105, 109, 111, 114, 115, 116], roleName: 'CLIENT', roleColor: 'text-purple-400' },
     ],
     examKeywords: [
       { en: 'control access', ro: 'controleaza accesul' },
@@ -737,9 +737,9 @@ export const patterns: Pattern[] = [
     codeFile: 'StrategyExample.java',
     codeWalkthrough: [
       { stepNumber: 1, title: { en: 'Algorithm interface', ro: 'Interfata algoritmului' }, description: { en: 'Every payment method follows the same contract.', ro: 'Fiecare metoda de plata respecta acelasi contract.' }, highlightLines: [11, 12, 13, 14], roleName: 'STRATEGY', roleColor: 'text-green-400' },
-      { stepNumber: 2, title: { en: 'Concrete algorithms', ro: 'Algoritmi concreti' }, description: { en: 'Each class implements payment differently.', ro: 'Fiecare clasa implementeaza plata diferit.' }, highlightLines: [17, 18, 26, 27, 32, 33, 41, 42, 47, 48, 56, 57], roleName: 'ALGORITHM', roleColor: 'text-orange-400' },
-      { stepNumber: 3, title: { en: 'Context delegates', ro: 'Contextul deleaga' }, description: { en: 'ShoppingCart knows only the strategy interface.', ro: 'ShoppingCart cunoaste doar interfata strategiei.' }, highlightLines: [60, 61, 62, 63, 64, 69, 70, 75], roleName: 'CONTEXT', roleColor: 'text-blue-400' },
-      { stepNumber: 4, title: { en: 'Runtime switch', ro: 'Schimbare la runtime' }, description: { en: 'The client changes behavior without editing the context.', ro: 'Clientul schimba comportamentul fara sa editeze contextul.' }, highlightLines: [87, 88, 89, 94, 95, 96, 100, 101], roleName: 'CLIENT', roleColor: 'text-purple-400' },
+      { stepNumber: 2, title: { en: 'Concrete algorithms', ro: 'Algoritmi concreti' }, description: { en: 'Each class implements payment differently.', ro: 'Fiecare clasa implementeaza plata diferit.' }, highlightLines: [17, 18, 25, 26, 27, 34, 42, 43, 47, 50, 58, 59, 63], roleName: 'ALGORITHM', roleColor: 'text-orange-400' },
+      { stepNumber: 3, title: { en: 'Context delegates', ro: 'Contextul deleaga' }, description: { en: 'ShoppingCart knows only the strategy interface.', ro: 'ShoppingCart cunoaste doar interfata strategiei.' }, highlightLines: [67, 68, 70, 71, 75, 81], roleName: 'CONTEXT', roleColor: 'text-blue-400' },
+      { stepNumber: 4, title: { en: 'Runtime switch', ro: 'Schimbare la runtime' }, description: { en: 'The client changes behavior without editing the context.', ro: 'Clientul schimba comportamentul fara sa editeze contextul.' }, highlightLines: [88, 91, 92, 96, 97, 98, 102, 103, 104], roleName: 'CLIENT', roleColor: 'text-purple-400' },
     ],
     examKeywords: [
       { en: 'different methods', ro: 'metode diferite' },
@@ -843,10 +843,10 @@ export const patterns: Pattern[] = [
     code: '',
     codeFile: 'ChainExample.java',
     codeWalkthrough: [
-      { stepNumber: 1, title: { en: 'Request object', ro: 'Obiect cerere' }, description: { en: 'The ticket carries priority and description.', ro: 'Ticketul transporta prioritate si descriere.' }, highlightLines: [9, 10, 11, 12, 17, 18, 21, 22, 23, 24], roleName: 'REQUEST', roleColor: 'text-green-400' },
-      { stepNumber: 2, title: { en: 'Handler link', ro: 'Legatura handler' }, description: { en: 'Each handler stores the next handler.', ro: 'Fiecare handler stocheaza urmatorul handler.' }, highlightLines: [27, 28, 29, 30, 31, 35, 38, 39, 40, 41, 42, 43, 44], roleName: 'HANDLER', roleColor: 'text-blue-400' },
-      { stepNumber: 3, title: { en: 'Handle or pass', ro: 'Rezolva sau paseaza' }, description: { en: 'Concrete handlers decide locally.', ro: 'Handlerii concreti decid local.' }, highlightLines: [50, 51, 52, 53, 54, 55, 56, 62, 63, 64, 65, 66, 67, 68], roleName: 'CHAIN', roleColor: 'text-orange-400' },
-      { stepNumber: 4, title: { en: 'Build chain', ro: 'Construire lant' }, description: { en: 'The client connects handlers and sends requests to the first one.', ro: 'Clientul conecteaza handlerii si trimite cereri primului.' }, highlightLines: [91, 92, 93, 95, 96, 105], roleName: 'CLIENT', roleColor: 'text-purple-400' },
+      { stepNumber: 1, title: { en: 'Request object', ro: 'Obiect cerere' }, description: { en: 'The ticket carries priority and description.', ro: 'Ticketul transporta prioritate si descriere.' }, highlightLines: [10, 11, 12, 14, 15, 16, 19, 20], roleName: 'REQUEST', roleColor: 'text-green-400' },
+      { stepNumber: 2, title: { en: 'Handler link', ro: 'Legatura handler' }, description: { en: 'Each handler stores the next handler.', ro: 'Fiecare handler stocheaza urmatorul handler.' }, highlightLines: [29, 30, 32, 33, 36, 39, 40, 41, 42, 43], roleName: 'HANDLER', roleColor: 'text-blue-400' },
+      { stepNumber: 3, title: { en: 'Handle or pass', ro: 'Rezolva sau paseaza' }, description: { en: 'Concrete handlers decide locally.', ro: 'Handlerii concreti decid local.' }, highlightLines: [49, 51, 52, 53, 54, 55, 56, 61, 63, 64, 65, 66, 67, 68], roleName: 'CHAIN', roleColor: 'text-orange-400' },
+      { stepNumber: 4, title: { en: 'Build chain', ro: 'Construire lant' }, description: { en: 'The client connects handlers and sends requests to the first one.', ro: 'Clientul conecteaza handlerii si trimite cereri primului.' }, highlightLines: [89, 90, 91, 93, 94, 95, 106, 107, 108], roleName: 'CLIENT', roleColor: 'text-purple-400' },
     ],
     examKeywords: [
       { en: 'priority levels', ro: 'niveluri de prioritate' },
@@ -950,10 +950,10 @@ export const patterns: Pattern[] = [
     code: '',
     codeFile: 'CommandExample.java',
     codeWalkthrough: [
-      { stepNumber: 1, title: { en: 'Receiver', ro: 'Receiver' }, description: { en: 'Cook knows the real actions.', ro: 'Cook stie actiunile reale.' }, highlightLines: [17, 18, 19, 21, 22, 24, 25, 26], roleName: 'RECEIVER', roleColor: 'text-orange-400' },
-      { stepNumber: 2, title: { en: 'Command interface', ro: 'Interfata Command' }, description: { en: 'Invoker can store any KitchenOrder.', ro: 'Invoker poate stoca orice KitchenOrder.' }, highlightLines: [30, 31, 32, 33, 34], roleName: 'COMMAND', roleColor: 'text-green-400' },
-      { stepNumber: 3, title: { en: 'Concrete command', ro: 'Comanda concreta' }, description: { en: 'Each order wraps receiver details.', ro: 'Fiecare comanda impacheteaza detaliile receiverului.' }, highlightLines: [37, 38, 39, 40, 46, 47, 49, 50, 54, 55, 56, 57, 63, 64], roleName: 'CONCRETE', roleColor: 'text-blue-400' },
-      { stepNumber: 4, title: { en: 'Invoker queue', ro: 'Coada invokerului' }, description: { en: 'Waiter queues commands and executes them later.', ro: 'Waiter pune comenzile in coada si le executa mai tarziu.' }, highlightLines: [79, 80, 81, 83, 84, 85, 89, 90, 91, 92], roleName: 'INVOKER', roleColor: 'text-purple-400' },
+      { stepNumber: 1, title: { en: 'Receiver', ro: 'Receiver' }, description: { en: 'Cook knows the real actions.', ro: 'Cook stie actiunile reale.' }, highlightLines: [21, 22, 23, 25, 26, 28, 29, 30], roleName: 'RECEIVER', roleColor: 'text-orange-400' },
+      { stepNumber: 2, title: { en: 'Command interface', ro: 'Interfata Command' }, description: { en: 'Invoker can store any KitchenOrder.', ro: 'Invoker poate stoca orice KitchenOrder.' }, highlightLines: [34, 35, 36, 37], roleName: 'COMMAND', roleColor: 'text-green-400' },
+      { stepNumber: 3, title: { en: 'Concrete command', ro: 'Comanda concreta' }, description: { en: 'Each order wraps receiver details.', ro: 'Fiecare comanda impacheteaza detaliile receiverului.' }, highlightLines: [40, 41, 42, 50, 56, 57, 58, 66], roleName: 'CONCRETE', roleColor: 'text-blue-400' },
+      { stepNumber: 4, title: { en: 'Invoker queue', ro: 'Coada invokerului' }, description: { en: 'Waiter queues commands and executes them later.', ro: 'Waiter pune comenzile in coada si le executa mai tarziu.' }, highlightLines: [89, 90, 92, 93, 94, 97, 99, 100, 101], roleName: 'INVOKER', roleColor: 'text-purple-400' },
     ],
     examKeywords: [
       { en: 'queue commands', ro: 'coada de comenzi' },
@@ -1057,10 +1057,10 @@ export const patterns: Pattern[] = [
     code: '',
     codeFile: 'ObserverExample.java',
     codeWalkthrough: [
-      { stepNumber: 1, title: { en: 'Observer callback', ro: 'Callback Observer' }, description: { en: 'All subscribers implement the same callback.', ro: 'Toti abonatii implementeaza acelasi callback.' }, highlightLines: [18, 19, 20], roleName: 'OBSERVER', roleColor: 'text-green-400' },
-      { stepNumber: 2, title: { en: 'Subject API', ro: 'API Subject' }, description: { en: 'The subject supports subscribe, unsubscribe, and notify.', ro: 'Subject suporta subscribe, unsubscribe si notify.' }, highlightLines: [23, 24, 25, 26, 27, 28, 29], roleName: 'SUBJECT', roleColor: 'text-blue-400' },
-      { stepNumber: 3, title: { en: 'Notify everyone', ro: 'Notifica pe toti' }, description: { en: 'The subject only knows the observer interface.', ro: 'Subject cunoaste doar interfata Observer.' }, highlightLines: [32, 33, 34, 50, 51, 52, 53, 54, 55, 56], roleName: 'BROADCAST', roleColor: 'text-orange-400' },
-      { stepNumber: 4, title: { en: 'Independent reactions', ro: 'Reactii independente' }, description: { en: 'Each module reacts in its own way.', ro: 'Fiecare modul reactioneaza in felul sau.' }, highlightLines: [63, 64, 65, 70, 71, 72, 77, 78, 79, 84, 85, 86], roleName: 'LISTENER', roleColor: 'text-purple-400' },
+      { stepNumber: 1, title: { en: 'Observer callback', ro: 'Callback Observer' }, description: { en: 'All subscribers implement the same callback.', ro: 'Toti abonatii implementeaza acelasi callback.' }, highlightLines: [20, 21, 22], roleName: 'OBSERVER', roleColor: 'text-green-400' },
+      { stepNumber: 2, title: { en: 'Subject API', ro: 'API Subject' }, description: { en: 'The subject supports subscribe, unsubscribe, and notify.', ro: 'Subject suporta subscribe, unsubscribe si notify.' }, highlightLines: [25, 26, 27, 28, 29], roleName: 'SUBJECT', roleColor: 'text-blue-400' },
+      { stepNumber: 3, title: { en: 'Notify everyone', ro: 'Notifica pe toti' }, description: { en: 'The subject only knows the observer interface.', ro: 'Subject cunoaste doar interfata Observer.' }, highlightLines: [32, 33, 37, 38, 49, 50, 51, 52, 53, 57, 59, 60], roleName: 'BROADCAST', roleColor: 'text-orange-400' },
+      { stepNumber: 4, title: { en: 'Independent reactions', ro: 'Reactii independente' }, description: { en: 'Each module reacts in its own way.', ro: 'Fiecare modul reactioneaza in felul sau.' }, highlightLines: [65, 67, 68, 72, 74, 75, 79, 81, 82, 86, 88, 89], roleName: 'LISTENER', roleColor: 'text-purple-400' },
     ],
     examKeywords: [
       { en: 'notify multiple modules', ro: 'notifica multiple module' },
