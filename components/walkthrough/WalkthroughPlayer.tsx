@@ -11,9 +11,11 @@ import StepIndicator from './StepIndicator';
 
 export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
   const [stepIndex, setStepIndex] = useState(0);
+  const [cardVisible, setCardVisible] = useState(true);
   const { lang, t } = useLang();
   const step = pattern.codeWalkthrough[stepIndex];
   const codeRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const isFirstRender = useRef(true);
 
   const scrollToHighlight = () => {
@@ -28,6 +30,17 @@ export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
     }
     scrollToHighlight();
   }, [stepIndex]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setCardVisible(entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   const goToPrev = () => setStepIndex((v) => Math.max(0, v - 1));
   const goToNext = () => setStepIndex((v) => Math.min(pattern.codeWalkthrough.length - 1, v + 1));
@@ -64,7 +77,7 @@ export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
       </div>
 
       <div className="grid min-w-0 gap-5 lg:grid-cols-[minmax(0,360px)_minmax(0,1fr)]">
-        <section className="rounded-md bg-light-surface p-5 dark:bg-dark-surface lg:sticky lg:top-20 lg:self-start">
+        <section ref={sectionRef} className="rounded-md bg-light-surface p-5 dark:bg-dark-surface lg:sticky lg:top-20 lg:self-start">
           <StepIndicator current={stepIndex + 1} total={total} />
           <div className="mt-6">
             <span className={`font-mono text-xs font-bold ${step.roleColor}`}>{step.roleName}</span>
@@ -95,6 +108,15 @@ export default function WalkthroughPlayer({ pattern }: { pattern: Pattern }) {
           </div>
         </section>
         <div ref={codeRef} className="min-w-0">
+          {/* Step description strip — mobile only, shown only when main card is scrolled off screen */}
+          <div className={`sticky top-16 z-30 mb-3 rounded-md bg-light-surface p-3 shadow-sm dark:bg-dark-surface lg:hidden ${cardVisible ? 'hidden' : ''}`}>
+            <div className="flex items-center justify-between gap-2">
+              <span className={`font-mono text-xs font-bold ${step.roleColor}`}>{step.roleName}</span>
+              <span className="font-mono text-xs text-light-muted dark:text-dark-muted">{t('walk.step', { n: stepIndex + 1, total })}</span>
+            </div>
+            <p className="mt-1 text-sm font-semibold">{step.title[lang]}</p>
+            <p className="mt-1 text-xs leading-5 text-light-muted dark:text-dark-muted">{step.description[lang]}</p>
+          </div>
           {/* Jump-to-highlight button — mobile only */}
           <div className="mb-2 flex justify-end lg:hidden">
             <button
