@@ -1,14 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Brain, CheckCircle2, GitCompare, Library, Route, Layers, Zap, ScanSearch, FileText } from 'lucide-react';
+import { ArrowRight, Brain, CheckCircle2, Library, Route, Layers, ScanSearch, FileText } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { useLang } from '@/lib/context/LangContext';
 
 const quickActions = [
-  { href: '/flashcards', icon: <Zap className="h-4 w-4" />, labelKey: 'nav.flashcards', hintKey: 'home.quickActions.flashcards.hint' },
   { href: '/quiz', icon: <ScanSearch className="h-4 w-4" />, labelKey: 'nav.quiz', hintKey: 'home.quickActions.quiz.hint' },
-  { href: '/compare', icon: <GitCompare className="h-4 w-4" />, labelKey: 'nav.compare', hintKey: 'home.quickActions.compare.hint' },
   { href: '/walkthrough/adapter', icon: <Layers className="h-4 w-4" />, labelKey: 'nav.walkthrough', hintKey: 'home.quickActions.walkthrough.hint' },
   { href: '/cheatsheet', icon: <FileText className="h-4 w-4" />, labelKey: 'nav.cheatsheet', hintKey: 'home.quickActions.cheatsheet.hint' },
 ] as const;
@@ -53,8 +51,8 @@ export default function HomePage() {
           <h1 className="mt-3 text-4xl font-semibold tracking-normal md:text-5xl">{t('home.title')}</h1>
           <p className="mt-5 max-w-xl text-base leading-7 text-light-muted dark:text-dark-muted">
             {lang === 'ro'
-              ? 'Invata fiecare pattern prin intentie, apoi confirma intelegerea prin exemple, flashcard-uri si quiz-uri.'
-              : 'Learn each pattern by intent first, then confirm understanding through examples, flashcards, and quizzes.'}
+              ? 'Invata fiecare pattern prin intentie, apoi confirma intelegerea prin exemple si quiz-uri.'
+              : 'Learn each pattern by intent first, then confirm understanding through examples and quizzes.'}
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -87,7 +85,7 @@ export default function HomePage() {
 
       <section className="space-y-3">
         <p className="text-xs font-semibold uppercase tracking-wider text-light-muted dark:text-dark-muted">{t('home.quickActions.title')}</p>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {quickActions.map(({ href, icon, labelKey, hintKey }) => (
             <Link
               key={href}
@@ -111,7 +109,7 @@ export default function HomePage() {
         <div className="grid gap-4 md:grid-cols-3">
           <GuideCard icon={<Route className="h-5 w-5" />} title={t('home.how.learn.title')} body={t('home.how.learn.body')} />
           <GuideCard icon={<Brain className="h-5 w-5" />} title={t('home.how.recall.title')} body={t('home.how.recall.body')} />
-          <GuideCard icon={<GitCompare className="h-5 w-5" />} title={t('home.how.compare.title')} body={t('home.how.compare.body')} />
+          <GuideCard icon={<ScanSearch className="h-5 w-5" />} title={t('home.how.compare.title')} body={t('home.how.compare.body')} />
         </div>
       </section>
 

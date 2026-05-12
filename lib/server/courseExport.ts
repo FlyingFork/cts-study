@@ -1,7 +1,7 @@
 import 'server-only';
 
 import { patterns } from '@/data/patterns';
-import { quizQuestions } from '@/data/quiz';
+import { questions } from '@/data/questions';
 import { readPatternCode } from './code';
 
 function bullet(items: string[]) {
@@ -10,6 +10,19 @@ function bullet(items: string[]) {
 
 function mdEscape(value: string) {
   return value.replace(/\r\n/g, '\n').trim();
+}
+
+function correctAnswerText(question: (typeof questions)[number]) {
+  if (question.type === 'single') {
+    return question.options.find((option) => option.id === question.correctId)?.text.en ?? question.correctId;
+  }
+  if (question.type === 'multiple' || question.type === 'code') {
+    return question.correctIds.map((id) => question.options.find((option) => option.id === id)?.text.en ?? id).join(', ');
+  }
+  if (question.type === 'matching') {
+    return question.pairs.map((pair) => `${pair.left.en} -> ${pair.right.en}`).join('; ');
+  }
+  return question.items.map((item) => item.text.en).join(' -> ');
 }
 
 export const aiTutorPrompt = `You are helping me study CTS design patterns using the attached Markdown knowledge base as the only source of truth.
@@ -165,23 +178,18 @@ export function buildCourseMarkdown() {
 
   lines.push('## Quiz And Recognition Practice', '');
 
-  for (const question of quizQuestions) {
-    const answer = patterns.find((pattern) => pattern.slug === question.correctAnswer)?.name.en ?? question.correctAnswer;
-    const distractors = question.distractors
-      .map((slug) => patterns.find((pattern) => pattern.slug === slug)?.name.en ?? slug)
-      .join(', ');
-
+  for (const question of questions) {
     lines.push(
       `### ${question.id}`,
       '',
       `- Type: ${question.type}`,
-      `- Prompt: ${question.prompt.en}`,
-      `- Correct answer: ${answer}`,
-      `- Distractors: ${distractors}`,
+      `- Topic: ${question.topic}`,
+      `- Prompt: ${question.text.en}`,
+      `- Correct answer: ${correctAnswerText(question)}`,
       `- Explanation: ${question.explanation.en}`,
     );
 
-    if (question.codeSnippet) {
+    if ('codeSnippet' in question && question.codeSnippet) {
       lines.push('', '```java', question.codeSnippet, '```');
     }
 

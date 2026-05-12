@@ -14,11 +14,9 @@ const nav = [
   { href: '/', key: 'nav.home', match: '/' },
   { href: '/patterns', key: 'nav.patterns', match: '/patterns' },
   { separator: true },
-  { href: '/flashcards', key: 'nav.flashcards' },
   { href: '/quiz', key: 'nav.quiz' },
   { href: '/walkthrough/adapter', key: 'nav.walkthrough', match: '/walkthrough' },
   { separator: true },
-  { href: '/compare', key: 'nav.compare' },
   { href: '/cheatsheet', key: 'nav.cheatsheet' },
 ] as const;
 

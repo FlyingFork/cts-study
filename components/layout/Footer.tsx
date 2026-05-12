@@ -6,12 +6,10 @@ import { useLang } from '@/lib/context/LangContext';
 
 const exploreLinks = [
   { href: '/patterns', key: 'nav.patterns' },
-  { href: '/compare', key: 'nav.compare' },
   { href: '/cheatsheet', key: 'nav.cheatsheet' },
 ] as const;
 
 const toolLinks = [
-  { href: '/flashcards', key: 'nav.flashcards' },
   { href: '/quiz', key: 'nav.quiz' },
   { href: '/walkthrough/adapter', key: 'nav.walkthrough' },
 ] as const;
