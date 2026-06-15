@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-jetbrains: 'JetBrains Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 0;
+  height: 720px;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(9, 105, 218, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(9, 105, 218, 0.07) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(9, 105, 218, 0.10), rgba(63, 185, 80, 0.04), transparent 62%);
+  background-size: 44px 44px, 44px 44px, 100% 100%;
+  mask-image: linear-gradient(to bottom, black 0%, black 38%, transparent 100%);
+}
+
+.dark body::before {
+  background-image:
+    linear-gradient(rgba(63, 185, 80, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(63, 185, 80, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(63, 185, 80, 0.12), rgba(165, 214, 255, 0.05), transparent 62%);
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@layer components {
+  .home-hero-panel {
+    position: relative;
+    overflow: visible;
+    border: 1px solid rgba(208, 215, 222, 0.9);
+    background:
+      radial-gradient(circle at 8% 10%, rgba(9, 105, 218, 0.12), transparent 26%),
+      linear-gradient(135deg, rgba(246, 248, 250, 0.98), rgba(255, 255, 255, 0.92) 54%, rgba(246, 248, 250, 0.98));
+    box-shadow: 0 18px 60px rgba(31, 35, 40, 0.08);
+  }
+
+  .dark .home-hero-panel {
+    border-color: rgba(48, 54, 61, 0.9);
+    background:
+      radial-gradient(circle at 8% 10%, rgba(63, 185, 80, 0.13), transparent 28%),
+      linear-gradient(135deg, rgba(22, 27, 34, 0.98), rgba(13, 17, 23, 0.94) 56%, rgba(22, 27, 34, 0.98));
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.24);
+  }
+
+  .home-hero-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.68;
+    background-image:
+      linear-gradient(120deg, rgba(9, 105, 218, 0.12) 0 1px, transparent 1px 76px),
+      linear-gradient(30deg, rgba(63, 185, 80, 0.10) 0 1px, transparent 1px 92px);
+    background-size: 132px 132px, 156px 156px;
+    mask-image: linear-gradient(115deg, black 0%, black 42%, transparent 78%);
+  }
+
+  .dark .home-hero-panel::before {
+    background-image:
+      linear-gradient(120deg, rgba(63, 185, 80, 0.16) 0 1px, transparent 1px 76px),
+      linear-gradient(30deg, rgba(165, 214, 255, 0.10) 0 1px, transparent 1px 92px);
+  }
+
+  .home-hero-panel::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 42%;
+    height: 100%;
+    pointer-events: none;
+    background:
+      linear-gradient(135deg, transparent 0 26%, rgba(9, 105, 218, 0.08) 26% 27%, transparent 27% 100%),
+      linear-gradient(45deg, transparent 0 46%, rgba(63, 185, 80, 0.08) 46% 47%, transparent 47% 100%);
+  }
+
+  .dark .home-hero-panel::after {
+    background:
+      linear-gradient(135deg, transparent 0 26%, rgba(63, 185, 80, 0.11) 26% 27%, transparent 27% 100%),
+      linear-gradient(45deg, transparent 0 46%, rgba(165, 214, 255, 0.08) 46% 47%, transparent 47% 100%);
+  }
+
+  .home-hero-panel > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .surface-hover {
+    transition:
+      transform 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      color 180ms ease;
+  }
+
+  .surface-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(31, 35, 40, 0.08);
+  }
+
+  .dark .surface-hover:hover {
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .surface-hover,
+  .surface-hover:hover {
+    transform: none;
+  }
+}
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  main {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+}
