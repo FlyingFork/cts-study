@@ -1,0 +1,1226 @@
+[
+  {
+    "id": "q277",
+    "type": "multiple_choice",
+    "questionText": "You must open one expensive database connection shared by all tests in a JUnit 4 class. Which annotation is optimal?",
+    "codeSnippet": null,
+    "options": [
+      "@BeforeClass",
+      "@Before",
+      "@Test",
+      "@AfterClass"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "@BeforeClass"
+    ],
+    "explanation": "@BeforeClass runs once before all tests (static), ideal for a shared expensive setup; @Before would reconnect per test.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q278",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Chain of Responsibility base class Approver.",
+    "snippetWithDropZones": "abstract class Approver {\n  protected Approver next;\n  public void setNext([[ZONE_1]] next) {\n    this.next = next;\n  }\n  public void handle(int level) {\n    if (canHandle(level)) {\n      process(level);\n    } else if (next != null) {\n      next.[[ZONE_2]];\n    }\n  }\n  protected abstract boolean canHandle(int level);\n  protected abstract void process(int level);\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Approver",
+        "int",
+        "void"
+      ],
+      "ZONE_2": [
+        "handle(level)",
+        "setNext(level)",
+        "process(level)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Approver",
+      "ZONE_2": "handle(level)"
+    },
+    "explanation": "Each handler references the next handler and forwards the request down the chain when it cannot handle it.",
+    "_tags": [
+      "Chain of Responsibility"
+    ]
+  },
+  {
+    "id": "q279",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@BeforeEach",
+      "@BeforeAll",
+      "@AfterEach",
+      "@ParameterizedTest"
+    ],
+    "matchingOptions": [
+      "Runs once before all tests; must be static (JUnit 5)",
+      "Runs the same test repeatedly with different argument sets (JUnit 5)",
+      "Runs after each test method (JUnit 5)",
+      "Runs before each test method (JUnit 5)"
+    ],
+    "correctAnswers": {
+      "@AfterEach": "Runs after each test method (JUnit 5)",
+      "@BeforeAll": "Runs once before all tests; must be static (JUnit 5)",
+      "@BeforeEach": "Runs before each test method (JUnit 5)",
+      "@ParameterizedTest": "Runs the same test repeatedly with different argument sets (JUnit 5)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q280",
+    "type": "multiple_choice",
+    "questionText": "Which JUnit 5 assertion is the idiomatic way to verify that code throws an exception?",
+    "codeSnippet": null,
+    "options": [
+      "assertThrows(IllegalStateException.class, () -> svc.run())",
+      "@Test(expected = IllegalStateException.class)",
+      "assertEquals(IllegalStateException.class, svc.run())",
+      "assertTrue(svc.run() throws)"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "assertThrows(IllegalStateException.class, () -> svc.run())"
+    ],
+    "explanation": "JUnit 5 uses assertThrows with a lambda; expected= is the older JUnit 4 mechanism.",
+    "_tags": [
+      "JUnit5",
+      "Assertions",
+      "Error condition"
+    ]
+  },
+  {
+    "id": "q281",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Chain of Responsibility base class LogHandler.",
+    "snippetWithDropZones": "abstract class LogHandler {\n  protected LogHandler next;\n  public void setNext([[ZONE_1]] next) {\n    this.next = next;\n  }\n  public void handle(int level) {\n    if (canHandle(level)) {\n      process(level);\n    } else if (next != null) {\n      next.[[ZONE_2]];\n    }\n  }\n  protected abstract boolean canHandle(int level);\n  protected abstract void process(int level);\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "LogHandler",
+        "int",
+        "void"
+      ],
+      "ZONE_2": [
+        "handle(level)",
+        "setNext(level)",
+        "process(level)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "LogHandler",
+      "ZONE_2": "handle(level)"
+    },
+    "explanation": "Each handler references the next handler and forwards the request down the chain when it cannot handle it.",
+    "_tags": [
+      "Chain of Responsibility"
+    ]
+  },
+  {
+    "id": "q282",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@BeforeAll",
+      "@AfterEach",
+      "@Nested",
+      "@AfterAll",
+      "@DisplayName",
+      "@Disabled"
+    ],
+    "matchingOptions": [
+      "Runs once before all tests; must be static (JUnit 5)",
+      "Runs after each test method (JUnit 5)",
+      "Marks an inner class as a nested group of tests (JUnit 5)",
+      "Runs once after all tests; must be static (JUnit 5)",
+      "Provides a custom human-readable name for a test (JUnit 5)",
+      "Skips a test in JUnit 5 (the replacement for @Ignore)"
+    ],
+    "correctAnswers": {
+      "@AfterAll": "Runs once after all tests; must be static (JUnit 5)",
+      "@AfterEach": "Runs after each test method (JUnit 5)",
+      "@BeforeAll": "Runs once before all tests; must be static (JUnit 5)",
+      "@Disabled": "Skips a test in JUnit 5 (the replacement for @Ignore)",
+      "@DisplayName": "Provides a custom human-readable name for a test (JUnit 5)",
+      "@Nested": "Marks an inner class as a nested group of tests (JUnit 5)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q283",
+    "type": "multiple_choice",
+    "questionText": "Which test double returns canned, predefined values but performs no verification of the calls made to it?",
+    "codeSnippet": null,
+    "options": [
+      "Stub",
+      "Mock",
+      "Spy",
+      "Dummy",
+      "Fake"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Stub"
+    ],
+    "explanation": "A stub supplies predefined answers; a mock additionally verifies interactions.",
+    "_tags": [
+      "Test doubles"
+    ]
+  },
+  {
+    "id": "q284",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Chain of Responsibility base class SupportTier.",
+    "snippetWithDropZones": "abstract class SupportTier {\n  protected SupportTier next;\n  public void setNext([[ZONE_1]] next) {\n    this.next = next;\n  }\n  public void handle(int level) {\n    if (canHandle(level)) {\n      process(level);\n    } else if (next != null) {\n      next.[[ZONE_2]];\n    }\n  }\n  protected abstract boolean canHandle(int level);\n  protected abstract void process(int level);\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "SupportTier",
+        "int",
+        "void"
+      ],
+      "ZONE_2": [
+        "handle(level)",
+        "setNext(level)",
+        "process(level)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "SupportTier",
+      "ZONE_2": "handle(level)"
+    },
+    "explanation": "Each handler references the next handler and forwards the request down the chain when it cannot handle it.",
+    "_tags": [
+      "Chain of Responsibility"
+    ]
+  },
+  {
+    "id": "q285",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@DisplayName",
+      "@BeforeAll",
+      "@AfterAll",
+      "@ParameterizedTest"
+    ],
+    "matchingOptions": [
+      "Runs the same test repeatedly with different argument sets (JUnit 5)",
+      "Runs once after all tests; must be static (JUnit 5)",
+      "Runs once before all tests; must be static (JUnit 5)",
+      "Provides a custom human-readable name for a test (JUnit 5)"
+    ],
+    "correctAnswers": {
+      "@AfterAll": "Runs once after all tests; must be static (JUnit 5)",
+      "@BeforeAll": "Runs once before all tests; must be static (JUnit 5)",
+      "@DisplayName": "Provides a custom human-readable name for a test (JUnit 5)",
+      "@ParameterizedTest": "Runs the same test repeatedly with different argument sets (JUnit 5)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q286",
+    "type": "multiple_choice",
+    "questionText": "Which statement best distinguishes a Mock from a Stub?",
+    "codeSnippet": null,
+    "options": [
+      "A mock verifies the interactions/expectations; a stub only returns canned data",
+      "A stub verifies expectations; a mock only returns canned data",
+      "They are identical",
+      "A mock is always a real object; a stub is always fake"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "A mock verifies the interactions/expectations; a stub only returns canned data"
+    ],
+    "explanation": "The key difference is behavior verification: mocks assert how they were called, stubs do not.",
+    "_tags": [
+      "Test doubles"
+    ]
+  },
+  {
+    "id": "q287",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Chain of Responsibility base class Middleware.",
+    "snippetWithDropZones": "abstract class Middleware {\n  protected Middleware next;\n  public void setNext([[ZONE_1]] next) {\n    this.next = next;\n  }\n  public void handle(int level) {\n    if (canHandle(level)) {\n      process(level);\n    } else if (next != null) {\n      next.[[ZONE_2]];\n    }\n  }\n  protected abstract boolean canHandle(int level);\n  protected abstract void process(int level);\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Middleware",
+        "int",
+        "void"
+      ],
+      "ZONE_2": [
+        "handle(level)",
+        "setNext(level)",
+        "process(level)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Middleware",
+      "ZONE_2": "handle(level)"
+    },
+    "explanation": "Each handler references the next handler and forwards the request down the chain when it cannot handle it.",
+    "_tags": [
+      "Chain of Responsibility"
+    ]
+  },
+  {
+    "id": "q288",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@ParameterizedTest",
+      "@AfterAll",
+      "@DisplayName",
+      "@BeforeEach",
+      "@AfterEach",
+      "@Disabled"
+    ],
+    "matchingOptions": [
+      "Provides a custom human-readable name for a test (JUnit 5)",
+      "Skips a test in JUnit 5 (the replacement for @Ignore)",
+      "Runs the same test repeatedly with different argument sets (JUnit 5)",
+      "Runs before each test method (JUnit 5)",
+      "Runs once after all tests; must be static (JUnit 5)",
+      "Runs after each test method (JUnit 5)"
+    ],
+    "correctAnswers": {
+      "@AfterAll": "Runs once after all tests; must be static (JUnit 5)",
+      "@AfterEach": "Runs after each test method (JUnit 5)",
+      "@BeforeEach": "Runs before each test method (JUnit 5)",
+      "@Disabled": "Skips a test in JUnit 5 (the replacement for @Ignore)",
+      "@DisplayName": "Provides a custom human-readable name for a test (JUnit 5)",
+      "@ParameterizedTest": "Runs the same test repeatedly with different argument sets (JUnit 5)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q289",
+    "type": "multiple_choice",
+    "questionText": "Which is a lightweight working implementation (e.g., an in-memory database) used in place of a real dependency?",
+    "codeSnippet": null,
+    "options": [
+      "Fake",
+      "Dummy",
+      "Stub",
+      "Mock"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Fake"
+    ],
+    "explanation": "A fake is a real but simplified implementation, such as an in-memory DB.",
+    "_tags": [
+      "Test doubles"
+    ]
+  },
+  {
+    "id": "q290",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Facade ComputerFacade that hides the CPU/Memory subsystem.",
+    "snippetWithDropZones": "class CPU { public void freeze() {} }\nclass Memory { public void load() {} }\n\nclass ComputerFacade {\n  private CPU a = new CPU();\n  private Memory b = new Memory();\n  public void doWork() {\n    a.[[ZONE_1]];\n    b.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "freeze()",
+        "load()",
+        "doWork()"
+      ],
+      "ZONE_2": [
+        "load()",
+        "freeze()",
+        "doWork()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "freeze()",
+      "ZONE_2": "load()"
+    },
+    "explanation": "The facade exposes one simple method that delegates to the right calls on each subsystem object.",
+    "_tags": [
+      "Facade"
+    ]
+  },
+  {
+    "id": "q291",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@AfterEach",
+      "@Nested",
+      "@BeforeAll",
+      "@DisplayName",
+      "@AfterAll"
+    ],
+    "matchingOptions": [
+      "Provides a custom human-readable name for a test (JUnit 5)",
+      "Marks an inner class as a nested group of tests (JUnit 5)",
+      "Runs after each test method (JUnit 5)",
+      "Runs once before all tests; must be static (JUnit 5)",
+      "Runs once after all tests; must be static (JUnit 5)"
+    ],
+    "correctAnswers": {
+      "@AfterAll": "Runs once after all tests; must be static (JUnit 5)",
+      "@AfterEach": "Runs after each test method (JUnit 5)",
+      "@BeforeAll": "Runs once before all tests; must be static (JUnit 5)",
+      "@DisplayName": "Provides a custom human-readable name for a test (JUnit 5)",
+      "@Nested": "Marks an inner class as a nested group of tests (JUnit 5)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q292",
+    "type": "multiple_choice",
+    "questionText": "According to the FIRST principles, which statement is FALSE?",
+    "codeSnippet": null,
+    "options": [
+      "Unit tests may depend on the execution order of other tests",
+      "Unit tests should be fast",
+      "Unit tests should be repeatable with the same result",
+      "Unit tests should be self-validating (auto pass/fail)",
+      "Unit tests should be independent of one another"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Unit tests may depend on the execution order of other tests"
+    ],
+    "explanation": "FIRST requires Independent tests: order must not affect the result, so that statement is false.",
+    "_tags": [
+      "FIRST"
+    ]
+  },
+  {
+    "id": "q293",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Facade HomeTheaterFacade that hides the Amplifier/Projector subsystem.",
+    "snippetWithDropZones": "class Amplifier { public void on() {} }\nclass Projector { public void wideScreen() {} }\n\nclass HomeTheaterFacade {\n  private Amplifier a = new Amplifier();\n  private Projector b = new Projector();\n  public void doWork() {\n    a.[[ZONE_1]];\n    b.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "on()",
+        "wideScreen()",
+        "doWork()"
+      ],
+      "ZONE_2": [
+        "wideScreen()",
+        "on()",
+        "doWork()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "on()",
+      "ZONE_2": "wideScreen()"
+    },
+    "explanation": "The facade exposes one simple method that delegates to the right calls on each subsystem object.",
+    "_tags": [
+      "Facade"
+    ]
+  },
+  {
+    "id": "q294",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@ParameterizedTest",
+      "@BeforeEach",
+      "@Disabled",
+      "@BeforeAll"
+    ],
+    "matchingOptions": [
+      "Skips a test in JUnit 5 (the replacement for @Ignore)",
+      "Runs before each test method (JUnit 5)",
+      "Runs the same test repeatedly with different argument sets (JUnit 5)",
+      "Runs once before all tests; must be static (JUnit 5)"
+    ],
+    "correctAnswers": {
+      "@BeforeAll": "Runs once before all tests; must be static (JUnit 5)",
+      "@BeforeEach": "Runs before each test method (JUnit 5)",
+      "@Disabled": "Skips a test in JUnit 5 (the replacement for @Ignore)",
+      "@ParameterizedTest": "Runs the same test repeatedly with different argument sets (JUnit 5)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q295",
+    "type": "multiple_choice",
+    "questionText": "A test calls push() then pop() then asserts the popped value, then also asserts the stack is empty, then resizes it and asserts again — all in one method. Which test smell is this?",
+    "codeSnippet": null,
+    "options": [
+      "The test asserts multiple unrelated behaviors in one test (eager/obscure test)",
+      "It is a boundary test",
+      "It is a perfect single-responsibility test",
+      "It is a parameterized test"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "The test asserts multiple unrelated behaviors in one test (eager/obscure test)"
+    ],
+    "explanation": "Bundling many unrelated assertions/behaviors into one test is a classic test smell (eager test) that hurts clarity and isolation.",
+    "_tags": [
+      "Test smells"
+    ]
+  },
+  {
+    "id": "q296",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Facade OrderFacade that hides the InventoryService/PaymentService subsystem.",
+    "snippetWithDropZones": "class InventoryService { public void reserve() {} }\nclass PaymentService { public void charge() {} }\n\nclass OrderFacade {\n  private InventoryService a = new InventoryService();\n  private PaymentService b = new PaymentService();\n  public void doWork() {\n    a.[[ZONE_1]];\n    b.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "reserve()",
+        "charge()",
+        "doWork()"
+      ],
+      "ZONE_2": [
+        "charge()",
+        "reserve()",
+        "doWork()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "reserve()",
+      "ZONE_2": "charge()"
+    },
+    "explanation": "The facade exposes one simple method that delegates to the right calls on each subsystem object.",
+    "_tags": [
+      "Facade"
+    ]
+  },
+  {
+    "id": "q297",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@AfterAll",
+      "@BeforeEach",
+      "@BeforeAll",
+      "@Disabled"
+    ],
+    "matchingOptions": [
+      "Runs once before all tests; must be static (JUnit 5)",
+      "Runs before each test method (JUnit 5)",
+      "Runs once after all tests; must be static (JUnit 5)",
+      "Skips a test in JUnit 5 (the replacement for @Ignore)"
+    ],
+    "correctAnswers": {
+      "@AfterAll": "Runs once after all tests; must be static (JUnit 5)",
+      "@BeforeAll": "Runs once before all tests; must be static (JUnit 5)",
+      "@BeforeEach": "Runs before each test method (JUnit 5)",
+      "@Disabled": "Skips a test in JUnit 5 (the replacement for @Ignore)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q298",
+    "type": "multiple_choice",
+    "questionText": "A unit test reads its expected values from a live production database. Which FIRST principles does this most directly threaten? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "Repeatable",
+      "Fast",
+      "Independent",
+      "Self-validating",
+      "Timely"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "Repeatable",
+      "Fast",
+      "Independent"
+    ],
+    "explanation": "External live data makes the test slow, non-repeatable, and dependent on outside state; it can still auto-assert (self-validating).",
+    "_tags": [
+      "FIRST"
+    ]
+  },
+  {
+    "id": "q299",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Facade CarFacade that hides the Engine/FuelPump subsystem.",
+    "snippetWithDropZones": "class Engine { public void start() {} }\nclass FuelPump { public void prime() {} }\n\nclass CarFacade {\n  private Engine a = new Engine();\n  private FuelPump b = new FuelPump();\n  public void doWork() {\n    a.[[ZONE_1]];\n    b.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "start()",
+        "prime()",
+        "doWork()"
+      ],
+      "ZONE_2": [
+        "prime()",
+        "start()",
+        "doWork()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "start()",
+      "ZONE_2": "prime()"
+    },
+    "explanation": "The facade exposes one simple method that delegates to the right calls on each subsystem object.",
+    "_tags": [
+      "Facade"
+    ]
+  },
+  {
+    "id": "q300",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@ParameterizedTest",
+      "@BeforeEach",
+      "@AfterEach",
+      "@AfterAll",
+      "@Disabled"
+    ],
+    "matchingOptions": [
+      "Runs before each test method (JUnit 5)",
+      "Runs once after all tests; must be static (JUnit 5)",
+      "Runs after each test method (JUnit 5)",
+      "Runs the same test repeatedly with different argument sets (JUnit 5)",
+      "Skips a test in JUnit 5 (the replacement for @Ignore)"
+    ],
+    "correctAnswers": {
+      "@AfterAll": "Runs once after all tests; must be static (JUnit 5)",
+      "@AfterEach": "Runs after each test method (JUnit 5)",
+      "@BeforeEach": "Runs before each test method (JUnit 5)",
+      "@Disabled": "Skips a test in JUnit 5 (the replacement for @Ignore)",
+      "@ParameterizedTest": "Runs the same test repeatedly with different argument sets (JUnit 5)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q301",
+    "type": "multiple_choice",
+    "questionText": "A method computeAverage() divides the sum of grades by their count. Which test exercises the most important CARDINALITY edge case?",
+    "codeSnippet": null,
+    "options": [
+      "Calling it on a student with zero grades (count == 0)",
+      "Calling it with 1000 grades",
+      "Calling it twice in a row",
+      "Calling it on another thread"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Calling it on a student with zero grades (count == 0)"
+    ],
+    "explanation": "Cardinality testing checks the 0/1/many cases; the 0-element case (division by zero) is the critical edge.",
+    "_tags": [
+      "Cardinality"
+    ]
+  },
+  {
+    "id": "q302",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Abstract Factory: WinFactory produces a related family of products.",
+    "snippetWithDropZones": "interface GUIFactory {\n  Button createButton();\n  Checkbox createCheckbox();\n}\n\nclass WinFactory implements [[ZONE_1]] {\n  public Button createButton() {\n    return new [[ZONE_2]]();\n  }\n  public Checkbox createCheckbox() {\n    return new WinCheckbox();\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "GUIFactory",
+        "WinFactory",
+        "Button"
+      ],
+      "ZONE_2": [
+        "WinButton",
+        "Button",
+        "WinFactory"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "GUIFactory",
+      "ZONE_2": "WinButton"
+    },
+    "explanation": "A concrete factory implements the abstract factory interface and returns the concrete members of one product family.",
+    "_tags": [
+      "Abstract Factory"
+    ]
+  },
+  {
+    "id": "q303",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@AfterEach",
+      "@DisplayName",
+      "@Nested",
+      "@ParameterizedTest"
+    ],
+    "matchingOptions": [
+      "Provides a custom human-readable name for a test (JUnit 5)",
+      "Runs the same test repeatedly with different argument sets (JUnit 5)",
+      "Marks an inner class as a nested group of tests (JUnit 5)",
+      "Runs after each test method (JUnit 5)"
+    ],
+    "correctAnswers": {
+      "@AfterEach": "Runs after each test method (JUnit 5)",
+      "@DisplayName": "Provides a custom human-readable name for a test (JUnit 5)",
+      "@Nested": "Marks an inner class as a nested group of tests (JUnit 5)",
+      "@ParameterizedTest": "Runs the same test repeatedly with different argument sets (JUnit 5)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q304",
+    "type": "multiple_choice",
+    "questionText": "Which JUnit assertion correctly checks that two double values are equal within a tolerance?",
+    "codeSnippet": null,
+    "options": [
+      "assertEquals(expected, actual, 0.0001)",
+      "assertEquals(expected, actual)",
+      "assertTrue(expected == actual)",
+      "assertSame(expected, actual)"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "assertEquals(expected, actual, 0.0001)"
+    ],
+    "explanation": "Floating-point equality needs the delta/tolerance overload of assertEquals.",
+    "_tags": [
+      "Assertions"
+    ]
+  },
+  {
+    "id": "q305",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Abstract Factory: ModernFactory produces a related family of products.",
+    "snippetWithDropZones": "interface FurnitureFactory {\n  Chair createChair();\n  Sofa createSofa();\n}\n\nclass ModernFactory implements [[ZONE_1]] {\n  public Chair createChair() {\n    return new [[ZONE_2]]();\n  }\n  public Sofa createSofa() {\n    return new ModernSofa();\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "FurnitureFactory",
+        "ModernFactory",
+        "Chair"
+      ],
+      "ZONE_2": [
+        "ModernChair",
+        "Chair",
+        "ModernFactory"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "FurnitureFactory",
+      "ZONE_2": "ModernChair"
+    },
+    "explanation": "A concrete factory implements the abstract factory interface and returns the concrete members of one product family.",
+    "_tags": [
+      "Abstract Factory"
+    ]
+  },
+  {
+    "id": "q306",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@Disabled",
+      "@ParameterizedTest",
+      "@DisplayName",
+      "@Nested",
+      "@AfterEach",
+      "@BeforeAll"
+    ],
+    "matchingOptions": [
+      "Skips a test in JUnit 5 (the replacement for @Ignore)",
+      "Marks an inner class as a nested group of tests (JUnit 5)",
+      "Runs after each test method (JUnit 5)",
+      "Provides a custom human-readable name for a test (JUnit 5)",
+      "Runs once before all tests; must be static (JUnit 5)",
+      "Runs the same test repeatedly with different argument sets (JUnit 5)"
+    ],
+    "correctAnswers": {
+      "@AfterEach": "Runs after each test method (JUnit 5)",
+      "@BeforeAll": "Runs once before all tests; must be static (JUnit 5)",
+      "@Disabled": "Skips a test in JUnit 5 (the replacement for @Ignore)",
+      "@DisplayName": "Provides a custom human-readable name for a test (JUnit 5)",
+      "@Nested": "Marks an inner class as a nested group of tests (JUnit 5)",
+      "@ParameterizedTest": "Runs the same test repeatedly with different argument sets (JUnit 5)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q307",
+    "type": "multiple_choice",
+    "questionText": "Which assertions check object identity vs. logical equality respectively?",
+    "codeSnippet": null,
+    "options": [
+      "assertSame checks identity; assertEquals checks logical equality",
+      "assertEquals checks identity; assertSame checks logical equality",
+      "Both check identity",
+      "Both check logical equality"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "assertSame checks identity; assertEquals checks logical equality"
+    ],
+    "explanation": "assertSame compares references (==); assertEquals uses equals() for logical equality.",
+    "_tags": [
+      "Assertions"
+    ]
+  },
+  {
+    "id": "q308",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Abstract Factory: MySqlFactory produces a related family of products.",
+    "snippetWithDropZones": "interface DbFactory {\n  Connection createConnection();\n  Command createCommand();\n}\n\nclass MySqlFactory implements [[ZONE_1]] {\n  public Connection createConnection() {\n    return new [[ZONE_2]]();\n  }\n  public Command createCommand() {\n    return new MySqlCommand();\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "DbFactory",
+        "MySqlFactory",
+        "Connection"
+      ],
+      "ZONE_2": [
+        "MySqlConnection",
+        "Connection",
+        "MySqlFactory"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "DbFactory",
+      "ZONE_2": "MySqlConnection"
+    },
+    "explanation": "A concrete factory implements the abstract factory interface and returns the concrete members of one product family.",
+    "_tags": [
+      "Abstract Factory"
+    ]
+  },
+  {
+    "id": "q309",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to its JUnit 5 equivalent.",
+    "matchingEntities": [
+      "@Ignore",
+      "@BeforeClass",
+      "@AfterClass",
+      "@After",
+      "@Before"
+    ],
+    "matchingOptions": [
+      "@AfterAll",
+      "@Disabled",
+      "@AfterEach",
+      "@BeforeAll",
+      "@BeforeEach"
+    ],
+    "correctAnswers": {
+      "@Before": "@BeforeEach",
+      "@After": "@AfterEach",
+      "@BeforeClass": "@BeforeAll",
+      "@AfterClass": "@AfterAll",
+      "@Ignore": "@Disabled"
+    },
+    "explanation": "JUnit 5 renamed the lifecycle annotations.",
+    "_tags": [
+      "JUnit5",
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q310",
+    "type": "multiple_choice",
+    "questionText": "Which case is a typical ERROR-CONDITION test rather than a normal-path test?",
+    "codeSnippet": null,
+    "options": [
+      "Passing null to a method and asserting it throws NullPointerException",
+      "Passing valid data and asserting the correct result",
+      "Measuring how fast the method runs",
+      "Checking the value at the middle of a range"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Passing null to a method and asserting it throws NullPointerException"
+    ],
+    "explanation": "Error-condition testing deliberately supplies invalid input and verifies the failure behavior.",
+    "_tags": [
+      "Error condition"
+    ]
+  },
+  {
+    "id": "q311",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Memento pattern in TextEditor (save and restore state).",
+    "snippetWithDropZones": "class TextEditor {\n  private String state;\n  public Memento save() {\n    return new Memento([[ZONE_1]]);\n  }\n  public void restore(Memento m) {\n    this.state = m.[[ZONE_2]];\n  }\n  static class Memento {\n    private final String state;\n    Memento(String state) { this.state = state; }\n    String getState() { return state; }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "state",
+        "this",
+        "getState()"
+      ],
+      "ZONE_2": [
+        "getState()",
+        "state",
+        "save()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "state",
+      "ZONE_2": "getState()"
+    },
+    "explanation": "save() snapshots the originator's state into a memento; restore() reads it back via the memento's accessor.",
+    "_tags": [
+      "Memento"
+    ]
+  },
+  {
+    "id": "q312",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to its JUnit 5 equivalent.",
+    "matchingEntities": [
+      "@Ignore",
+      "@AfterClass",
+      "@BeforeClass"
+    ],
+    "matchingOptions": [
+      "@BeforeAll",
+      "@Disabled",
+      "@AfterAll"
+    ],
+    "correctAnswers": {
+      "@AfterClass": "@AfterAll",
+      "@BeforeClass": "@BeforeAll",
+      "@Ignore": "@Disabled"
+    },
+    "explanation": "JUnit 5 renamed the lifecycle annotations.",
+    "_tags": [
+      "JUnit5",
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q313",
+    "type": "multiple_choice",
+    "questionText": "Which GoF category does the Decorator pattern belong to?",
+    "codeSnippet": null,
+    "options": [
+      "Structural",
+      "Behavioral",
+      "Creational",
+      "Architectural"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Structural"
+    ],
+    "explanation": "Decorator is a structural pattern (it composes objects to add behavior).",
+    "_tags": [
+      "Decorator"
+    ]
+  },
+  {
+    "id": "q314",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Memento pattern in GameSession (save and restore state).",
+    "snippetWithDropZones": "class GameSession {\n  private String state;\n  public Memento save() {\n    return new Memento([[ZONE_1]]);\n  }\n  public void restore(Memento m) {\n    this.state = m.[[ZONE_2]];\n  }\n  static class Memento {\n    private final String state;\n    Memento(String state) { this.state = state; }\n    String getState() { return state; }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "state",
+        "this",
+        "getState()"
+      ],
+      "ZONE_2": [
+        "getState()",
+        "state",
+        "save()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "state",
+      "ZONE_2": "getState()"
+    },
+    "explanation": "save() snapshots the originator's state into a memento; restore() reads it back via the memento's accessor.",
+    "_tags": [
+      "Memento"
+    ]
+  },
+  {
+    "id": "q315",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to its JUnit 5 equivalent.",
+    "matchingEntities": [
+      "@BeforeClass",
+      "@Before",
+      "@Ignore",
+      "@After"
+    ],
+    "matchingOptions": [
+      "@AfterEach",
+      "@BeforeEach",
+      "@BeforeAll",
+      "@Disabled"
+    ],
+    "correctAnswers": {
+      "@After": "@AfterEach",
+      "@Before": "@BeforeEach",
+      "@BeforeClass": "@BeforeAll",
+      "@Ignore": "@Disabled"
+    },
+    "explanation": "JUnit 5 renamed the lifecycle annotations.",
+    "_tags": [
+      "JUnit5",
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q316",
+    "type": "multiple_choice",
+    "questionText": "Which of these are Creational design patterns? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "Singleton",
+      "Factory Method",
+      "Builder",
+      "Observer",
+      "Adapter",
+      "Prototype"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "Singleton",
+      "Factory Method",
+      "Builder",
+      "Prototype"
+    ],
+    "explanation": "Singleton, Factory Method, Builder and Prototype are creational; Observer is behavioral and Adapter is structural.",
+    "_tags": [
+      "Singleton",
+      "Factory Method",
+      "Builder",
+      "Prototype"
+    ]
+  },
+  {
+    "id": "q317",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Memento pattern in Calculator (save and restore state).",
+    "snippetWithDropZones": "class Calculator {\n  private String state;\n  public Memento save() {\n    return new Memento([[ZONE_1]]);\n  }\n  public void restore(Memento m) {\n    this.state = m.[[ZONE_2]];\n  }\n  static class Memento {\n    private final String state;\n    Memento(String state) { this.state = state; }\n    String getState() { return state; }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "state",
+        "this",
+        "getState()"
+      ],
+      "ZONE_2": [
+        "getState()",
+        "state",
+        "save()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "state",
+      "ZONE_2": "getState()"
+    },
+    "explanation": "save() snapshots the originator's state into a memento; restore() reads it back via the memento's accessor.",
+    "_tags": [
+      "Memento"
+    ]
+  },
+  {
+    "id": "q318",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to its JUnit 5 equivalent.",
+    "matchingEntities": [
+      "@AfterClass",
+      "@After",
+      "@Before",
+      "@BeforeClass"
+    ],
+    "matchingOptions": [
+      "@BeforeEach",
+      "@AfterEach",
+      "@BeforeAll",
+      "@AfterAll"
+    ],
+    "correctAnswers": {
+      "@After": "@AfterEach",
+      "@AfterClass": "@AfterAll",
+      "@Before": "@BeforeEach",
+      "@BeforeClass": "@BeforeAll"
+    },
+    "explanation": "JUnit 5 renamed the lifecycle annotations.",
+    "_tags": [
+      "JUnit5",
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q319",
+    "type": "multiple_choice",
+    "questionText": "Which of these are Behavioral design patterns? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "Observer",
+      "Strategy",
+      "Command",
+      "Composite",
+      "Facade",
+      "Visitor"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "Observer",
+      "Strategy",
+      "Command",
+      "Visitor"
+    ],
+    "explanation": "Observer, Strategy, Command and Visitor are behavioral; Composite and Facade are structural.",
+    "_tags": [
+      "Observer",
+      "Strategy",
+      "Command",
+      "Visitor"
+    ]
+  },
+  {
+    "id": "q320",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Memento pattern in Canvas (save and restore state).",
+    "snippetWithDropZones": "class Canvas {\n  private String state;\n  public Memento save() {\n    return new Memento([[ZONE_1]]);\n  }\n  public void restore(Memento m) {\n    this.state = m.[[ZONE_2]];\n  }\n  static class Memento {\n    private final String state;\n    Memento(String state) { this.state = state; }\n    String getState() { return state; }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "state",
+        "this",
+        "getState()"
+      ],
+      "ZONE_2": [
+        "getState()",
+        "state",
+        "save()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "state",
+      "ZONE_2": "getState()"
+    },
+    "explanation": "save() snapshots the originator's state into a memento; restore() reads it back via the memento's accessor.",
+    "_tags": [
+      "Memento"
+    ]
+  },
+  {
+    "id": "q321",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to its JUnit 5 equivalent.",
+    "matchingEntities": [
+      "@Ignore",
+      "@AfterClass",
+      "@BeforeClass",
+      "@After"
+    ],
+    "matchingOptions": [
+      "@BeforeAll",
+      "@AfterEach",
+      "@Disabled",
+      "@AfterAll"
+    ],
+    "correctAnswers": {
+      "@After": "@AfterEach",
+      "@AfterClass": "@AfterAll",
+      "@BeforeClass": "@BeforeAll",
+      "@Ignore": "@Disabled"
+    },
+    "explanation": "JUnit 5 renamed the lifecycle annotations.",
+    "_tags": [
+      "JUnit5",
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q322",
+    "type": "multiple_choice",
+    "questionText": "Strategy vs State: which statement is TRUE of the difference?",
+    "codeSnippet": null,
+    "options": [
+      "State usually triggers transitions between states; Strategy is just a swappable algorithm chosen by the client",
+      "They are the same pattern",
+      "Strategy objects always change each other; State never does",
+      "State is a creational pattern; Strategy is structural"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "State usually triggers transitions between states; Strategy is just a swappable algorithm chosen by the client"
+    ],
+    "explanation": "Structurally similar, but State models transitions between behaviors while Strategy is an interchangeable algorithm selected externally.",
+    "_tags": [
+      "State",
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q323",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Flyweight factory TreeFactory that caches shared TreeType objects.",
+    "snippetWithDropZones": "class TreeType {\n  private final String name;\n  private final String texture;\n  TreeType(String name, String texture) {\n    this.name = name;\n    this.texture = texture;\n  }\n}\n\nclass TreeFactory {\n  private static Map<String, TreeType> cache = new HashMap<>();\n  public static TreeType get(String name, String texture) {\n    TreeType t = cache.get(name);\n    if (t == null) {\n      t = new TreeType(name, texture);\n      cache.[[ZONE_1]];\n    }\n    return [[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "put(name, t)",
+        "get(name)",
+        "add(t)"
+      ],
+      "ZONE_2": [
+        "t",
+        "cache",
+        "name"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "put(name, t)",
+      "ZONE_2": "t"
+    },
+    "explanation": "The factory reuses cached flyweights, only creating and storing a new shared object when none exists for the key.",
+    "_tags": [
+      "Flyweight"
+    ]
+  },
+  {
+    "id": "q324",
+    "type": "dropdown_matching",
+    "questionText": "Match each code-coverage metric to its definition.",
+    "matchingEntities": [
+      "Condition coverage",
+      "Branch coverage",
+      "Path coverage",
+      "Function coverage",
+      "Statement coverage"
+    ],
+    "matchingOptions": [
+      "Percentage of individual boolean sub-conditions evaluated both true and false",
+      "Percentage of executable statements that have been run at least once",
+      "Percentage of functions or methods that have been called at least once",
+      "Percentage of decision outcomes (true/false of each branch) that have been exercised",
+      "Percentage of independent end-to-end execution paths through the code that have been taken"
+    ],
+    "correctAnswers": {
+      "Statement coverage": "Percentage of executable statements that have been run at least once",
+      "Branch coverage": "Percentage of decision outcomes (true/false of each branch) that have been exercised",
+      "Path coverage": "Percentage of independent end-to-end execution paths through the code that have been taken",
+      "Condition coverage": "Percentage of individual boolean sub-conditions evaluated both true and false",
+      "Function coverage": "Percentage of functions or methods that have been called at least once"
+    },
+    "explanation": "Standard coverage metric definitions.",
+    "_tags": [
+      "Coverage"
+    ]
+  }
+]

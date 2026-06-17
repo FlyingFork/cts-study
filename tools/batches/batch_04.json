@@ -1,0 +1,1241 @@
+[
+  {
+    "id": "q181",
+    "type": "multiple_choice",
+    "questionText": "Which design pattern does the following code implement?",
+    "codeSnippet": "class Computer {\n  private CPU cpu = new CPU();\n  private Disk disk = new Disk();\n  public void start(){ cpu.boot(); disk.spinUp(); }\n}",
+    "options": [
+      "Facade",
+      "Mediator",
+      "Composite",
+      "Adapter",
+      "Bridge"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Facade"
+    ],
+    "explanation": "One class offering a simple method that orchestrates several subsystem objects is a Facade.",
+    "_tags": [
+      "Facade"
+    ]
+  },
+  {
+    "id": "q182",
+    "type": "drag_and_drop",
+    "questionText": "Complete the State pattern: Connection delegates behavior to its current ConnectionState.",
+    "snippetWithDropZones": "interface ConnectionState {\n  void handle(Connection ctx);\n}\n\nclass Connection {\n  private ConnectionState state;\n  public void setState([[ZONE_1]] state) {\n    this.state = state;\n  }\n  public void request() {\n    state.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "ConnectionState",
+        "Connection",
+        "void"
+      ],
+      "ZONE_2": [
+        "handle(this)",
+        "request()",
+        "setState(this)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "ConnectionState",
+      "ZONE_2": "handle(this)"
+    },
+    "explanation": "The context holds a state object, can replace it, and forwards requests to it (passing itself for transitions).",
+    "_tags": [
+      "State"
+    ]
+  },
+  {
+    "id": "q183",
+    "type": "dropdown_matching",
+    "questionText": "For each pattern, pick the characteristic you would use to recognize it in code.",
+    "matchingEntities": [
+      "Facade",
+      "Prototype",
+      "Chain of Responsibility",
+      "State",
+      "Flyweight",
+      "Memento"
+    ],
+    "matchingOptions": [
+      "Splits object data into shared intrinsic state and per-context extrinsic state, often cached in a factory",
+      "A separate snapshot object stores state that an originator can later restore from",
+      "The context delegates behavior to a swappable state object that it can replace at runtime",
+      "Each handler holds a reference to the next handler and forwards what it cannot handle",
+      "A single class delegates to several subsystem classes to hide their complexity",
+      "Relies on a clone()/copy operation to duplicate a pre-configured object"
+    ],
+    "correctAnswers": {
+      "Chain of Responsibility": "Each handler holds a reference to the next handler and forwards what it cannot handle",
+      "Facade": "A single class delegates to several subsystem classes to hide their complexity",
+      "Flyweight": "Splits object data into shared intrinsic state and per-context extrinsic state, often cached in a factory",
+      "Memento": "A separate snapshot object stores state that an originator can later restore from",
+      "Prototype": "Relies on a clone()/copy operation to duplicate a pre-configured object",
+      "State": "The context delegates behavior to a swappable state object that it can replace at runtime"
+    },
+    "explanation": "Each option is the recognizable hallmark of that pattern.",
+    "_tags": [
+      "Chain of Responsibility",
+      "Facade",
+      "Flyweight",
+      "Memento",
+      "Prototype",
+      "State"
+    ]
+  },
+  {
+    "id": "q184",
+    "type": "multiple_choice",
+    "questionText": "Which SOLID principle does the following code violate?",
+    "codeSnippet": "class Invoice {\n  void calculateTotal(){}\n  void saveToDatabase(){}\n  void printInvoice(){}\n}",
+    "options": [
+      "SRP",
+      "OCP",
+      "LSP",
+      "ISP",
+      "DIP"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "SRP"
+    ],
+    "explanation": "Invoice mixes business calculation, persistence and printing — three separate reasons to change.",
+    "_tags": [
+      "SOLID",
+      "SRP"
+    ]
+  },
+  {
+    "id": "q185",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Composite where Group holds children uniformly with Circle.",
+    "snippetWithDropZones": "interface Graphic {\n  int getSize();\n}\n\nclass Circle implements Graphic {\n  public int getSize() { return 1; }\n}\n\nclass Group implements Graphic {\n  private List<[[ZONE_1]]> children = new ArrayList<>();\n  public void add(Graphic c) { children.add(c); }\n  public int getSize() {\n    int total = 0;\n    for (Graphic c : children) {\n      total += c.[[ZONE_2]];\n    }\n    return total;\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Graphic",
+        "Circle",
+        "Group"
+      ],
+      "ZONE_2": [
+        "getSize()",
+        "add()",
+        "size()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Graphic",
+      "ZONE_2": "getSize()"
+    },
+    "explanation": "Both leaf and composite implement the component type; the composite recurses the same operation over its children.",
+    "_tags": [
+      "Composite"
+    ]
+  },
+  {
+    "id": "q186",
+    "type": "dropdown_matching",
+    "questionText": "Match each design pattern to the structural/behavioral trait that identifies it.",
+    "matchingEntities": [
+      "Facade",
+      "Builder",
+      "Strategy",
+      "Mediator",
+      "Decorator",
+      "Adapter"
+    ],
+    "matchingOptions": [
+      "The context holds an algorithm interface reference that can be set/replaced at runtime",
+      "Wraps an existing class and translates its calls to a target interface",
+      "Colleague objects send events to a central object instead of calling each other",
+      "A single class delegates to several subsystem classes to hide their complexity",
+      "Uses a fluent chain of setter-style methods ending in a build() call",
+      "A wrapper that implements the same interface as the object it wraps and adds behavior around it"
+    ],
+    "correctAnswers": {
+      "Adapter": "Wraps an existing class and translates its calls to a target interface",
+      "Builder": "Uses a fluent chain of setter-style methods ending in a build() call",
+      "Decorator": "A wrapper that implements the same interface as the object it wraps and adds behavior around it",
+      "Facade": "A single class delegates to several subsystem classes to hide their complexity",
+      "Mediator": "Colleague objects send events to a central object instead of calling each other",
+      "Strategy": "The context holds an algorithm interface reference that can be set/replaced at runtime"
+    },
+    "explanation": "Each option is the recognizable hallmark of that pattern.",
+    "_tags": [
+      "Adapter",
+      "Builder",
+      "Decorator",
+      "Facade",
+      "Mediator",
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q187",
+    "type": "multiple_choice",
+    "questionText": "Which SOLID principle does the following code violate?",
+    "codeSnippet": "class AreaCalculator {\n  double area(Object shape){\n    if (shape instanceof Circle) return 3.14;\n    else if (shape instanceof Square) return 1.0;\n    return 0;\n  }\n}",
+    "options": [
+      "SRP",
+      "OCP",
+      "LSP",
+      "ISP",
+      "DIP"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "OCP"
+    ],
+    "explanation": "Adding a new shape forces editing this method; it is not closed for modification.",
+    "_tags": [
+      "SOLID",
+      "OCP"
+    ]
+  },
+  {
+    "id": "q188",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Composite where Folder holds children uniformly with FileLeaf.",
+    "snippetWithDropZones": "interface FsNode {\n  int getSize();\n}\n\nclass FileLeaf implements FsNode {\n  public int getSize() { return 1; }\n}\n\nclass Folder implements FsNode {\n  private List<[[ZONE_1]]> children = new ArrayList<>();\n  public void add(FsNode c) { children.add(c); }\n  public int getSize() {\n    int total = 0;\n    for (FsNode c : children) {\n      total += c.[[ZONE_2]];\n    }\n    return total;\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "FsNode",
+        "FileLeaf",
+        "Folder"
+      ],
+      "ZONE_2": [
+        "getSize()",
+        "add()",
+        "size()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "FsNode",
+      "ZONE_2": "getSize()"
+    },
+    "explanation": "Both leaf and composite implement the component type; the composite recurses the same operation over its children.",
+    "_tags": [
+      "Composite"
+    ]
+  },
+  {
+    "id": "q189",
+    "type": "dropdown_matching",
+    "questionText": "Group the following design patterns with their telltale implementation characteristic.",
+    "matchingEntities": [
+      "Factory Method",
+      "Iterator",
+      "Observer",
+      "Strategy",
+      "Builder",
+      "Adapter"
+    ],
+    "matchingOptions": [
+      "Uses a fluent chain of setter-style methods ending in a build() call",
+      "Subjects keep a list of subscribers and call an update method on each when they change",
+      "A creator class declares an abstract factory method that subclasses override",
+      "Wraps an existing class and translates its calls to a target interface",
+      "Exposes hasNext() and next() to walk a collection's elements",
+      "The context holds an algorithm interface reference that can be set/replaced at runtime"
+    ],
+    "correctAnswers": {
+      "Adapter": "Wraps an existing class and translates its calls to a target interface",
+      "Builder": "Uses a fluent chain of setter-style methods ending in a build() call",
+      "Factory Method": "A creator class declares an abstract factory method that subclasses override",
+      "Iterator": "Exposes hasNext() and next() to walk a collection's elements",
+      "Observer": "Subjects keep a list of subscribers and call an update method on each when they change",
+      "Strategy": "The context holds an algorithm interface reference that can be set/replaced at runtime"
+    },
+    "explanation": "Each option is the recognizable hallmark of that pattern.",
+    "_tags": [
+      "Adapter",
+      "Builder",
+      "Factory Method",
+      "Iterator",
+      "Observer",
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q190",
+    "type": "multiple_choice",
+    "questionText": "Which SOLID principle does the following code violate?",
+    "codeSnippet": "class Bird { void fly(){} }\nclass Ostrich extends Bird {\n  void fly(){ throw new UnsupportedOperationException(); }\n}",
+    "options": [
+      "SRP",
+      "OCP",
+      "LSP",
+      "ISP",
+      "DIP"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "LSP"
+    ],
+    "explanation": "An Ostrich cannot be substituted for a Bird because it breaks the inherited fly() contract.",
+    "_tags": [
+      "SOLID",
+      "LSP"
+    ]
+  },
+  {
+    "id": "q191",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Composite where Menu holds children uniformly with MenuItem.",
+    "snippetWithDropZones": "interface MenuComponent {\n  int getSize();\n}\n\nclass MenuItem implements MenuComponent {\n  public int getSize() { return 1; }\n}\n\nclass Menu implements MenuComponent {\n  private List<[[ZONE_1]]> children = new ArrayList<>();\n  public void add(MenuComponent c) { children.add(c); }\n  public int getSize() {\n    int total = 0;\n    for (MenuComponent c : children) {\n      total += c.[[ZONE_2]];\n    }\n    return total;\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "MenuComponent",
+        "MenuItem",
+        "Menu"
+      ],
+      "ZONE_2": [
+        "getSize()",
+        "add()",
+        "size()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "MenuComponent",
+      "ZONE_2": "getSize()"
+    },
+    "explanation": "Both leaf and composite implement the component type; the composite recurses the same operation over its children.",
+    "_tags": [
+      "Composite"
+    ]
+  },
+  {
+    "id": "q192",
+    "type": "dropdown_matching",
+    "questionText": "For each pattern, pick the characteristic you would use to recognize it in code.",
+    "matchingEntities": [
+      "Proxy",
+      "Adapter",
+      "Iterator",
+      "Template Method"
+    ],
+    "matchingOptions": [
+      "Wraps an existing class and translates its calls to a target interface",
+      "A final base method calls abstract step methods that subclasses fill in",
+      "Exposes hasNext() and next() to walk a collection's elements",
+      "An object implementing the same interface as the real subject intercepts calls to it"
+    ],
+    "correctAnswers": {
+      "Adapter": "Wraps an existing class and translates its calls to a target interface",
+      "Iterator": "Exposes hasNext() and next() to walk a collection's elements",
+      "Proxy": "An object implementing the same interface as the real subject intercepts calls to it",
+      "Template Method": "A final base method calls abstract step methods that subclasses fill in"
+    },
+    "explanation": "Each option is the recognizable hallmark of that pattern.",
+    "_tags": [
+      "Adapter",
+      "Iterator",
+      "Proxy",
+      "Template Method"
+    ]
+  },
+  {
+    "id": "q193",
+    "type": "multiple_choice",
+    "questionText": "Which SOLID principle does the following code violate?",
+    "codeSnippet": "interface Worker {\n  void work();\n  void eat();\n}\nclass Robot implements Worker {\n  public void work(){}\n  public void eat(){ /* robots don't eat */ }\n}",
+    "options": [
+      "SRP",
+      "OCP",
+      "LSP",
+      "ISP",
+      "DIP"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "ISP"
+    ],
+    "explanation": "Robot is forced to implement eat(), a method it does not need — the interface is too fat.",
+    "_tags": [
+      "SOLID",
+      "ISP"
+    ]
+  },
+  {
+    "id": "q194",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Composite where Drawing holds children uniformly with Dot.",
+    "snippetWithDropZones": "interface Shape {\n  int getSize();\n}\n\nclass Dot implements Shape {\n  public int getSize() { return 1; }\n}\n\nclass Drawing implements Shape {\n  private List<[[ZONE_1]]> children = new ArrayList<>();\n  public void add(Shape c) { children.add(c); }\n  public int getSize() {\n    int total = 0;\n    for (Shape c : children) {\n      total += c.[[ZONE_2]];\n    }\n    return total;\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Shape",
+        "Dot",
+        "Drawing"
+      ],
+      "ZONE_2": [
+        "getSize()",
+        "add()",
+        "size()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Shape",
+      "ZONE_2": "getSize()"
+    },
+    "explanation": "Both leaf and composite implement the component type; the composite recurses the same operation over its children.",
+    "_tags": [
+      "Composite"
+    ]
+  },
+  {
+    "id": "q195",
+    "type": "dropdown_matching",
+    "questionText": "Match each design pattern to the structural/behavioral trait that identifies it.",
+    "matchingEntities": [
+      "Mediator",
+      "Prototype",
+      "Builder",
+      "Strategy",
+      "Singleton"
+    ],
+    "matchingOptions": [
+      "Colleague objects send events to a central object instead of calling each other",
+      "Uses a private constructor and a static accessor so only one object ever exists",
+      "The context holds an algorithm interface reference that can be set/replaced at runtime",
+      "Relies on a clone()/copy operation to duplicate a pre-configured object",
+      "Uses a fluent chain of setter-style methods ending in a build() call"
+    ],
+    "correctAnswers": {
+      "Builder": "Uses a fluent chain of setter-style methods ending in a build() call",
+      "Mediator": "Colleague objects send events to a central object instead of calling each other",
+      "Prototype": "Relies on a clone()/copy operation to duplicate a pre-configured object",
+      "Singleton": "Uses a private constructor and a static accessor so only one object ever exists",
+      "Strategy": "The context holds an algorithm interface reference that can be set/replaced at runtime"
+    },
+    "explanation": "Each option is the recognizable hallmark of that pattern.",
+    "_tags": [
+      "Builder",
+      "Mediator",
+      "Prototype",
+      "Singleton",
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q196",
+    "type": "multiple_choice",
+    "questionText": "Which SOLID principle does the following code violate?",
+    "codeSnippet": "class NotificationService {\n  private MySqlDatabase db = new MySqlDatabase();\n  void notifyUser(){ db.save(); }\n}",
+    "options": [
+      "SRP",
+      "OCP",
+      "LSP",
+      "ISP",
+      "DIP"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "DIP"
+    ],
+    "explanation": "The high-level service depends directly on a concrete MySqlDatabase instead of an abstraction.",
+    "_tags": [
+      "SOLID",
+      "DIP"
+    ]
+  },
+  {
+    "id": "q197",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Composite where Manager holds children uniformly with Worker.",
+    "snippetWithDropZones": "interface Employee {\n  int getSize();\n}\n\nclass Worker implements Employee {\n  public int getSize() { return 1; }\n}\n\nclass Manager implements Employee {\n  private List<[[ZONE_1]]> children = new ArrayList<>();\n  public void add(Employee c) { children.add(c); }\n  public int getSize() {\n    int total = 0;\n    for (Employee c : children) {\n      total += c.[[ZONE_2]];\n    }\n    return total;\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Employee",
+        "Worker",
+        "Manager"
+      ],
+      "ZONE_2": [
+        "getSize()",
+        "add()",
+        "size()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Employee",
+      "ZONE_2": "getSize()"
+    },
+    "explanation": "Both leaf and composite implement the component type; the composite recurses the same operation over its children.",
+    "_tags": [
+      "Composite"
+    ]
+  },
+  {
+    "id": "q198",
+    "type": "dropdown_matching",
+    "questionText": "Group the following design patterns with their telltale implementation characteristic.",
+    "matchingEntities": [
+      "Adapter",
+      "Singleton",
+      "Template Method",
+      "State"
+    ],
+    "matchingOptions": [
+      "Uses a private constructor and a static accessor so only one object ever exists",
+      "The context delegates behavior to a swappable state object that it can replace at runtime",
+      "Wraps an existing class and translates its calls to a target interface",
+      "A final base method calls abstract step methods that subclasses fill in"
+    ],
+    "correctAnswers": {
+      "Adapter": "Wraps an existing class and translates its calls to a target interface",
+      "Singleton": "Uses a private constructor and a static accessor so only one object ever exists",
+      "State": "The context delegates behavior to a swappable state object that it can replace at runtime",
+      "Template Method": "A final base method calls abstract step methods that subclasses fill in"
+    },
+    "explanation": "Each option is the recognizable hallmark of that pattern.",
+    "_tags": [
+      "Adapter",
+      "Singleton",
+      "State",
+      "Template Method"
+    ]
+  },
+  {
+    "id": "q199",
+    "type": "multiple_choice",
+    "questionText": "Which SOLID principle does the following code violate?",
+    "codeSnippet": "class User {\n  void changePassword(){}\n  void generateMonthlyReport(){}\n  void sendNewsletter(){}\n}",
+    "options": [
+      "SRP",
+      "OCP",
+      "LSP",
+      "ISP",
+      "DIP"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "SRP"
+    ],
+    "explanation": "User mixes account management, reporting and marketing — unrelated responsibilities.",
+    "_tags": [
+      "SOLID",
+      "SRP"
+    ]
+  },
+  {
+    "id": "q200",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Builder for Pizza so setters chain and build() returns the product.",
+    "snippetWithDropZones": "class Pizza {\n  private final String a;\n  private final String b;\n  private Pizza(Builder builder) {\n    this.a = builder.a;\n    this.b = builder.b;\n  }\n  static class Builder {\n    private String a;\n    private String b;\n    public Builder setA(String a) {\n      this.a = a;\n      return [[ZONE_1]];\n    }\n    public Pizza build() {\n      return new [[ZONE_2]](this);\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "this",
+        "Builder",
+        "a"
+      ],
+      "ZONE_2": [
+        "Pizza",
+        "Builder",
+        "this"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "this",
+      "ZONE_2": "Pizza"
+    },
+    "explanation": "Each setter returns this for chaining; build() constructs the enclosing product from the builder.",
+    "_tags": [
+      "Builder"
+    ]
+  },
+  {
+    "id": "q201",
+    "type": "dropdown_matching",
+    "questionText": "For each pattern, pick the characteristic you would use to recognize it in code.",
+    "matchingEntities": [
+      "Abstract Factory",
+      "Template Method",
+      "Mediator",
+      "Chain of Responsibility"
+    ],
+    "matchingOptions": [
+      "A factory interface declares one creation method per product in a related family",
+      "Each handler holds a reference to the next handler and forwards what it cannot handle",
+      "Colleague objects send events to a central object instead of calling each other",
+      "A final base method calls abstract step methods that subclasses fill in"
+    ],
+    "correctAnswers": {
+      "Abstract Factory": "A factory interface declares one creation method per product in a related family",
+      "Chain of Responsibility": "Each handler holds a reference to the next handler and forwards what it cannot handle",
+      "Mediator": "Colleague objects send events to a central object instead of calling each other",
+      "Template Method": "A final base method calls abstract step methods that subclasses fill in"
+    },
+    "explanation": "Each option is the recognizable hallmark of that pattern.",
+    "_tags": [
+      "Abstract Factory",
+      "Chain of Responsibility",
+      "Mediator",
+      "Template Method"
+    ]
+  },
+  {
+    "id": "q202",
+    "type": "multiple_choice",
+    "questionText": "Which SOLID principle does the following code violate?",
+    "codeSnippet": "class Rectangle {\n  int w, h;\n  void setWidth(int w){ this.w = w; }\n  void setHeight(int h){ this.h = h; }\n}\nclass Square extends Rectangle {\n  void setWidth(int w){ this.w = w; this.h = w; }\n  void setHeight(int h){ this.w = h; this.h = h; }\n}",
+    "options": [
+      "SRP",
+      "OCP",
+      "LSP",
+      "ISP",
+      "DIP"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "LSP"
+    ],
+    "explanation": "Square changes the meaning of setWidth/setHeight, so code relying on Rectangle's behavior breaks.",
+    "_tags": [
+      "SOLID",
+      "LSP"
+    ]
+  },
+  {
+    "id": "q203",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Builder for Burger so setters chain and build() returns the product.",
+    "snippetWithDropZones": "class Burger {\n  private final String a;\n  private final String b;\n  private Burger(Builder builder) {\n    this.a = builder.a;\n    this.b = builder.b;\n  }\n  static class Builder {\n    private String a;\n    private String b;\n    public Builder setA(String a) {\n      this.a = a;\n      return [[ZONE_1]];\n    }\n    public Burger build() {\n      return new [[ZONE_2]](this);\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "this",
+        "Builder",
+        "a"
+      ],
+      "ZONE_2": [
+        "Burger",
+        "Builder",
+        "this"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "this",
+      "ZONE_2": "Burger"
+    },
+    "explanation": "Each setter returns this for chaining; build() constructs the enclosing product from the builder.",
+    "_tags": [
+      "Builder"
+    ]
+  },
+  {
+    "id": "q204",
+    "type": "dropdown_matching",
+    "questionText": "Match each design pattern to the structural/behavioral trait that identifies it.",
+    "matchingEntities": [
+      "Memento",
+      "Bridge",
+      "Proxy",
+      "Visitor"
+    ],
+    "matchingOptions": [
+      "A separate snapshot object stores state that an originator can later restore from",
+      "Holds a reference to a separate implementation hierarchy chosen at construction time",
+      "An object implementing the same interface as the real subject intercepts calls to it",
+      "Elements expose accept(visitor) and call back visit(this) for double dispatch"
+    ],
+    "correctAnswers": {
+      "Bridge": "Holds a reference to a separate implementation hierarchy chosen at construction time",
+      "Memento": "A separate snapshot object stores state that an originator can later restore from",
+      "Proxy": "An object implementing the same interface as the real subject intercepts calls to it",
+      "Visitor": "Elements expose accept(visitor) and call back visit(this) for double dispatch"
+    },
+    "explanation": "Each option is the recognizable hallmark of that pattern.",
+    "_tags": [
+      "Bridge",
+      "Memento",
+      "Proxy",
+      "Visitor"
+    ]
+  },
+  {
+    "id": "q205",
+    "type": "multiple_choice",
+    "questionText": "Which SOLID principle does the following code violate?",
+    "codeSnippet": "class PaymentProcessor {\n  void process(String type){\n    switch(type){ case \"card\": break; case \"paypal\": break; }\n  }\n}",
+    "options": [
+      "SRP",
+      "OCP",
+      "LSP",
+      "ISP",
+      "DIP"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "OCP"
+    ],
+    "explanation": "Each new payment method requires modifying the switch instead of extending via new classes.",
+    "_tags": [
+      "SOLID",
+      "OCP"
+    ]
+  },
+  {
+    "id": "q206",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Builder for HttpRequest so setters chain and build() returns the product.",
+    "snippetWithDropZones": "class HttpRequest {\n  private final String a;\n  private final String b;\n  private HttpRequest(Builder builder) {\n    this.a = builder.a;\n    this.b = builder.b;\n  }\n  static class Builder {\n    private String a;\n    private String b;\n    public Builder setA(String a) {\n      this.a = a;\n      return [[ZONE_1]];\n    }\n    public HttpRequest build() {\n      return new [[ZONE_2]](this);\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "this",
+        "Builder",
+        "a"
+      ],
+      "ZONE_2": [
+        "HttpRequest",
+        "Builder",
+        "this"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "this",
+      "ZONE_2": "HttpRequest"
+    },
+    "explanation": "Each setter returns this for chaining; build() constructs the enclosing product from the builder.",
+    "_tags": [
+      "Builder"
+    ]
+  },
+  {
+    "id": "q207",
+    "type": "dropdown_matching",
+    "questionText": "Match each SOLID principle to its definition.",
+    "matchingEntities": [
+      "Open/Closed Principle (OCP)",
+      "Dependency Inversion Principle (DIP)",
+      "Liskov Substitution Principle (LSP)",
+      "Interface Segregation Principle (ISP)",
+      "Single Responsibility Principle (SRP)"
+    ],
+    "matchingOptions": [
+      "A class should have only one reason to change",
+      "Subtypes must be substitutable for their base types without breaking behavior",
+      "High-level modules should depend on abstractions, not on concrete low-level modules",
+      "Software entities should be open for extension but closed for modification",
+      "Clients should not be forced to depend on methods they do not use"
+    ],
+    "correctAnswers": {
+      "Single Responsibility Principle (SRP)": "A class should have only one reason to change",
+      "Open/Closed Principle (OCP)": "Software entities should be open for extension but closed for modification",
+      "Liskov Substitution Principle (LSP)": "Subtypes must be substitutable for their base types without breaking behavior",
+      "Interface Segregation Principle (ISP)": "Clients should not be forced to depend on methods they do not use",
+      "Dependency Inversion Principle (DIP)": "High-level modules should depend on abstractions, not on concrete low-level modules"
+    },
+    "explanation": "Standard SOLID definitions.",
+    "_tags": [
+      "SOLID"
+    ]
+  },
+  {
+    "id": "q208",
+    "type": "multiple_choice",
+    "questionText": "Which SOLID principle does the following code violate?",
+    "codeSnippet": "interface MultiFunctionDevice {\n  void print();\n  void scan();\n  void fax();\n  void staple();\n}\nclass BudgetPrinter implements MultiFunctionDevice {\n  public void print(){}\n  public void scan(){}\n  public void fax(){}\n  public void staple(){}\n}",
+    "options": [
+      "SRP",
+      "OCP",
+      "LSP",
+      "ISP",
+      "DIP"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "ISP"
+    ],
+    "explanation": "A budget printer is forced to depend on scan/fax/staple it cannot perform; split the interface.",
+    "_tags": [
+      "SOLID",
+      "ISP"
+    ]
+  },
+  {
+    "id": "q209",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Builder for Car so setters chain and build() returns the product.",
+    "snippetWithDropZones": "class Car {\n  private final String a;\n  private final String b;\n  private Car(Builder builder) {\n    this.a = builder.a;\n    this.b = builder.b;\n  }\n  static class Builder {\n    private String a;\n    private String b;\n    public Builder setA(String a) {\n      this.a = a;\n      return [[ZONE_1]];\n    }\n    public Car build() {\n      return new [[ZONE_2]](this);\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "this",
+        "Builder",
+        "a"
+      ],
+      "ZONE_2": [
+        "Car",
+        "Builder",
+        "this"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "this",
+      "ZONE_2": "Car"
+    },
+    "explanation": "Each setter returns this for chaining; build() constructs the enclosing product from the builder.",
+    "_tags": [
+      "Builder"
+    ]
+  },
+  {
+    "id": "q210",
+    "type": "dropdown_matching",
+    "questionText": "Match each SOLID principle to its definition.",
+    "matchingEntities": [
+      "Open/Closed Principle (OCP)",
+      "Dependency Inversion Principle (DIP)",
+      "Single Responsibility Principle (SRP)"
+    ],
+    "matchingOptions": [
+      "A class should have only one reason to change",
+      "Software entities should be open for extension but closed for modification",
+      "High-level modules should depend on abstractions, not on concrete low-level modules"
+    ],
+    "correctAnswers": {
+      "Dependency Inversion Principle (DIP)": "High-level modules should depend on abstractions, not on concrete low-level modules",
+      "Open/Closed Principle (OCP)": "Software entities should be open for extension but closed for modification",
+      "Single Responsibility Principle (SRP)": "A class should have only one reason to change"
+    },
+    "explanation": "Standard SOLID definitions.",
+    "_tags": [
+      "SOLID"
+    ]
+  },
+  {
+    "id": "q211",
+    "type": "multiple_choice",
+    "questionText": "Which SOLID principle does the following code violate?",
+    "codeSnippet": "class ReportGenerator {\n  private FileLogger logger = new FileLogger();\n  void run(){ logger.log(\"done\"); }\n}",
+    "options": [
+      "SRP",
+      "OCP",
+      "LSP",
+      "ISP",
+      "DIP"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "DIP"
+    ],
+    "explanation": "ReportGenerator is hard-wired to a concrete FileLogger rather than a Logger abstraction.",
+    "_tags": [
+      "SOLID",
+      "DIP"
+    ]
+  },
+  {
+    "id": "q212",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Builder for UserProfile so setters chain and build() returns the product.",
+    "snippetWithDropZones": "class UserProfile {\n  private final String a;\n  private final String b;\n  private UserProfile(Builder builder) {\n    this.a = builder.a;\n    this.b = builder.b;\n  }\n  static class Builder {\n    private String a;\n    private String b;\n    public Builder setA(String a) {\n      this.a = a;\n      return [[ZONE_1]];\n    }\n    public UserProfile build() {\n      return new [[ZONE_2]](this);\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "this",
+        "Builder",
+        "a"
+      ],
+      "ZONE_2": [
+        "UserProfile",
+        "Builder",
+        "this"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "this",
+      "ZONE_2": "UserProfile"
+    },
+    "explanation": "Each setter returns this for chaining; build() constructs the enclosing product from the builder.",
+    "_tags": [
+      "Builder"
+    ]
+  },
+  {
+    "id": "q213",
+    "type": "dropdown_matching",
+    "questionText": "Match each SOLID principle to its definition.",
+    "matchingEntities": [
+      "Single Responsibility Principle (SRP)",
+      "Dependency Inversion Principle (DIP)",
+      "Open/Closed Principle (OCP)",
+      "Interface Segregation Principle (ISP)"
+    ],
+    "matchingOptions": [
+      "High-level modules should depend on abstractions, not on concrete low-level modules",
+      "A class should have only one reason to change",
+      "Software entities should be open for extension but closed for modification",
+      "Clients should not be forced to depend on methods they do not use"
+    ],
+    "correctAnswers": {
+      "Dependency Inversion Principle (DIP)": "High-level modules should depend on abstractions, not on concrete low-level modules",
+      "Interface Segregation Principle (ISP)": "Clients should not be forced to depend on methods they do not use",
+      "Open/Closed Principle (OCP)": "Software entities should be open for extension but closed for modification",
+      "Single Responsibility Principle (SRP)": "A class should have only one reason to change"
+    },
+    "explanation": "Standard SOLID definitions.",
+    "_tags": [
+      "SOLID"
+    ]
+  },
+  {
+    "id": "q214",
+    "type": "multiple_choice",
+    "questionText": "Which change best fixes the Open/Closed violation in a draw() method that uses 'if (shape instanceof Circle) ... else if (shape instanceof Square) ...'? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "Give each shape a draw() method and call shape.draw() polymorphically",
+      "Define an abstract Shape with an abstract draw() that each subclass implements",
+      "Add another else-if branch for every new shape",
+      "Use a giant switch on a shape-type string instead of instanceof",
+      "Make the method longer but keep the type checks"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "Give each shape a draw() method and call shape.draw() polymorphically",
+      "Define an abstract Shape with an abstract draw() that each subclass implements"
+    ],
+    "explanation": "OCP is satisfied by polymorphism: new shapes extend the hierarchy without editing existing code. More branches/switches keep violating it.",
+    "_tags": [
+      "SOLID",
+      "OCP"
+    ]
+  },
+  {
+    "id": "q215",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Builder for Report so setters chain and build() returns the product.",
+    "snippetWithDropZones": "class Report {\n  private final String a;\n  private final String b;\n  private Report(Builder builder) {\n    this.a = builder.a;\n    this.b = builder.b;\n  }\n  static class Builder {\n    private String a;\n    private String b;\n    public Builder setA(String a) {\n      this.a = a;\n      return [[ZONE_1]];\n    }\n    public Report build() {\n      return new [[ZONE_2]](this);\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "this",
+        "Builder",
+        "a"
+      ],
+      "ZONE_2": [
+        "Report",
+        "Builder",
+        "this"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "this",
+      "ZONE_2": "Report"
+    },
+    "explanation": "Each setter returns this for chaining; build() constructs the enclosing product from the builder.",
+    "_tags": [
+      "Builder"
+    ]
+  },
+  {
+    "id": "q216",
+    "type": "dropdown_matching",
+    "questionText": "Match each SOLID principle to its definition.",
+    "matchingEntities": [
+      "Open/Closed Principle (OCP)",
+      "Interface Segregation Principle (ISP)",
+      "Dependency Inversion Principle (DIP)"
+    ],
+    "matchingOptions": [
+      "Clients should not be forced to depend on methods they do not use",
+      "High-level modules should depend on abstractions, not on concrete low-level modules",
+      "Software entities should be open for extension but closed for modification"
+    ],
+    "correctAnswers": {
+      "Dependency Inversion Principle (DIP)": "High-level modules should depend on abstractions, not on concrete low-level modules",
+      "Interface Segregation Principle (ISP)": "Clients should not be forced to depend on methods they do not use",
+      "Open/Closed Principle (OCP)": "Software entities should be open for extension but closed for modification"
+    },
+    "explanation": "Standard SOLID definitions.",
+    "_tags": [
+      "SOLID"
+    ]
+  },
+  {
+    "id": "q217",
+    "type": "multiple_choice",
+    "questionText": "A Service class does 'new MySqlRepository()' internally. Which change best restores the Dependency Inversion Principle?",
+    "codeSnippet": null,
+    "options": [
+      "Inject a Repository abstraction through the constructor",
+      "Make MySqlRepository a singleton",
+      "Move the new MySqlRepository() call into a static block",
+      "Mark the field as final"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Inject a Repository abstraction through the constructor"
+    ],
+    "explanation": "DIP: depend on an injected abstraction, not a concrete class created internally.",
+    "_tags": [
+      "SOLID",
+      "DIP"
+    ]
+  },
+  {
+    "id": "q218",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Proxy that guards access to RealImage.",
+    "snippetWithDropZones": "interface Image {\n  void request();\n}\n\nclass RealImage implements Image {\n  public void request() { System.out.println(\"real\"); }\n}\n\nclass ImageProxy implements [[ZONE_1]] {\n  private RealImage real = new RealImage();\n  public void request() {\n    if (hasAccess()) {\n      real.[[ZONE_2]];\n    }\n  }\n  private boolean hasAccess() { return true; }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Image",
+        "RealImage",
+        "ImageProxy"
+      ],
+      "ZONE_2": [
+        "request()",
+        "hasAccess()",
+        "request"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Image",
+      "ZONE_2": "request()"
+    },
+    "explanation": "The proxy implements the same interface as the real subject and forwards to it only after its access check.",
+    "_tags": [
+      "Proxy"
+    ]
+  },
+  {
+    "id": "q219",
+    "type": "dropdown_matching",
+    "questionText": "Match each SOLID principle to its definition.",
+    "matchingEntities": [
+      "Open/Closed Principle (OCP)",
+      "Single Responsibility Principle (SRP)",
+      "Liskov Substitution Principle (LSP)"
+    ],
+    "matchingOptions": [
+      "A class should have only one reason to change",
+      "Software entities should be open for extension but closed for modification",
+      "Subtypes must be substitutable for their base types without breaking behavior"
+    ],
+    "correctAnswers": {
+      "Liskov Substitution Principle (LSP)": "Subtypes must be substitutable for their base types without breaking behavior",
+      "Open/Closed Principle (OCP)": "Software entities should be open for extension but closed for modification",
+      "Single Responsibility Principle (SRP)": "A class should have only one reason to change"
+    },
+    "explanation": "Standard SOLID definitions.",
+    "_tags": [
+      "SOLID"
+    ]
+  },
+  {
+    "id": "q220",
+    "type": "multiple_choice",
+    "questionText": "Considering only the test shown, what coverage does it achieve?",
+    "codeSnippet": "public int discount(int qty) {\n  if (qty > 100) {\n    return 20;\n  }\n  System.out.println(\"no discount\");\n  return 0;\n}\n\n@Test\npublic void t() {\n  assertEquals(20, discount(150));\n}",
+    "options": [
+      "100% Statement Coverage, 100% Branch Coverage",
+      "50% Statement Coverage, 50% Branch Coverage",
+      "100% Statement Coverage, 50% Branch Coverage",
+      "75% Statement Coverage, 50% Branch Coverage",
+      "0% Statement Coverage, 0% Branch Coverage"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "50% Statement Coverage, 50% Branch Coverage"
+    ],
+    "explanation": "discount(150) takes only the true branch: the if and 'return 20' run (2 of 4 statements), and 1 of 2 branches.",
+    "_tags": [
+      "Coverage"
+    ]
+  },
+  {
+    "id": "q221",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Proxy that guards access to RealBankAccount.",
+    "snippetWithDropZones": "interface BankAccount {\n  void request();\n}\n\nclass RealBankAccount implements BankAccount {\n  public void request() { System.out.println(\"real\"); }\n}\n\nclass BankAccountProxy implements [[ZONE_1]] {\n  private RealBankAccount real = new RealBankAccount();\n  public void request() {\n    if (hasAccess()) {\n      real.[[ZONE_2]];\n    }\n  }\n  private boolean hasAccess() { return true; }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "BankAccount",
+        "RealBankAccount",
+        "BankAccountProxy"
+      ],
+      "ZONE_2": [
+        "request()",
+        "hasAccess()",
+        "request"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "BankAccount",
+      "ZONE_2": "request()"
+    },
+    "explanation": "The proxy implements the same interface as the real subject and forwards to it only after its access check.",
+    "_tags": [
+      "Proxy"
+    ]
+  },
+  {
+    "id": "q222",
+    "type": "dropdown_matching",
+    "questionText": "Match each SOLID principle to a code situation that violates it.",
+    "matchingEntities": [
+      "OCP",
+      "LSP",
+      "SRP",
+      "ISP",
+      "DIP"
+    ],
+    "matchingOptions": [
+      "Adding a new shape forces you to edit an existing switch statement that draws shapes",
+      "A SimplePrinter forced to implement scan() and fax() with empty bodies",
+      "A high-level OrderService that directly instantiates a concrete MySqlDatabase",
+      "A class that both generates a report and also emails it and writes it to disk",
+      "A Square subclass of Rectangle breaks code that sets width and height independently"
+    ],
+    "correctAnswers": {
+      "SRP": "A class that both generates a report and also emails it and writes it to disk",
+      "OCP": "Adding a new shape forces you to edit an existing switch statement that draws shapes",
+      "LSP": "A Square subclass of Rectangle breaks code that sets width and height independently",
+      "ISP": "A SimplePrinter forced to implement scan() and fax() with empty bodies",
+      "DIP": "A high-level OrderService that directly instantiates a concrete MySqlDatabase"
+    },
+    "explanation": "Each scenario is a textbook violation of the matched principle.",
+    "_tags": [
+      "SOLID"
+    ]
+  },
+  {
+    "id": "q223",
+    "type": "multiple_choice",
+    "questionText": "Considering only the test shown, what coverage does it achieve?",
+    "codeSnippet": "public int discount(int qty) {\n  if (qty > 100) {\n    return 20;\n  }\n  System.out.println(\"no discount\");\n  return 0;\n}\n\n@Test\npublic void t() {\n  assertEquals(20, discount(150));\n  assertEquals(0, discount(50));\n}",
+    "options": [
+      "100% Statement Coverage, 100% Branch Coverage",
+      "50% Statement Coverage, 50% Branch Coverage",
+      "100% Statement Coverage, 50% Branch Coverage",
+      "75% Statement Coverage, 50% Branch Coverage",
+      "0% Statement Coverage, 0% Branch Coverage"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "100% Statement Coverage, 100% Branch Coverage"
+    ],
+    "explanation": "Calling discount(150) and discount(50) executes every statement and both branch outcomes.",
+    "_tags": [
+      "Coverage"
+    ]
+  },
+  {
+    "id": "q224",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Proxy that guards access to RealFileReader.",
+    "snippetWithDropZones": "interface FileReader {\n  void request();\n}\n\nclass RealFileReader implements FileReader {\n  public void request() { System.out.println(\"real\"); }\n}\n\nclass FileReaderProxy implements [[ZONE_1]] {\n  private RealFileReader real = new RealFileReader();\n  public void request() {\n    if (hasAccess()) {\n      real.[[ZONE_2]];\n    }\n  }\n  private boolean hasAccess() { return true; }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "FileReader",
+        "RealFileReader",
+        "FileReaderProxy"
+      ],
+      "ZONE_2": [
+        "request()",
+        "hasAccess()",
+        "request"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "FileReader",
+      "ZONE_2": "request()"
+    },
+    "explanation": "The proxy implements the same interface as the real subject and forwards to it only after its access check.",
+    "_tags": [
+      "Proxy"
+    ]
+  },
+  {
+    "id": "q225",
+    "type": "dropdown_matching",
+    "questionText": "Match each SOLID principle to a code situation that violates it.",
+    "matchingEntities": [
+      "ISP",
+      "LSP",
+      "SRP"
+    ],
+    "matchingOptions": [
+      "A class that both generates a report and also emails it and writes it to disk",
+      "A Square subclass of Rectangle breaks code that sets width and height independently",
+      "A SimplePrinter forced to implement scan() and fax() with empty bodies"
+    ],
+    "correctAnswers": {
+      "ISP": "A SimplePrinter forced to implement scan() and fax() with empty bodies",
+      "LSP": "A Square subclass of Rectangle breaks code that sets width and height independently",
+      "SRP": "A class that both generates a report and also emails it and writes it to disk"
+    },
+    "explanation": "Each scenario is a textbook violation of the matched principle.",
+    "_tags": [
+      "SOLID"
+    ]
+  },
+  {
+    "id": "q226",
+    "type": "multiple_choice",
+    "questionText": "Considering only the test shown, what coverage does it achieve for greet()?",
+    "codeSnippet": "public void greet(boolean vip) {\n  System.out.println(\"hello\");\n  if (vip) {\n    System.out.println(\"welcome VIP\");\n  }\n}\n\n@Test\npublic void t() {\n  greet(true);\n}",
+    "options": [
+      "100% Statement Coverage, 100% Branch Coverage",
+      "50% Statement Coverage, 50% Branch Coverage",
+      "100% Statement Coverage, 50% Branch Coverage",
+      "75% Statement Coverage, 50% Branch Coverage",
+      "0% Statement Coverage, 0% Branch Coverage"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "100% Statement Coverage, 50% Branch Coverage"
+    ],
+    "explanation": "greet(true) runs all three statements (100% statement) but only the true outcome of the if (50% branch).",
+    "_tags": [
+      "Coverage"
+    ]
+  },
+  {
+    "id": "q227",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Proxy that guards access to RealDatabase.",
+    "snippetWithDropZones": "interface Database {\n  void request();\n}\n\nclass RealDatabase implements Database {\n  public void request() { System.out.println(\"real\"); }\n}\n\nclass DatabaseProxy implements [[ZONE_1]] {\n  private RealDatabase real = new RealDatabase();\n  public void request() {\n    if (hasAccess()) {\n      real.[[ZONE_2]];\n    }\n  }\n  private boolean hasAccess() { return true; }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Database",
+        "RealDatabase",
+        "DatabaseProxy"
+      ],
+      "ZONE_2": [
+        "request()",
+        "hasAccess()",
+        "request"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Database",
+      "ZONE_2": "request()"
+    },
+    "explanation": "The proxy implements the same interface as the real subject and forwards to it only after its access check.",
+    "_tags": [
+      "Proxy"
+    ]
+  },
+  {
+    "id": "q228",
+    "type": "dropdown_matching",
+    "questionText": "Match each SOLID principle to a code situation that violates it.",
+    "matchingEntities": [
+      "OCP",
+      "DIP",
+      "SRP"
+    ],
+    "matchingOptions": [
+      "A high-level OrderService that directly instantiates a concrete MySqlDatabase",
+      "Adding a new shape forces you to edit an existing switch statement that draws shapes",
+      "A class that both generates a report and also emails it and writes it to disk"
+    ],
+    "correctAnswers": {
+      "DIP": "A high-level OrderService that directly instantiates a concrete MySqlDatabase",
+      "OCP": "Adding a new shape forces you to edit an existing switch statement that draws shapes",
+      "SRP": "A class that both generates a report and also emails it and writes it to disk"
+    },
+    "explanation": "Each scenario is a textbook violation of the matched principle.",
+    "_tags": [
+      "SOLID"
+    ]
+  }
+]

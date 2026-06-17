@@ -1,0 +1,1180 @@
+[
+  {
+    "id": "q325",
+    "type": "multiple_choice",
+    "questionText": "Adapter vs Decorator: which statement is TRUE?",
+    "codeSnippet": null,
+    "options": [
+      "Adapter changes an object's interface; Decorator keeps the same interface and adds behavior",
+      "Both change the interface",
+      "Decorator changes the interface; Adapter keeps it the same",
+      "Both are creational patterns"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Adapter changes an object's interface; Decorator keeps the same interface and adds behavior"
+    ],
+    "explanation": "Adapter converts an interface to a different expected one; Decorator preserves the interface and augments behavior.",
+    "_tags": [
+      "Adapter",
+      "Decorator"
+    ]
+  },
+  {
+    "id": "q326",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Flyweight factory GlyphFactory that caches shared Glyph objects.",
+    "snippetWithDropZones": "class Glyph {\n  private final String name;\n  private final String texture;\n  Glyph(String name, String texture) {\n    this.name = name;\n    this.texture = texture;\n  }\n}\n\nclass GlyphFactory {\n  private static Map<String, Glyph> cache = new HashMap<>();\n  public static Glyph get(String name, String texture) {\n    Glyph t = cache.get(name);\n    if (t == null) {\n      t = new Glyph(name, texture);\n      cache.[[ZONE_1]];\n    }\n    return [[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "put(name, t)",
+        "get(name)",
+        "add(t)"
+      ],
+      "ZONE_2": [
+        "t",
+        "cache",
+        "name"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "put(name, t)",
+      "ZONE_2": "t"
+    },
+    "explanation": "The factory reuses cached flyweights, only creating and storing a new shared object when none exists for the key.",
+    "_tags": [
+      "Flyweight"
+    ]
+  },
+  {
+    "id": "q327",
+    "type": "dropdown_matching",
+    "questionText": "Match each code-coverage metric to its definition.",
+    "matchingEntities": [
+      "Statement coverage",
+      "Path coverage",
+      "Condition coverage",
+      "Function coverage"
+    ],
+    "matchingOptions": [
+      "Percentage of functions or methods that have been called at least once",
+      "Percentage of executable statements that have been run at least once",
+      "Percentage of individual boolean sub-conditions evaluated both true and false",
+      "Percentage of independent end-to-end execution paths through the code that have been taken"
+    ],
+    "correctAnswers": {
+      "Condition coverage": "Percentage of individual boolean sub-conditions evaluated both true and false",
+      "Function coverage": "Percentage of functions or methods that have been called at least once",
+      "Path coverage": "Percentage of independent end-to-end execution paths through the code that have been taken",
+      "Statement coverage": "Percentage of executable statements that have been run at least once"
+    },
+    "explanation": "Standard coverage metric definitions.",
+    "_tags": [
+      "Coverage"
+    ]
+  },
+  {
+    "id": "q328",
+    "type": "multiple_choice",
+    "questionText": "Proxy vs Decorator: which statement is TRUE?",
+    "codeSnippet": null,
+    "options": [
+      "Proxy controls access to an object; Decorator adds responsibilities to it",
+      "They are identical in intent",
+      "Decorator controls access; Proxy adds responsibilities",
+      "Both are behavioral patterns"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Proxy controls access to an object; Decorator adds responsibilities to it"
+    ],
+    "explanation": "Same wrapping structure, different intent: Proxy is about access control/laziness, Decorator about adding behavior.",
+    "_tags": [
+      "Proxy",
+      "Decorator"
+    ]
+  },
+  {
+    "id": "q329",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Flyweight factory ParticleFactory that caches shared Particle objects.",
+    "snippetWithDropZones": "class Particle {\n  private final String name;\n  private final String texture;\n  Particle(String name, String texture) {\n    this.name = name;\n    this.texture = texture;\n  }\n}\n\nclass ParticleFactory {\n  private static Map<String, Particle> cache = new HashMap<>();\n  public static Particle get(String name, String texture) {\n    Particle t = cache.get(name);\n    if (t == null) {\n      t = new Particle(name, texture);\n      cache.[[ZONE_1]];\n    }\n    return [[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "put(name, t)",
+        "get(name)",
+        "add(t)"
+      ],
+      "ZONE_2": [
+        "t",
+        "cache",
+        "name"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "put(name, t)",
+      "ZONE_2": "t"
+    },
+    "explanation": "The factory reuses cached flyweights, only creating and storing a new shared object when none exists for the key.",
+    "_tags": [
+      "Flyweight"
+    ]
+  },
+  {
+    "id": "q330",
+    "type": "dropdown_matching",
+    "questionText": "Match each code-coverage metric to its definition.",
+    "matchingEntities": [
+      "Function coverage",
+      "Path coverage",
+      "Branch coverage",
+      "Condition coverage"
+    ],
+    "matchingOptions": [
+      "Percentage of functions or methods that have been called at least once",
+      "Percentage of decision outcomes (true/false of each branch) that have been exercised",
+      "Percentage of individual boolean sub-conditions evaluated both true and false",
+      "Percentage of independent end-to-end execution paths through the code that have been taken"
+    ],
+    "correctAnswers": {
+      "Branch coverage": "Percentage of decision outcomes (true/false of each branch) that have been exercised",
+      "Condition coverage": "Percentage of individual boolean sub-conditions evaluated both true and false",
+      "Function coverage": "Percentage of functions or methods that have been called at least once",
+      "Path coverage": "Percentage of independent end-to-end execution paths through the code that have been taken"
+    },
+    "explanation": "Standard coverage metric definitions.",
+    "_tags": [
+      "Coverage"
+    ]
+  },
+  {
+    "id": "q331",
+    "type": "multiple_choice",
+    "questionText": "Which problems can affect the Simple Factory shown? Select 1 or more answers",
+    "codeSnippet": "class ShapeFactory {\n  public Shape create(String type) {\n    if (type.equals(\"CIRCLE\")) return new Circle();\n    if (type.equals(\"SQUARE\")) return new Square();\n    return null;\n  }\n}",
+    "options": [
+      "Adding a new product type requires modifying the factory (OCP)",
+      "An unknown type string can silently return null",
+      "Passing raw strings is not type-safe",
+      "It guarantees a single instance of each product",
+      "The if/switch chain grows unwieldy"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "Adding a new product type requires modifying the factory (OCP)",
+      "An unknown type string can silently return null",
+      "Passing raw strings is not type-safe",
+      "The if/switch chain grows unwieldy"
+    ],
+    "explanation": "Simple Factory centralises creation but couples new types to edits, risks null, is string-unsafe, and grows messy. It says nothing about single instances.",
+    "_tags": [
+      "Simple Factory",
+      "OCP"
+    ]
+  },
+  {
+    "id": "q332",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Flyweight factory IconFactory that caches shared Icon objects.",
+    "snippetWithDropZones": "class Icon {\n  private final String name;\n  private final String texture;\n  Icon(String name, String texture) {\n    this.name = name;\n    this.texture = texture;\n  }\n}\n\nclass IconFactory {\n  private static Map<String, Icon> cache = new HashMap<>();\n  public static Icon get(String name, String texture) {\n    Icon t = cache.get(name);\n    if (t == null) {\n      t = new Icon(name, texture);\n      cache.[[ZONE_1]];\n    }\n    return [[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "put(name, t)",
+        "get(name)",
+        "add(t)"
+      ],
+      "ZONE_2": [
+        "t",
+        "cache",
+        "name"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "put(name, t)",
+      "ZONE_2": "t"
+    },
+    "explanation": "The factory reuses cached flyweights, only creating and storing a new shared object when none exists for the key.",
+    "_tags": [
+      "Flyweight"
+    ]
+  },
+  {
+    "id": "q333",
+    "type": "dropdown_matching",
+    "questionText": "Match each code-coverage metric to its definition.",
+    "matchingEntities": [
+      "Function coverage",
+      "Statement coverage",
+      "Branch coverage"
+    ],
+    "matchingOptions": [
+      "Percentage of executable statements that have been run at least once",
+      "Percentage of decision outcomes (true/false of each branch) that have been exercised",
+      "Percentage of functions or methods that have been called at least once"
+    ],
+    "correctAnswers": {
+      "Branch coverage": "Percentage of decision outcomes (true/false of each branch) that have been exercised",
+      "Function coverage": "Percentage of functions or methods that have been called at least once",
+      "Statement coverage": "Percentage of executable statements that have been run at least once"
+    },
+    "explanation": "Standard coverage metric definitions.",
+    "_tags": [
+      "Coverage"
+    ]
+  },
+  {
+    "id": "q334",
+    "type": "multiple_choice",
+    "questionText": "Why is the template method commonly declared final in the Template Method pattern?",
+    "codeSnippet": null,
+    "options": [
+      "To stop subclasses from changing the algorithm's step order",
+      "To improve runtime performance",
+      "To allow subclasses to override the whole algorithm",
+      "To make the class a singleton"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "To stop subclasses from changing the algorithm's step order"
+    ],
+    "explanation": "final locks the skeleton; subclasses may only fill in the individual abstract steps.",
+    "_tags": [
+      "Template Method"
+    ]
+  },
+  {
+    "id": "q335",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Bridge: the Shape abstraction delegates drawing to the Renderer implementation.",
+    "snippetWithDropZones": "interface Renderer {\n  void renderCircle();\n}\n\nabstract class Shape {\n  protected Renderer impl;\n  protected Shape([[ZONE_1]] impl) {\n    this.impl = impl;\n  }\n  public abstract void draw();\n}\n\nclass RefinedShape extends Shape {\n  public RefinedShape(Renderer impl) { super(impl); }\n  public void draw() {\n    impl.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Renderer",
+        "Shape",
+        "void"
+      ],
+      "ZONE_2": [
+        "renderCircle()",
+        "draw()",
+        "renderCircle"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Renderer",
+      "ZONE_2": "renderCircle()"
+    },
+    "explanation": "Bridge holds a reference to a separate implementor hierarchy and forwards the work to it, so both sides vary independently.",
+    "_tags": [
+      "Bridge"
+    ]
+  },
+  {
+    "id": "q336",
+    "type": "dropdown_matching",
+    "questionText": "Match each code-coverage metric to its definition.",
+    "matchingEntities": [
+      "Path coverage",
+      "Condition coverage",
+      "Function coverage"
+    ],
+    "matchingOptions": [
+      "Percentage of functions or methods that have been called at least once",
+      "Percentage of independent end-to-end execution paths through the code that have been taken",
+      "Percentage of individual boolean sub-conditions evaluated both true and false"
+    ],
+    "correctAnswers": {
+      "Condition coverage": "Percentage of individual boolean sub-conditions evaluated both true and false",
+      "Function coverage": "Percentage of functions or methods that have been called at least once",
+      "Path coverage": "Percentage of independent end-to-end execution paths through the code that have been taken"
+    },
+    "explanation": "Standard coverage metric definitions.",
+    "_tags": [
+      "Coverage"
+    ]
+  },
+  {
+    "id": "q337",
+    "type": "multiple_choice",
+    "questionText": "What is the main problem with this lazy Singleton in a multithreaded program?",
+    "codeSnippet": "public class Cfg {\n  private static Cfg instance;\n  private Cfg() {}\n  public static Cfg get() {\n    if (instance == null) instance = new Cfg();\n    return instance;\n  }\n}",
+    "options": [
+      "It is not thread-safe: two threads can both create an instance",
+      "It violates the Liskov Substitution Principle",
+      "It breaks encapsulation by exposing the field",
+      "It cannot have a private constructor"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "It is not thread-safe: two threads can both create an instance"
+    ],
+    "explanation": "The check-then-create is a race condition; without synchronization two threads can each create an instance.",
+    "_tags": [
+      "Singleton"
+    ]
+  },
+  {
+    "id": "q338",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Bridge: the Remote abstraction delegates drawing to the Device implementation.",
+    "snippetWithDropZones": "interface Device {\n  void renderCircle();\n}\n\nabstract class Remote {\n  protected Device impl;\n  protected Remote([[ZONE_1]] impl) {\n    this.impl = impl;\n  }\n  public abstract void draw();\n}\n\nclass RefinedRemote extends Remote {\n  public RefinedRemote(Device impl) { super(impl); }\n  public void draw() {\n    impl.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Device",
+        "Remote",
+        "void"
+      ],
+      "ZONE_2": [
+        "renderCircle()",
+        "draw()",
+        "renderCircle"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Device",
+      "ZONE_2": "renderCircle()"
+    },
+    "explanation": "Bridge holds a reference to a separate implementor hierarchy and forwards the work to it, so both sides vary independently.",
+    "_tags": [
+      "Bridge"
+    ]
+  },
+  {
+    "id": "q339",
+    "type": "dropdown_matching",
+    "questionText": "Match each code-coverage metric to its definition.",
+    "matchingEntities": [
+      "Condition coverage",
+      "Statement coverage",
+      "Function coverage"
+    ],
+    "matchingOptions": [
+      "Percentage of executable statements that have been run at least once",
+      "Percentage of individual boolean sub-conditions evaluated both true and false",
+      "Percentage of functions or methods that have been called at least once"
+    ],
+    "correctAnswers": {
+      "Condition coverage": "Percentage of individual boolean sub-conditions evaluated both true and false",
+      "Function coverage": "Percentage of functions or methods that have been called at least once",
+      "Statement coverage": "Percentage of executable statements that have been run at least once"
+    },
+    "explanation": "Standard coverage metric definitions.",
+    "_tags": [
+      "Coverage"
+    ]
+  },
+  {
+    "id": "q340",
+    "type": "multiple_choice",
+    "questionText": "Which technique makes the lazy Singleton getInstance() thread-safe while avoiding locking on every call? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "Double-checked locking with a volatile instance field",
+      "Eager initialization of the static instance",
+      "Using an enum singleton",
+      "Removing the null check entirely",
+      "Making the constructor public"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "Double-checked locking with a volatile instance field",
+      "Eager initialization of the static instance",
+      "Using an enum singleton"
+    ],
+    "explanation": "Volatile double-checked locking, eager init, and enum singletons are all valid thread-safe approaches; removing the check or a public constructor break the pattern.",
+    "_tags": [
+      "Singleton"
+    ]
+  },
+  {
+    "id": "q341",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Bridge: the Shape2 abstraction delegates drawing to the Color implementation.",
+    "snippetWithDropZones": "interface Color {\n  void renderCircle();\n}\n\nabstract class Shape2 {\n  protected Color impl;\n  protected Shape2([[ZONE_1]] impl) {\n    this.impl = impl;\n  }\n  public abstract void draw();\n}\n\nclass RefinedShape2 extends Shape2 {\n  public RefinedShape2(Color impl) { super(impl); }\n  public void draw() {\n    impl.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Color",
+        "Shape2",
+        "void"
+      ],
+      "ZONE_2": [
+        "renderCircle()",
+        "draw()",
+        "renderCircle"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Color",
+      "ZONE_2": "renderCircle()"
+    },
+    "explanation": "Bridge holds a reference to a separate implementor hierarchy and forwards the work to it, so both sides vary independently.",
+    "_tags": [
+      "Bridge"
+    ]
+  },
+  {
+    "id": "q342",
+    "type": "dropdown_matching",
+    "questionText": "Match each kind of test double to its definition.",
+    "matchingEntities": [
+      "Fake",
+      "Mock",
+      "Spy",
+      "Stub",
+      "Dummy"
+    ],
+    "matchingOptions": [
+      "A working but lightweight implementation, such as an in-memory database",
+      "A real object wrapper that also records information about how it was called",
+      "A pre-programmed object with expectations that verifies the calls it receives",
+      "An object passed around but never actually used, only to fill a parameter list",
+      "Provides canned, predefined answers to calls made during the test"
+    ],
+    "correctAnswers": {
+      "Dummy": "An object passed around but never actually used, only to fill a parameter list",
+      "Stub": "Provides canned, predefined answers to calls made during the test",
+      "Mock": "A pre-programmed object with expectations that verifies the calls it receives",
+      "Spy": "A real object wrapper that also records information about how it was called",
+      "Fake": "A working but lightweight implementation, such as an in-memory database"
+    },
+    "explanation": "The five Meszaros test-double categories.",
+    "_tags": [
+      "Test doubles"
+    ]
+  },
+  {
+    "id": "q343",
+    "type": "multiple_choice",
+    "questionText": "In a Flyweight, where should the extrinsic (context-specific) state be kept?",
+    "codeSnippet": null,
+    "options": [
+      "Outside the shared object, supplied by the client per call",
+      "Inside the shared object as immutable fields",
+      "In a global singleton",
+      "It should be duplicated into every flyweight"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Outside the shared object, supplied by the client per call"
+    ],
+    "explanation": "Flyweight stores only shared intrinsic state internally and pushes extrinsic state out to the caller.",
+    "_tags": [
+      "Flyweight"
+    ]
+  },
+  {
+    "id": "q344",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Mediator pattern: User reports events to the ChatMediator.",
+    "snippetWithDropZones": "interface ChatMediator {\n  void notify(User sender, String event);\n}\n\nclass User {\n  protected ChatMediator mediator;\n  public User(ChatMediator mediator) { this.mediator = mediator; }\n  public void changed() {\n    mediator.[[ZONE_1]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "notify(this, \"changed\")",
+        "changed()",
+        "notify()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "notify(this, \"changed\")"
+    },
+    "explanation": "Colleagues send their events to the central mediator instead of talking to each other directly.",
+    "_tags": [
+      "Mediator"
+    ]
+  },
+  {
+    "id": "q345",
+    "type": "dropdown_matching",
+    "questionText": "Match each kind of test double to its definition.",
+    "matchingEntities": [
+      "Dummy",
+      "Stub",
+      "Spy"
+    ],
+    "matchingOptions": [
+      "Provides canned, predefined answers to calls made during the test",
+      "A real object wrapper that also records information about how it was called",
+      "An object passed around but never actually used, only to fill a parameter list"
+    ],
+    "correctAnswers": {
+      "Dummy": "An object passed around but never actually used, only to fill a parameter list",
+      "Spy": "A real object wrapper that also records information about how it was called",
+      "Stub": "Provides canned, predefined answers to calls made during the test"
+    },
+    "explanation": "The five Meszaros test-double categories.",
+    "_tags": [
+      "Test doubles"
+    ]
+  },
+  {
+    "id": "q346",
+    "type": "multiple_choice",
+    "questionText": "Which GoF category is NOT one of the three defined in the Gang of Four book?",
+    "codeSnippet": null,
+    "options": [
+      "Architectural",
+      "Creational",
+      "Structural",
+      "Behavioral"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Architectural"
+    ],
+    "explanation": "GoF defines Creational, Structural and Behavioral; Architectural is a separate, broader concept.",
+    "_tags": [
+      "reference"
+    ]
+  },
+  {
+    "id": "q347",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Mediator pattern: Aircraft reports events to the Tower.",
+    "snippetWithDropZones": "interface Tower {\n  void notify(Aircraft sender, String event);\n}\n\nclass Aircraft {\n  protected Tower mediator;\n  public Aircraft(Tower mediator) { this.mediator = mediator; }\n  public void changed() {\n    mediator.[[ZONE_1]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "notify(this, \"changed\")",
+        "changed()",
+        "notify()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "notify(this, \"changed\")"
+    },
+    "explanation": "Colleagues send their events to the central mediator instead of talking to each other directly.",
+    "_tags": [
+      "Mediator"
+    ]
+  },
+  {
+    "id": "q348",
+    "type": "dropdown_matching",
+    "questionText": "Match each kind of test double to its definition.",
+    "matchingEntities": [
+      "Mock",
+      "Stub",
+      "Fake"
+    ],
+    "matchingOptions": [
+      "Provides canned, predefined answers to calls made during the test",
+      "A pre-programmed object with expectations that verifies the calls it receives",
+      "A working but lightweight implementation, such as an in-memory database"
+    ],
+    "correctAnswers": {
+      "Fake": "A working but lightweight implementation, such as an in-memory database",
+      "Mock": "A pre-programmed object with expectations that verifies the calls it receives",
+      "Stub": "Provides canned, predefined answers to calls made during the test"
+    },
+    "explanation": "The five Meszaros test-double categories.",
+    "_tags": [
+      "Test doubles"
+    ]
+  },
+  {
+    "id": "q349",
+    "type": "multiple_choice",
+    "questionText": "Which single principle states that high-level modules and low-level modules should both depend on abstractions?",
+    "codeSnippet": null,
+    "options": [
+      "Dependency Inversion Principle (DIP)",
+      "Interface Segregation Principle (ISP)",
+      "Open/Closed Principle (OCP)",
+      "Liskov Substitution Principle (LSP)"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Dependency Inversion Principle (DIP)"
+    ],
+    "explanation": "That is the definition of the Dependency Inversion Principle.",
+    "_tags": [
+      "SOLID",
+      "DIP"
+    ]
+  },
+  {
+    "id": "q350",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Mediator pattern: Widget reports events to the DialogMediator.",
+    "snippetWithDropZones": "interface DialogMediator {\n  void notify(Widget sender, String event);\n}\n\nclass Widget {\n  protected DialogMediator mediator;\n  public Widget(DialogMediator mediator) { this.mediator = mediator; }\n  public void changed() {\n    mediator.[[ZONE_1]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "notify(this, \"changed\")",
+        "changed()",
+        "notify()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "notify(this, \"changed\")"
+    },
+    "explanation": "Colleagues send their events to the central mediator instead of talking to each other directly.",
+    "_tags": [
+      "Mediator"
+    ]
+  },
+  {
+    "id": "q351",
+    "type": "dropdown_matching",
+    "questionText": "Match each kind of test double to its definition.",
+    "matchingEntities": [
+      "Spy",
+      "Dummy",
+      "Stub",
+      "Fake"
+    ],
+    "matchingOptions": [
+      "An object passed around but never actually used, only to fill a parameter list",
+      "Provides canned, predefined answers to calls made during the test",
+      "A working but lightweight implementation, such as an in-memory database",
+      "A real object wrapper that also records information about how it was called"
+    ],
+    "correctAnswers": {
+      "Dummy": "An object passed around but never actually used, only to fill a parameter list",
+      "Fake": "A working but lightweight implementation, such as an in-memory database",
+      "Spy": "A real object wrapper that also records information about how it was called",
+      "Stub": "Provides canned, predefined answers to calls made during the test"
+    },
+    "explanation": "The five Meszaros test-double categories.",
+    "_tags": [
+      "Test doubles"
+    ]
+  },
+  {
+    "id": "q352",
+    "type": "multiple_choice",
+    "questionText": "Path coverage is generally stronger (harder to fully achieve) than which of the following? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "Statement coverage",
+      "Branch coverage",
+      "100% test pass rate",
+      "Code formatting"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "Statement coverage",
+      "Branch coverage"
+    ],
+    "explanation": "Path coverage subsumes branch coverage, which subsumes statement coverage; the others are unrelated.",
+    "_tags": [
+      "Coverage"
+    ]
+  },
+  {
+    "id": "q353",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Visitor double-dispatch in Circle.accept().",
+    "snippetWithDropZones": "interface ShapeVisitor {\n  void visit(Circle a);\n  void visit(Square b);\n}\n\ninterface Element {\n  void accept(ShapeVisitor v);\n}\n\nclass Circle implements Element {\n  public void accept([[ZONE_1]] v) {\n    v.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "ShapeVisitor",
+        "Circle",
+        "Element"
+      ],
+      "ZONE_2": [
+        "visit(this)",
+        "accept(this)",
+        "visit()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "ShapeVisitor",
+      "ZONE_2": "visit(this)"
+    },
+    "explanation": "accept() takes the visitor and calls back visit(this); the argument type selects the right overload (double dispatch).",
+    "_tags": [
+      "Visitor"
+    ]
+  },
+  {
+    "id": "q354",
+    "type": "dropdown_matching",
+    "questionText": "Match each kind of test double to its definition.",
+    "matchingEntities": [
+      "Mock",
+      "Stub",
+      "Fake",
+      "Dummy"
+    ],
+    "matchingOptions": [
+      "A pre-programmed object with expectations that verifies the calls it receives",
+      "An object passed around but never actually used, only to fill a parameter list",
+      "Provides canned, predefined answers to calls made during the test",
+      "A working but lightweight implementation, such as an in-memory database"
+    ],
+    "correctAnswers": {
+      "Dummy": "An object passed around but never actually used, only to fill a parameter list",
+      "Fake": "A working but lightweight implementation, such as an in-memory database",
+      "Mock": "A pre-programmed object with expectations that verifies the calls it receives",
+      "Stub": "Provides canned, predefined answers to calls made during the test"
+    },
+    "explanation": "The five Meszaros test-double categories.",
+    "_tags": [
+      "Test doubles"
+    ]
+  },
+  {
+    "id": "q355",
+    "type": "multiple_choice",
+    "questionText": "You must build a small rule engine that parses and evaluates boolean expressions such as '(active AND premium) OR trial' written by business users in a custom mini-language. Which single design pattern is most associated with this?",
+    "codeSnippet": null,
+    "options": [
+      "Composite",
+      "Command",
+      "Strategy",
+      "Chain of Responsibility",
+      "Visitor",
+      "Interpreter"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Interpreter"
+    ],
+    "explanation": "Defining a grammar for a little language and an evaluator for its sentences is the Interpreter pattern.",
+    "_tags": [
+      "Interpreter"
+    ]
+  },
+  {
+    "id": "q356",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Visitor double-dispatch in FileNode.accept().",
+    "snippetWithDropZones": "interface NodeVisitor {\n  void visit(FileNode a);\n  void visit(DirNode b);\n}\n\ninterface Element {\n  void accept(NodeVisitor v);\n}\n\nclass FileNode implements Element {\n  public void accept([[ZONE_1]] v) {\n    v.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "NodeVisitor",
+        "FileNode",
+        "Element"
+      ],
+      "ZONE_2": [
+        "visit(this)",
+        "accept(this)",
+        "visit()"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "NodeVisitor",
+      "ZONE_2": "visit(this)"
+    },
+    "explanation": "accept() takes the visitor and calls back visit(this); the argument type selects the right overload (double dispatch).",
+    "_tags": [
+      "Visitor"
+    ]
+  },
+  {
+    "id": "q357",
+    "type": "dropdown_matching",
+    "questionText": "Match each kind of test double to its definition.",
+    "matchingEntities": [
+      "Mock",
+      "Dummy",
+      "Fake"
+    ],
+    "matchingOptions": [
+      "A pre-programmed object with expectations that verifies the calls it receives",
+      "An object passed around but never actually used, only to fill a parameter list",
+      "A working but lightweight implementation, such as an in-memory database"
+    ],
+    "correctAnswers": {
+      "Dummy": "An object passed around but never actually used, only to fill a parameter list",
+      "Fake": "A working but lightweight implementation, such as an in-memory database",
+      "Mock": "A pre-programmed object with expectations that verifies the calls it receives"
+    },
+    "explanation": "The five Meszaros test-double categories.",
+    "_tags": [
+      "Test doubles"
+    ]
+  },
+  {
+    "id": "q358",
+    "type": "multiple_choice",
+    "questionText": "A search box lets users type a tiny query language ('price<100 AND brand=acme') that your code must parse into an expression tree and evaluate against each product. Which single design pattern fits best?",
+    "codeSnippet": null,
+    "options": [
+      "Decorator",
+      "Observer",
+      "Builder",
+      "Mediator",
+      "Interpreter",
+      "Iterator"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Interpreter"
+    ],
+    "explanation": "Representing grammar rules as classes and evaluating the resulting expression tree is the Interpreter pattern.",
+    "_tags": [
+      "Interpreter"
+    ]
+  },
+  {
+    "id": "q359",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Interpreter pattern where AddExpression adds its two sub-expressions.",
+    "snippetWithDropZones": "interface Expression {\n  int interpret();\n}\n\nclass NumberExpression implements Expression {\n  private int value;\n  NumberExpression(int value) { this.value = value; }\n  public int interpret() { return value; }\n}\n\nclass AddExpression implements [[ZONE_1]] {\n  private Expression left, right;\n  AddExpression(Expression l, Expression r) { left = l; right = r; }\n  public int interpret() {\n    return left.interpret() [[ZONE_2]] right.interpret();\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Expression",
+        "NumberExpression",
+        "AddExpression"
+      ],
+      "ZONE_2": [
+        "+",
+        "-",
+        "*"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Expression",
+      "ZONE_2": "+"
+    },
+    "explanation": "Each terminal/non-terminal implements the common Expression interface; a binary expression interprets its children and combines them with its operator.",
+    "_tags": [
+      "Interpreter"
+    ]
+  },
+  {
+    "id": "q360",
+    "type": "dropdown_matching",
+    "questionText": "Match each testing technique to its description.",
+    "matchingEntities": [
+      "Regression testing",
+      "Cardinality testing",
+      "Cyclomatic complexity",
+      "Equivalence partitioning",
+      "Boundary value analysis",
+      "Error-condition testing"
+    ],
+    "matchingOptions": [
+      "Verifies the code behaves correctly when given invalid input or when exceptions occur",
+      "Re-runs existing tests to confirm that new changes did not break old behavior",
+      "Tests the 0 / 1 / many cases for collections and counts",
+      "Counts the number of linearly independent paths through a method (decision points + 1)",
+      "Designs tests at the edges of valid input ranges (min, max, just inside/outside)",
+      "Divides inputs into classes that should be treated the same and tests one value per class"
+    ],
+    "correctAnswers": {
+      "Boundary value analysis": "Designs tests at the edges of valid input ranges (min, max, just inside/outside)",
+      "Equivalence partitioning": "Divides inputs into classes that should be treated the same and tests one value per class",
+      "Cyclomatic complexity": "Counts the number of linearly independent paths through a method (decision points + 1)",
+      "Cardinality testing": "Tests the 0 / 1 / many cases for collections and counts",
+      "Regression testing": "Re-runs existing tests to confirm that new changes did not break old behavior",
+      "Error-condition testing": "Verifies the code behaves correctly when given invalid input or when exceptions occur"
+    },
+    "explanation": "Core black-box / white-box testing techniques.",
+    "_tags": [
+      "Boundary",
+      "Equivalence",
+      "Cyclomatic",
+      "Cardinality"
+    ]
+  },
+  {
+    "id": "q361",
+    "type": "multiple_choice",
+    "questionText": "Which design pattern does the following code implement?",
+    "codeSnippet": "interface Expr { int interpret(Map<String,Integer> ctx); }\nclass Var implements Expr {\n  String name;\n  public int interpret(Map<String,Integer> c){ return c.get(name); }\n}\nclass Plus implements Expr {\n  Expr l, r;\n  public int interpret(Map<String,Integer> c){ return l.interpret(c) + r.interpret(c); }\n}",
+    "options": [
+      "Interpreter",
+      "Composite",
+      "Visitor",
+      "Strategy",
+      "Command"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Interpreter"
+    ],
+    "explanation": "An Expression interface with interpret(), terminal Number expressions and non-terminal operator expressions forming an AST is the Interpreter pattern.",
+    "_tags": [
+      "Interpreter"
+    ]
+  },
+  {
+    "id": "q362",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Interpreter pattern where SubtractExpression subtracts its two sub-expressions.",
+    "snippetWithDropZones": "interface Expression {\n  int interpret();\n}\n\nclass NumberExpression implements Expression {\n  private int value;\n  NumberExpression(int value) { this.value = value; }\n  public int interpret() { return value; }\n}\n\nclass SubtractExpression implements [[ZONE_1]] {\n  private Expression left, right;\n  SubtractExpression(Expression l, Expression r) { left = l; right = r; }\n  public int interpret() {\n    return left.interpret() [[ZONE_2]] right.interpret();\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Expression",
+        "NumberExpression",
+        "SubtractExpression"
+      ],
+      "ZONE_2": [
+        "-",
+        "+",
+        "*"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Expression",
+      "ZONE_2": "-"
+    },
+    "explanation": "Each terminal/non-terminal implements the common Expression interface; a binary expression interprets its children and combines them with its operator.",
+    "_tags": [
+      "Interpreter"
+    ]
+  },
+  {
+    "id": "q363",
+    "type": "dropdown_matching",
+    "questionText": "Match each testing technique to its description.",
+    "matchingEntities": [
+      "Cyclomatic complexity",
+      "Equivalence partitioning",
+      "Boundary value analysis",
+      "Regression testing",
+      "Error-condition testing"
+    ],
+    "matchingOptions": [
+      "Re-runs existing tests to confirm that new changes did not break old behavior",
+      "Designs tests at the edges of valid input ranges (min, max, just inside/outside)",
+      "Verifies the code behaves correctly when given invalid input or when exceptions occur",
+      "Divides inputs into classes that should be treated the same and tests one value per class",
+      "Counts the number of linearly independent paths through a method (decision points + 1)"
+    ],
+    "correctAnswers": {
+      "Boundary value analysis": "Designs tests at the edges of valid input ranges (min, max, just inside/outside)",
+      "Cyclomatic complexity": "Counts the number of linearly independent paths through a method (decision points + 1)",
+      "Equivalence partitioning": "Divides inputs into classes that should be treated the same and tests one value per class",
+      "Error-condition testing": "Verifies the code behaves correctly when given invalid input or when exceptions occur",
+      "Regression testing": "Re-runs existing tests to confirm that new changes did not break old behavior"
+    },
+    "explanation": "Core black-box / white-box testing techniques.",
+    "_tags": [
+      "Boundary",
+      "Equivalence",
+      "Cyclomatic",
+      "Cardinality"
+    ]
+  },
+  {
+    "id": "q364",
+    "type": "multiple_choice",
+    "questionText": "Which statement best describes the Interpreter pattern?",
+    "codeSnippet": null,
+    "options": [
+      "It defines a representation for a grammar plus an interpreter that evaluates sentences in that language",
+      "It provides sequential access to a collection's elements",
+      "It adds responsibilities to an object by wrapping it",
+      "It ensures a class has only one instance"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "It defines a representation for a grammar plus an interpreter that evaluates sentences in that language"
+    ],
+    "explanation": "Interpreter models grammar rules as a class hierarchy and evaluates expression trees built from them.",
+    "_tags": [
+      "Interpreter"
+    ]
+  },
+  {
+    "id": "q365",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Interpreter pattern where MultiplyExpression multiplies its two sub-expressions.",
+    "snippetWithDropZones": "interface Expression {\n  int interpret();\n}\n\nclass NumberExpression implements Expression {\n  private int value;\n  NumberExpression(int value) { this.value = value; }\n  public int interpret() { return value; }\n}\n\nclass MultiplyExpression implements [[ZONE_1]] {\n  private Expression left, right;\n  MultiplyExpression(Expression l, Expression r) { left = l; right = r; }\n  public int interpret() {\n    return left.interpret() [[ZONE_2]] right.interpret();\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Expression",
+        "NumberExpression",
+        "MultiplyExpression"
+      ],
+      "ZONE_2": [
+        "*",
+        "+",
+        "-"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Expression",
+      "ZONE_2": "*"
+    },
+    "explanation": "Each terminal/non-terminal implements the common Expression interface; a binary expression interprets its children and combines them with its operator.",
+    "_tags": [
+      "Interpreter"
+    ]
+  },
+  {
+    "id": "q366",
+    "type": "dropdown_matching",
+    "questionText": "Match each testing technique to its description.",
+    "matchingEntities": [
+      "Cyclomatic complexity",
+      "Error-condition testing",
+      "Cardinality testing",
+      "Equivalence partitioning"
+    ],
+    "matchingOptions": [
+      "Divides inputs into classes that should be treated the same and tests one value per class",
+      "Tests the 0 / 1 / many cases for collections and counts",
+      "Verifies the code behaves correctly when given invalid input or when exceptions occur",
+      "Counts the number of linearly independent paths through a method (decision points + 1)"
+    ],
+    "correctAnswers": {
+      "Cardinality testing": "Tests the 0 / 1 / many cases for collections and counts",
+      "Cyclomatic complexity": "Counts the number of linearly independent paths through a method (decision points + 1)",
+      "Equivalence partitioning": "Divides inputs into classes that should be treated the same and tests one value per class",
+      "Error-condition testing": "Verifies the code behaves correctly when given invalid input or when exceptions occur"
+    },
+    "explanation": "Core black-box / white-box testing techniques.",
+    "_tags": [
+      "Boundary",
+      "Equivalence",
+      "Cyclomatic",
+      "Cardinality"
+    ]
+  },
+  {
+    "id": "q367",
+    "type": "multiple_choice",
+    "questionText": "In a typical Interpreter implementation, which roles usually appear? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "An abstract Expression with an interpret() method",
+      "Terminal expressions (e.g., numbers, variables)",
+      "Non-terminal expressions (e.g., add, multiply) holding sub-expressions",
+      "A single static instance shared globally",
+      "A cloning method to copy the grammar"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "An abstract Expression with an interpret() method",
+      "Terminal expressions (e.g., numbers, variables)",
+      "Non-terminal expressions (e.g., add, multiply) holding sub-expressions"
+    ],
+    "explanation": "Interpreter has an abstract expression plus terminal and non-terminal expression classes; the other options describe Singleton/Prototype.",
+    "_tags": [
+      "Interpreter"
+    ]
+  },
+  {
+    "id": "q368",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Interpreter pattern where DivideExpression divides its two sub-expressions.",
+    "snippetWithDropZones": "interface Expression {\n  int interpret();\n}\n\nclass NumberExpression implements Expression {\n  private int value;\n  NumberExpression(int value) { this.value = value; }\n  public int interpret() { return value; }\n}\n\nclass DivideExpression implements [[ZONE_1]] {\n  private Expression left, right;\n  DivideExpression(Expression l, Expression r) { left = l; right = r; }\n  public int interpret() {\n    return left.interpret() [[ZONE_2]] right.interpret();\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Expression",
+        "NumberExpression",
+        "DivideExpression"
+      ],
+      "ZONE_2": [
+        "/",
+        "+",
+        "-"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Expression",
+      "ZONE_2": "/"
+    },
+    "explanation": "Each terminal/non-terminal implements the common Expression interface; a binary expression interprets its children and combines them with its operator.",
+    "_tags": [
+      "Interpreter"
+    ]
+  },
+  {
+    "id": "q369",
+    "type": "dropdown_matching",
+    "questionText": "Match each testing technique to its description.",
+    "matchingEntities": [
+      "Regression testing",
+      "Boundary value analysis",
+      "Cyclomatic complexity"
+    ],
+    "matchingOptions": [
+      "Re-runs existing tests to confirm that new changes did not break old behavior",
+      "Designs tests at the edges of valid input ranges (min, max, just inside/outside)",
+      "Counts the number of linearly independent paths through a method (decision points + 1)"
+    ],
+    "correctAnswers": {
+      "Boundary value analysis": "Designs tests at the edges of valid input ranges (min, max, just inside/outside)",
+      "Cyclomatic complexity": "Counts the number of linearly independent paths through a method (decision points + 1)",
+      "Regression testing": "Re-runs existing tests to confirm that new changes did not break old behavior"
+    },
+    "explanation": "Core black-box / white-box testing techniques.",
+    "_tags": [
+      "Boundary",
+      "Equivalence",
+      "Cyclomatic",
+      "Cardinality"
+    ]
+  },
+  {
+    "id": "q370",
+    "type": "multiple_choice",
+    "questionText": "A social network must let callers walk a user's friends list one by one (and later a paginated server-backed version) without ever exposing whether the data is an array, a linked list, or a remote cursor. Which single design pattern fits best?",
+    "codeSnippet": null,
+    "options": [
+      "Proxy",
+      "Strategy",
+      "Visitor",
+      "Iterator",
+      "Observer",
+      "Composite"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Iterator"
+    ],
+    "explanation": "Providing uniform sequential access while hiding the underlying storage is the Iterator pattern.",
+    "_tags": [
+      "Iterator"
+    ]
+  },
+  {
+    "id": "q371",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Interpreter pattern where ModuloExpression takes the remainder of its two sub-expressions.",
+    "snippetWithDropZones": "interface Expression {\n  int interpret();\n}\n\nclass NumberExpression implements Expression {\n  private int value;\n  NumberExpression(int value) { this.value = value; }\n  public int interpret() { return value; }\n}\n\nclass ModuloExpression implements [[ZONE_1]] {\n  private Expression left, right;\n  ModuloExpression(Expression l, Expression r) { left = l; right = r; }\n  public int interpret() {\n    return left.interpret() [[ZONE_2]] right.interpret();\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Expression",
+        "NumberExpression",
+        "ModuloExpression"
+      ],
+      "ZONE_2": [
+        "%",
+        "+",
+        "-"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Expression",
+      "ZONE_2": "%"
+    },
+    "explanation": "Each terminal/non-terminal implements the common Expression interface; a binary expression interprets its children and combines them with its operator.",
+    "_tags": [
+      "Interpreter"
+    ]
+  },
+  {
+    "id": "q372",
+    "type": "dropdown_matching",
+    "questionText": "Match each testing technique to its description.",
+    "matchingEntities": [
+      "Cardinality testing",
+      "Equivalence partitioning",
+      "Regression testing",
+      "Error-condition testing"
+    ],
+    "matchingOptions": [
+      "Tests the 0 / 1 / many cases for collections and counts",
+      "Divides inputs into classes that should be treated the same and tests one value per class",
+      "Verifies the code behaves correctly when given invalid input or when exceptions occur",
+      "Re-runs existing tests to confirm that new changes did not break old behavior"
+    ],
+    "correctAnswers": {
+      "Cardinality testing": "Tests the 0 / 1 / many cases for collections and counts",
+      "Equivalence partitioning": "Divides inputs into classes that should be treated the same and tests one value per class",
+      "Error-condition testing": "Verifies the code behaves correctly when given invalid input or when exceptions occur",
+      "Regression testing": "Re-runs existing tests to confirm that new changes did not break old behavior"
+    },
+    "explanation": "Core black-box / white-box testing techniques.",
+    "_tags": [
+      "Boundary",
+      "Equivalence",
+      "Cyclomatic",
+      "Cardinality"
+    ]
+  }
+]

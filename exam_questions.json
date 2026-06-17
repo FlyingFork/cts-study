@@ -1,0 +1,653 @@
+{
+  "schema": {
+    "description": "Each question keeps the original keys (id, type, questionText, codeSnippet, options/dropZones/matchingEntities) plus added fields for grading: isMultiSelect (boolean) and correctAnswers. For multiple_choice, correctAnswers is an array of exact strings matching entries in 'options' (length 1 if isMultiSelect is false). For drag_and_drop, correctAnswers is an object mapping each ZONE key to the correct string from dropZones. For dropdown_matching, correctAnswers is an object mapping each entry in matchingEntities to the correct string from matchingOptions. 'explanation' is a short justification for studying."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple_choice",
+      "questionText": "What Design Patterns can help implement the following scenario? A travel agency changes airline ticket supplier. The old provider used a REST web service through which the agency could make price requests and reservations. The new supplier uses the IATA console which involves sending text parameters. The agency wants to use a DP that allows it not to change the existing code, and for price requests and reservations to use predefined IATA codes. In addition, the agency wants to use a DP that allows the creation of an IATA order validator that, before a text IATA code is sent to the server, checks that it is valid, otherwise returning a local error and the call to the server not happening.",
+      "codeSnippet": null,
+      "options": [
+        "Adapter",
+        "Command",
+        "Builder",
+        "Chain",
+        "Proxy",
+        "Observer",
+        "Facade",
+        "Decorator"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": ["Adapter", "Proxy"],
+      "explanation": "Adapter lets the agency keep using its existing code/interface against the new IATA text-based supplier. Proxy implements the validator that intercepts the call and blocks it locally before it ever reaches the server."
+    },
+    {
+      "id": "q2",
+      "type": "multiple_choice",
+      "questionText": "Which SOLID principle is violated in the example below?",
+      "codeSnippet": "public class Main {\n  static class IntegerNumber {\n    protected String value;\n    protected boolean hasSign;\n    \n    public IntegerNumber(boolean hasSign, String value) {\n      this.hasSign = hasSign;\n      this.value = value;\n    }\n    public String toString() {\n      return (hasSign ? \"-\" : \"+\") + value;\n    }\n  }\n  \n  static class NaturalNumber extends IntegerNumber {\n    public NaturalNumber(boolean hasSign, String value) {\n      super(hasSign, value);\n    }\n    public String toString() {\n      return \"\" + value;\n    }\n  }\n  \n  public static void main(String[] args) {\n    IntegerNumber i = new IntegerNumber(true, \"5\");\n    System.out.println(i);\n    NaturalNumber n = new NaturalNumber(true, \"7\");\n    System.out.println(n);\n  }\n}",
+      "options": ["ISP", "LSP", "OCP", "DIP", "SRP"],
+      "isMultiSelect": false,
+      "correctAnswers": ["LSP"],
+      "explanation": "NaturalNumber overrides toString() and changes the inherited behavior/contract, so substituting it where an IntegerNumber is expected produces a different result than callers expect."
+    },
+    {
+      "id": "q3",
+      "type": "multiple_choice",
+      "questionText": "Which of the following statements regarding unit tests, written according to FIRST principles, is false?",
+      "codeSnippet": null,
+      "options": [
+        "the order in which unit tests are executed can determine the type of result of a test",
+        "unit tests must be able to be run an unlimited number of times, with the same result",
+        "unit tests cannot use information read from a database as input data",
+        "the result of a unit test can be: success, non-fatal failure and fatal failure",
+        "a unit test cannot use the result of another unit test as input data"
+      ],
+      "isMultiSelect": false,
+      "correctAnswers": [
+        "the order in which unit tests are executed can determine the type of result of a test"
+      ],
+      "explanation": "FIRST requires tests to be Independent/Isolated, meaning execution order must NOT affect the outcome. This statement contradicts that, making it the false one."
+    },
+    {
+      "id": "q4",
+      "type": "multiple_choice",
+      "questionText": "What problems may arise for the next implementation of Simple Factory: (Select 1 or more)",
+      "codeSnippet": "class ShapeFactory { \n  public Shape create(String type) {\n    if(type.equals(\"CIRCLE\"))\n      return new Circle();\n    if(type.equals(\"RECTANGLE\"))\n      return new Rectangle();\n    if(type.equals(\"TRIANGLE\"))\n      return new Triangle();\n    return null;\n  }\n}",
+      "options": [
+        "Not clean as you have multiple if-then",
+        "Possibility of returning null value",
+        "create() method name is misleading",
+        "Receiving a String type",
+        "Adding a new type requires modifying the factory"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": [
+        "Not clean as you have multiple if-then",
+        "Possibility of returning null value",
+        "Receiving a String type",
+        "Adding a new type requires modifying the factory"
+      ],
+      "explanation": "The if-chain is unwieldy, an unmatched string silently returns null, raw strings aren't type-safe (typos = runtime bugs), and every new shape forces an edit to the factory (OCP violation). The method name itself isn't really a defect."
+    },
+    {
+      "id": "q5",
+      "type": "multiple_choice",
+      "questionText": "You are working on an e-commerce application where order processing follows a standardized algorithm: card payment, order registration in the system, and data transmission to the seller. The structure of these steps should remain unchanged for all orders, regardless of their type. Later, new business requirements arise, such as sending order and customer information to courier companies. This functionality is not part of the core flow, but should be added optionally, without changing the existing order logic. What are the most suitable design patterns for implementing this functionality? Select 1 or more answers",
+      "codeSnippet": null,
+      "options": [
+        "State",
+        "Chain of Responsibility",
+        "Command",
+        "Proxy",
+        "Adapter",
+        "Observer",
+        "Factory Method",
+        "Builder",
+        "Prototype",
+        "Flyweight",
+        "Strategy",
+        "Decorator",
+        "Template Method",
+        "Composite"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": ["Template Method", "Decorator"],
+      "explanation": "The fixed step order is a Template Method skeleton. The optional courier notification, layered on top without touching the core algorithm, is a Decorator-style add-on. (Observer is a defensible alternate pick if framed as a notify-subscribers event instead.)"
+    },
+    {
+      "id": "q6",
+      "type": "multiple_choice",
+      "questionText": "In the following Adapter example, which statement is missing?",
+      "codeSnippet": "interface PaymentProcessor {\n  void pay(double amount);\n}\n\nclass LegacyPayment {\n  void makePayment(double value) { }\n}\n\nclass PaymentAdapter implements PaymentProcessor {\n  private LegacyPayment legacyPayment;\n  public void pay(double amount) {\n    _________\n  }\n}",
+      "options": [
+        "this.pay(amount);",
+        "PaymentProcessor.pay(amount);",
+        "legacyPayment.makePayment(amount);",
+        "return new LegacyPayment();"
+      ],
+      "isMultiSelect": false,
+      "correctAnswers": ["legacyPayment.makePayment(amount);"],
+      "explanation": "The adapter's job is to delegate the call to the adaptee's real method."
+    },
+    {
+      "id": "q7",
+      "type": "multiple_choice",
+      "questionText": "What factors influence the increase in cyclomatic complexity? Select 1 or more answers.",
+      "codeSnippet": null,
+      "options": [
+        "Multiple branches and combined conditions",
+        "Modular and single-responsibility code",
+        "Try-catch blocks",
+        "Code with many returns in same function",
+        "If, while, for, switch instructions"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": [
+        "Multiple branches and combined conditions",
+        "Try-catch blocks",
+        "Code with many returns in same function",
+        "If, while, for, switch instructions"
+      ],
+      "explanation": "All of these add decision points/paths, which is what cyclomatic complexity counts. Modular, single-responsibility code reduces complexity rather than raising it."
+    },
+    {
+      "id": "q8",
+      "type": "multiple_choice",
+      "questionText": "Which Design Pattern is the functionality implemented in the code sequence below specific to?",
+      "codeSnippet": "private List<TextDocument> documents = new ArrayList<>();\n\npublic void addDocument(TextDocument document){\n  try {\n    documents.add((TextDocument) document.clone());\n  } catch (CloneNotSupportedException e) {\n    e.printStackTrace();\n  }\n}\n\npublic TextDocument getPreviousDocument(){\n  if(!history.isEmpty()){\n    TextDocument document = documents.get(history.size()-1);\n    documents.remove(document);\n    return document;\n  }\n  throw new UnsupportedOperationException();\n}",
+      "options": [
+        "Command",
+        "Chain of responsibility",
+        "Composite",
+        "Observer",
+        "Memento"
+      ],
+      "isMultiSelect": false,
+      "correctAnswers": ["Memento"],
+      "explanation": "Cloning state into a history list and being able to pop the last snapshot off to restore it is exactly the Memento pattern's purpose."
+    },
+    {
+      "id": "q9",
+      "type": "drag_and_drop",
+      "questionText": "Place the correct terms so that the DIP is respected:",
+      "snippetWithDropZones": "interface Logger {\n  void log(String msg);\n}\n\nclass FileLogger implements [[ZONE_1]] {\n  public void log([[ZONE_2]] msg) {\n    System.out.println(msg);\n  }\n}\n\nclass Service {\n  private [[ZONE_3]] logger;\n  Service(Logger logger) {\n    this.logger = logger;\n  }\n}",
+      "dropZones": {
+        "ZONE_1": ["FileLogger", "Service", "Logger"],
+        "ZONE_2": ["String", "Logger", "Service"],
+        "ZONE_3": ["Logger", "FileLogger", "String"]
+      },
+      "correctAnswers": {
+        "ZONE_1": "Logger",
+        "ZONE_2": "String",
+        "ZONE_3": "Logger"
+      },
+      "explanation": "DIP: FileLogger must implement the abstraction (Logger), the method signature must match the interface (String msg), and Service must depend on the abstraction (Logger), not a concrete class."
+    },
+    {
+      "id": "q10",
+      "type": "multiple_choice",
+      "questionText": "In a Flyweight implementation for 3D graphics models, what type of data should be stored outside of the shared object?",
+      "codeSnippet": null,
+      "options": [
+        "Common Texture Data",
+        "Shared metadata",
+        "The extrinsic/temporary state, specific to each context",
+        "Intrinsic/permanent and immutable state"
+      ],
+      "isMultiSelect": false,
+      "correctAnswers": [
+        "The extrinsic/temporary state, specific to each context"
+      ],
+      "explanation": "Flyweight keeps shared/intrinsic data inside the shared object and pushes context-specific (extrinsic) data out to the caller."
+    },
+    {
+      "id": "q11",
+      "type": "multiple_choice",
+      "questionText": "What problem does the following Singleton implementation have?",
+      "codeSnippet": "public class DBConnection {\n  private static DBConnection instance;\n  private DBConnection() { }\n\n  public static DBConnection getInstance() {\n    if (instance == null) {\n      instance = new DBConnection();\n    }\n    return instance;\n  }\n}",
+      "options": [
+        "Violates LSP",
+        "Encapsulation is not respected",
+        "Violates SRP",
+        "It is not Thread Safe",
+        "Violates DIP"
+      ],
+      "isMultiSelect": false,
+      "correctAnswers": ["It is not Thread Safe"],
+      "explanation": "The lazy-init check-then-create has a race condition: two threads can both pass the null check and create two instances."
+    },
+    {
+      "id": "q12",
+      "type": "multiple_choice",
+      "questionText": "Which SOLID principle is violated?",
+      "codeSnippet": "class Report {\n  void generate() { System.out.println(\"Generating report\"); }\n  void exportPDF() { System.out.println(\"Export PDF\"); }\n  void sendEmail() { System.out.println(\"Sending email\"); }\n}",
+      "options": ["SRP", "ISP", "OCP", "LSP", "DIP"],
+      "isMultiSelect": false,
+      "correctAnswers": ["SRP"],
+      "explanation": "Report mixes report generation, export, and emailing — three unrelated reasons to change the class."
+    },
+    {
+      "id": "q13",
+      "type": "dropdown_matching",
+      "questionText": "Group the following Design Patterns with their specific characteristics:",
+      "matchingEntities": [
+        "Simple Factory",
+        "Singleton",
+        "Composite",
+        "Flyweight",
+        "Proxy"
+      ],
+      "matchingOptions": [
+        "You can apply it in multiple layers [ pattern(pattern(pattern)) ]",
+        "Requires separating the object data into two classes/parts",
+        "Encapsulates object creation logic in a separate class or method",
+        "Allows clients to treat individual objects and groups of objects uniformly",
+        "Requires the use of a private constructor"
+      ],
+      "correctAnswers": {
+        "Simple Factory": "Encapsulates object creation logic in a separate class or method",
+        "Singleton": "Requires the use of a private constructor",
+        "Composite": "Allows clients to treat individual objects and groups of objects uniformly",
+        "Flyweight": "Requires separating the object data into two classes/parts",
+        "Proxy": "You can apply it in multiple layers [ pattern(pattern(pattern)) ]"
+      },
+      "explanation": "Flyweight splits state into intrinsic/extrinsic parts; Proxy commonly chains (proxy of a proxy of the real subject)."
+    },
+    {
+      "id": "q14",
+      "type": "multiple_choice",
+      "questionText": "Choose the correct statements regarding the following code sequence: (select 1 or more answers)",
+      "codeSnippet": "interface Printer { \n  void print(String text);\n}\n\nclass OldPrinter {\n  void printText(String text) {\n    System.out.println(text);\n  }\n}\n\nclass PrinterAdapter implements Printer {\n  private OldPrinter oldPrinter = new OldPrinter();\n\n  public void print(String text) {\n    oldPrinter.printText(text);\n  }\n}",
+      "options": [
+        "The PrinterAdapter class represents the Old context",
+        "The PrinterAdapter class represents the Adapter",
+        "The Printer interface represents the New context",
+        "A class adapter is implemented",
+        "An object adapter is implemented",
+        "The OldPrinter class represents the Old context",
+        "The Printer class represents the Adapter",
+        "The PrinterAdapter class represents the New context"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": [
+        "The PrinterAdapter class represents the Adapter",
+        "The Printer interface represents the New context",
+        "An object adapter is implemented",
+        "The OldPrinter class represents the Old context"
+      ],
+      "explanation": "PrinterAdapter holds a reference to OldPrinter (composition, not inheritance), so this is an object adapter, not a class adapter."
+    },
+    {
+      "id": "q15",
+      "type": "multiple_choice",
+      "questionText": "Being given the next method and considering only the test shown above, what is the achieved code coverage?",
+      "codeSnippet": "public int calculate(int x) {\n  if (x > 10) {\n    return 1;\n  }\n  System.out.println(\"Computation done\");\n  return 0;\n}\n\n@Test\npublic void testCalculate() {\n  assertEquals(1, calculate(15));\n}",
+      "options": [
+        "100% Statement Coverage, 100% Branch Coverage",
+        "0% Statement Coverage, 0% Branch Coverage",
+        "50% Statement Coverage, 100% Branch Coverage",
+        "50% Statement Coverage, 50% Branch Coverage",
+        "100% Statement Coverage, 50% Branch Coverage"
+      ],
+      "isMultiSelect": false,
+      "correctAnswers": ["50% Statement Coverage, 50% Branch Coverage"],
+      "explanation": "calculate(15) only takes the true branch and its return; println and the false-branch return are never executed (2 of 4 statements, 1 of 2 branches)."
+    },
+    {
+      "id": "q16",
+      "type": "multiple_choice",
+      "questionText": "What changes would improve compliance with the Interface Segregation principle for the following code? Select 1 or more answers.",
+      "codeSnippet": "interface Machine {\n  void print();\n  void scan();\n  void fax();\n}\n\nclass SimplePrinter implements Machine {\n  public void print() {\n    System.out.println(\"Printing...\");\n  }\n  public void scan() {\n    // Not needed\n  }\n  public void fax() {\n    // Not needed\n  }\n}",
+      "options": [
+        "Keeping all methods even if they are not used",
+        "Refactoring the SimplePrinter class to implement an interface that only contains the print() method",
+        "Introducing abstract classes or interfaces for each function",
+        "Using a helper class instead of an interface",
+        "Abstracting unimplemented methods in the SimplePrinter class",
+        "Dividing the Machine interface into multiple interfaces: Printable, Scannable, Faxable"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": [
+        "Refactoring the SimplePrinter class to implement an interface that only contains the print() method",
+        "Dividing the Machine interface into multiple interfaces: Printable, Scannable, Faxable"
+      ],
+      "explanation": "Both are textbook ISP fixes: split the fat interface so each implementer only depends on the methods it actually uses."
+    },
+    {
+      "id": "q17",
+      "type": "multiple_choice",
+      "questionText": "You are developing an application for a car dealership that allows you to configure cars for sale. Each car can have a basic configuration, to which you can add extra options such as heated seats, parking sensors, blind spot assist, lane keeping system, and adaptive cruise control. In practice, it is observed that many cars are sold with similar configurations. For this reason, a way is needed to quickly create new configurations starting from an already defined car, without re-entering all the options from scratch. What are the most suitable design patterns for implementing this functionality? Select 1 or more answers",
+      "codeSnippet": null,
+      "options": [
+        "Observer",
+        "Adapter",
+        "Composite",
+        "Factory Method",
+        "Decorator",
+        "Prototype",
+        "Proxy",
+        "Builder",
+        "Flyweight",
+        "Strategy",
+        "Chain of Responsibility",
+        "Memento",
+        "Singleton",
+        "Template Method",
+        "State"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": ["Decorator", "Prototype"],
+      "explanation": "Adding optional extras on top of a base config is the classic Decorator use case (same idea as toppings on a base coffee). Quickly creating a new config by copying an existing car instead of rebuilding from scratch is Prototype."
+    },
+    {
+      "id": "q18",
+      "type": "multiple_choice",
+      "questionText": "The following class is considered. What does the following test say?",
+      "codeSnippet": "public class Stack {\n  private Deque<Integer> stack = new ArrayDeque<>();\n  public void push(int value) {\n    stack.push(value);\n  }\n  public int pop() {\n    return stack.pop();\n  }\n  public boolean isEmpty() {\n    return stack.isEmpty();\n  }\n}\n\n@Test\npublic void testStack() {\n  Stack s = new Stack();\n  s.push(10);\n  int x = s.pop();\n  assertEquals(x, 10);\n}",
+      "options": [
+        "The test validates a limit value",
+        "The test validates that the push and pop methods are inverse operations",
+        "Check an inheritance relationship",
+        "The test is not clean because it calls multiple methods in a single test",
+        "The test validates a boundary operation",
+        "The test is not clean because it does not respect the Single Responsibility principle"
+      ],
+      "isMultiSelect": false,
+      "correctAnswers": [
+        "The test validates that the push and pop methods are inverse operations"
+      ],
+      "explanation": "It pushes 10, pops, and checks it got 10 back — confirming the two operations undo each other."
+    },
+    {
+      "id": "q19",
+      "type": "drag_and_drop",
+      "questionText": "Considering the implementation of the Command Design Pattern below, fill in the missing spaces with the necessary classes, objects or methods, knowing that the GUI class is the concrete executor.",
+      "snippetWithDropZones": "interface Command {\n  void execute();\n}\n\nclass GUI {\n  public void drawUI() {\n    System.out.println(\"UI loaded\");\n  }\n}\n\nclass DrawUICommand implements [[ZONE_1]] {\n  private GUI gui;\n  public DrawUICommand([[ZONE_2]] gui) {\n    this.gui = gui;\n  }\n  public void execute() {\n    gui.[[ZONE_3]];\n  }\n}",
+      "dropZones": {
+        "ZONE_1": ["Command", "GUI", "this"],
+        "ZONE_2": ["GUI", "Command", "drawUI()"],
+        "ZONE_3": ["drawUI()", "execute()", "this"]
+      },
+      "correctAnswers": {
+        "ZONE_1": "Command",
+        "ZONE_2": "GUI",
+        "ZONE_3": "drawUI()"
+      },
+      "explanation": "DrawUICommand implements the Command interface, takes the receiver (GUI) in its constructor, and calls the receiver's real method inside execute()."
+    },
+    {
+      "id": "q20",
+      "type": "drag_and_drop",
+      "questionText": "Place the terms for the correct implementation of a Singleton class:",
+      "snippetWithDropZones": "class Singleton {\n  private [[ZONE_1]] [[ZONE_2]] instance;\n\n  [[ZONE_3]] Singleton() {}\n\n  public [[ZONE_4]] Singleton getInstance() {\n    if (instance == null) {\n      [[ZONE_5]] = new Singleton();\n    }\n    return [[ZONE_6]];\n  }\n}",
+      "dropZones": {
+        "ZONE_1": ["static", "default", "void"],
+        "ZONE_2": ["Singleton", "class", "interface"],
+        "ZONE_3": ["private", "public", "protected"],
+        "ZONE_4": ["static", "Object", "default"],
+        "ZONE_5": ["instance", "Singleton instance", "this"],
+        "ZONE_6": ["instance", "return", "getInstance"]
+      },
+      "correctAnswers": {
+        "ZONE_1": "static",
+        "ZONE_2": "Singleton",
+        "ZONE_3": "private",
+        "ZONE_4": "static",
+        "ZONE_5": "instance",
+        "ZONE_6": "instance"
+      },
+      "explanation": "Private static field of the class's own type, private constructor, public static accessor that lazily creates and returns the one instance."
+    },
+    {
+      "id": "q21",
+      "type": "multiple_choice",
+      "questionText": "The code below is specific to the use of which Design Pattern?",
+      "codeSnippet": "Order fancyOrder = new Order.PatternName(\n  \"customer-002\", \n  List.of(\"Ceas de lux\", \"Cutie cadou\")\n)\n.withDiscount(0.15)\n.withExpressDelivery()\n.withGiftWrap()\n.withShippingNote(\"A nu se deschide inainte de Craciun!\")\n.specificMethod();",
+      "options": ["Prototype", "Decorator", "Factory", "Builder", "Strategy"],
+      "isMultiSelect": false,
+      "correctAnswers": ["Builder"],
+      "explanation": "The fluent method chain building up a complex Order step by step is Builder's signature style."
+    },
+    {
+      "id": "q22",
+      "type": "multiple_choice",
+      "questionText": "The following image implements the Template Method design pattern. Why is the generate() method final?",
+      "codeSnippet": "abstract class Report {\n  public final void generate() {\n    loadData();\n    processData();\n    export();\n  }\n  protected abstract void processData();\n  protected abstract void loadData();\n  protected abstract void export();\n}",
+      "options": [
+        "To generate the final data analysis process",
+        "To allow its overriding within classes that inherit it",
+        "To prevent subclasses from modifying the algorithm structure",
+        "To improve the performance of the Report class at runtime",
+        "To create final Singleton objects"
+      ],
+      "isMultiSelect": false,
+      "correctAnswers": [
+        "To prevent subclasses from modifying the algorithm structure"
+      ],
+      "explanation": "Marking the skeleton method final locks the order of steps in place; subclasses can only override the individual steps, not the algorithm's structure."
+    },
+    {
+      "id": "q23",
+      "type": "multiple_choice",
+      "questionText": "What will be the result of executing the following code sequence in JUnit 4?",
+      "codeSnippet": "public class SomeClassTests {\n  @BeforeClass\n  public static void setup() {\n    System.out.print(\"A\");\n  }\n  @AfterClass\n  public static void teardown() {\n    System.out.print(\"B\");\n  }\n  @Before\n  public void initialize() {\n    System.out.print(\"C\");\n  }\n  @After\n  public void uninitialize() {\n    System.out.print(\"D\");\n  }\n  @Test\n  public void test1() {\n    double result = op.sum(2, 4);\n    Assert.assertEquals(\"Sum result is not correct\", 6, result, 0.00009);\n  }\n  @Test\n  public void test2() {\n    double result = op.sum(-2, 2);\n    Assert.assertEquals(\"Sum result is not correct\", 0, result, 0.00009);\n  }\n}",
+      "options": ["ACCDDB", "CABABD", "ABCD", "ACDCDB", "CAABBD"],
+      "isMultiSelect": false,
+      "correctAnswers": ["ACDCDB"],
+      "explanation": "@BeforeClass (A) runs once first. Each test gets its own @Before (C) ... @After (D) wrapper. @AfterClass (B) runs once last: A, C, D, C, D, B."
+    },
+    {
+      "id": "q24",
+      "type": "multiple_choice",
+      "questionText": "Which of the following cases are typical examples of boundary testing?",
+      "codeSnippet": null,
+      "options": [
+        "Testing the maximum accepted value of an int field",
+        "Inserting the value 0 into a function that only accepts natural numbers",
+        "Inserting elements through another method",
+        "Testing network behavior",
+        "Testing the minimum permitted length for a string",
+        "Verifying the call order between methods"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": [
+        "Testing the maximum accepted value of an int field",
+        "Inserting the value 0 into a function that only accepts natural numbers",
+        "Testing the minimum permitted length for a string"
+      ],
+      "explanation": "Boundary testing targets the edges of valid input ranges (min/max values, the zero edge case for natural numbers). Call ordering and network behavior aren't boundary concerns."
+    },
+    {
+      "id": "q25",
+      "type": "multiple_choice",
+      "questionText": "You are developing a trading application for the Bucharest Stock Exchange. During tests, you notice that every time the application restarts, a new database instance is created, leading to multiple independent instances and loss of data consistency. You need to ensure the application uses a single database instance throughout execution. In addition, the application must allow the creation of objects for different types of stocks (ordinary, preferred, convertible, and redeemable), all belonging to the same family of objects. What are the most suitable design patterns for implementing this functionality?",
+      "codeSnippet": null,
+      "options": [
+        "Observer",
+        "Factory Method",
+        "Composite",
+        "Template Method",
+        "Strategy",
+        "Command",
+        "State",
+        "Decorator",
+        "Builder",
+        "Proxy",
+        "Singleton",
+        "Chain of Responsibility",
+        "Flyweight",
+        "Adapter",
+        "Prototype"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": ["Singleton", "Factory Method"],
+      "explanation": "Singleton guarantees one shared DB instance app-wide. Factory Method (the closest creational option in this list) defers creation of the different stock subtypes to subclasses."
+    },
+    {
+      "id": "q26",
+      "type": "multiple_choice",
+      "questionText": "Which of the following categories of Design Patterns is NOT presented in the 'Gang of Four' (GoF) book?",
+      "codeSnippet": null,
+      "options": ["Structural", "Architectural", "Creational", "Behavioral"],
+      "isMultiSelect": false,
+      "correctAnswers": ["Architectural"],
+      "explanation": "GoF only defines Creational, Structural, and Behavioral categories. Architectural patterns are a separate, broader concept."
+    },
+    {
+      "id": "q27",
+      "type": "multiple_choice",
+      "questionText": "You are developing a Large Language Model and need to define the sources it will search for information. Initially, the model will query the digital book library. If the information is not found, it will continue searching in scientific articles, then on Wikipedia, and if it still doesn't find the answer, it will inform the user that it does not have the requested information. After the solution is published, it is desired that for technology-related questions, the model applies a filter and uses only sources published in the last 10 years, ignoring older materials. What are the most suitable design patterns for implementing this functionality?",
+      "codeSnippet": null,
+      "options": [
+        "Chain of Responsibility",
+        "Adapter",
+        "Prototype",
+        "Proxy",
+        "Decorator",
+        "Factory Method",
+        "Flyweight",
+        "State",
+        "Strategy",
+        "Composite",
+        "Builder",
+        "Observer",
+        "Command",
+        "Template Method"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": ["Chain of Responsibility", "Decorator"],
+      "explanation": "The cascading source search (library → articles → Wikipedia → give up) is Chain of Responsibility. The optional recency filter layered on top for tech questions only is a Decorator-style add-on."
+    },
+    {
+      "id": "q28",
+      "type": "multiple_choice",
+      "questionText": "The Singleton design pattern is used when:",
+      "codeSnippet": null,
+      "options": [
+        "an object from a class framework is created",
+        "a unique object of a class is created",
+        "a verification object of the original object is created",
+        "a complex object is created",
+        "an object is created based on another object",
+        "a single instance of a class is needed",
+        "an intermediate object is created compared to the original object"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": [
+        "a unique object of a class is created",
+        "a single instance of a class is needed"
+      ],
+      "explanation": "Both phrasings describe the same idea — Singleton guarantees exactly one instance of a class globally accessible."
+    },
+    {
+      "id": "q29",
+      "type": "multiple_choice",
+      "questionText": "Using JUnit 4, if you need to connect to a database to run several tests, in which standard JUnit4 method (marked with one of the following annotations) would you make the connection so that it is optimal?",
+      "codeSnippet": null,
+      "options": [
+        "@TearDownAfterClass",
+        "@DBConnect",
+        "@BeforeClass",
+        "@Test",
+        "@SetUpBeforeClass"
+      ],
+      "isMultiSelect": false,
+      "correctAnswers": ["@BeforeClass"],
+      "explanation": "@BeforeClass runs once before all tests in the class, which is optimal for an expensive shared setup like a DB connection (vs. @Before which would reconnect for every single test)."
+    },
+    {
+      "id": "q30",
+      "type": "multiple_choice",
+      "questionText": "Develop a software solution for a car wash. Within it, the process of washing the car involves going through some steps in a well-established order: adding degreaser, washing, adding foam, rinsing, wiping. This process is similar for all laundromats. The solution must be modified so that it only starts if there is enough degreaser and enough detergent to foam. Otherwise, the car wash process will not start, waiting for the tanks to be filled. What are the design patterns that optimally solve these problems?",
+      "codeSnippet": null,
+      "options": [
+        "Composite",
+        "Observer",
+        "Proxy",
+        "Memento",
+        "Flyweight",
+        "Builder",
+        "Prototype",
+        "Factory",
+        "Chain of Responsibility",
+        "Command",
+        "Template"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": ["Template", "Proxy"],
+      "explanation": "The fixed step order is a Template Method skeleton. The precondition check that blocks the process from starting until resources are sufficient is a Proxy controlling access to the real operation."
+    },
+    {
+      "id": "q31",
+      "type": "multiple_choice",
+      "questionText": "What is the 'clean code' principle stating that classes must depend on abstractions, not concrete implementations?",
+      "codeSnippet": null,
+      "options": [
+        "Interface Segregation Principle (ISP)",
+        "Liskov Substitution Principle (LSP)",
+        "Dependency Inversion Principle (DIP)",
+        "Open-Closed Principle (OCP)"
+      ],
+      "isMultiSelect": false,
+      "correctAnswers": ["Dependency Inversion Principle (DIP)"],
+      "explanation": "DIP: high-level modules should depend on abstractions, not on low-level concrete implementations."
+    },
+    {
+      "id": "q32",
+      "type": "multiple_choice",
+      "questionText": "Given the function getTicketPrice(int area, float basePrice, boolean groupReduction) with the following restrictions: Area takes the values 1, 2, 3 and the base price is positive and less than 1000. Which of the following are considered BOUNDARY testing type values for the area?",
+      "codeSnippet": "public float getTicketPrice(int area, float basePrice, boolean groupReduction){\n  float finalPrice = 0;\n  switch(area){\n    case 1:\n      finalPrice = basePrice;\n      break;\n    case 2:\n      finalPrice = basePrice * 1.2f;\n      break;\n    case 3:\n      finalPrice = basePrice * 1.5f;\n      break;\n  }\n  if(groupReduction)\n    finalPrice = (float) (0.85 * finalPrice);\n  return finalPrice;\n}",
+      "options": [
+        "getTicketPrice(2, 100, false)",
+        "getTicketPrice(2, 500, true)",
+        "getTicketPrice(4, 700, false)",
+        "getTicketPrice(3, 700, true)",
+        "getTicketPrice(1, 500, false)",
+        "getTicketPrice(0, 700, true)"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": [
+        "getTicketPrice(4, 700, false)",
+        "getTicketPrice(3, 700, true)",
+        "getTicketPrice(1, 500, false)",
+        "getTicketPrice(0, 700, true)"
+      ],
+      "explanation": "Boundary values for area={1,2,3} are the valid extremes (1 and 3) plus just outside the range (0 and 4). area=2 is a mid-range value, not a boundary."
+    },
+    {
+      "id": "q33",
+      "type": "multiple_choice",
+      "questionText": "Which pattern allows subclasses to decide how to implement the steps in an algorithm?",
+      "codeSnippet": null,
+      "options": ["Template", "Composite", "Adapter", "Proxy", "Facade"],
+      "isMultiSelect": false,
+      "correctAnswers": ["Template"],
+      "explanation": "Template Method fixes the algorithm's skeleton in the base class while letting subclasses implement individual steps."
+    },
+    {
+      "id": "q34",
+      "type": "multiple_choice",
+      "questionText": "Which pattern allows encapsulating an object to provide it with behavior specific to another interface?",
+      "codeSnippet": null,
+      "options": ["Template", "Composite", "Adapter", "Proxy", "Facade"],
+      "isMultiSelect": false,
+      "correctAnswers": ["Adapter"],
+      "explanation": "Adapter wraps an object to expose it through a different, expected interface."
+    },
+    {
+      "id": "q35",
+      "type": "multiple_choice",
+      "questionText": "You create an application using the MVC (Model-View-Controller) model. You want to decouple the Model (classes) from the View (user interface). Select from the list below which Design Pattern you would use to update one or more fields in the user interface when an attribute in the class changes, respectively calling a class method upon clicking a button in the user interface.",
+      "codeSnippet": null,
+      "options": [
+        "Observer",
+        "Command",
+        "State",
+        "Decorator",
+        "Template",
+        "Strategy"
+      ],
+      "isMultiSelect": true,
+      "correctAnswers": ["Observer", "Command"],
+      "explanation": "Observer decouples the Model from the View so UI fields update automatically when a model attribute changes. Command encapsulates the button-click action as an object that calls the appropriate class method."
+    },
+    {
+      "id": "q36",
+      "type": "multiple_choice",
+      "questionText": "The unit test below can be considered a test of type:",
+      "codeSnippet": "@Test(timeout = 1000)\npublic void testCalculeazaMedie() {\n  Student s = new Student();\n  double result = s.calculeazaMedie();\n  assertEquals(0, result, 0.01);\n}",
+      "options": [
+        "Time",
+        "Ordering",
+        "Cardinality",
+        "Performance",
+        "Error condition"
+      ],
+      "isMultiSelect": false,
+      "correctAnswers": ["Cardinality"],
+      "explanation": "The test exercises a Student with zero grades (the 'empty/zero' cardinality case) and checks the average is safely handled as 0 rather than dividing by zero — a classic 0/1/many cardinality test."
+    }
+  ]
+}

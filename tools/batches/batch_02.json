@@ -1,0 +1,1348 @@
+[
+  {
+    "id": "q85",
+    "type": "multiple_choice",
+    "questionText": "A drawing application must render the same shapes on multiple platforms (OpenGL, DirectX, SVG), and you want the shape abstraction and the rendering implementation to evolve independently without a class explosion. Which single design pattern is the most appropriate?",
+    "codeSnippet": null,
+    "options": [
+      "Decorator",
+      "Bridge",
+      "Strategy",
+      "Facade",
+      "Adapter",
+      "Composite"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Bridge"
+    ],
+    "explanation": "Decoupling an abstraction (shape) from its implementation (renderer) so both vary independently is the Bridge pattern.",
+    "_tags": [
+      "Bridge"
+    ]
+  },
+  {
+    "id": "q86",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Factory Method: ForestLevel must override the creator of LevelFactory.",
+    "snippetWithDropZones": "abstract class LevelFactory {\n  public [[ZONE_1]] Enemy createProduct();\n  public void process() {\n    Enemy p = createProduct();\n  }\n}\n\nclass ForestLevel extends [[ZONE_2]] {\n  public Enemy createProduct() {\n    return new [[ZONE_3]]();\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "abstract",
+        "static",
+        "final"
+      ],
+      "ZONE_2": [
+        "LevelFactory",
+        "Enemy",
+        "ForestLevel"
+      ],
+      "ZONE_3": [
+        "Goblin",
+        "Enemy",
+        "ForestLevel"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "abstract",
+      "ZONE_2": "LevelFactory",
+      "ZONE_3": "Goblin"
+    },
+    "explanation": "The creator declares an abstract factory method; the concrete creator extends it and returns the concrete product.",
+    "_tags": [
+      "Factory Method"
+    ]
+  },
+  {
+    "id": "q87",
+    "type": "dropdown_matching",
+    "questionText": "Match each design pattern to the intent that best describes it.",
+    "matchingEntities": [
+      "Prototype",
+      "Facade",
+      "Proxy",
+      "Decorator"
+    ],
+    "matchingOptions": [
+      "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Attaches additional responsibilities to an object dynamically by wrapping it",
+      "Provides a surrogate or placeholder for another object to control access to it",
+      "Creates new objects by cloning an existing instance instead of instantiating from scratch"
+    ],
+    "correctAnswers": {
+      "Decorator": "Attaches additional responsibilities to an object dynamically by wrapping it",
+      "Facade": "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Prototype": "Creates new objects by cloning an existing instance instead of instantiating from scratch",
+      "Proxy": "Provides a surrogate or placeholder for another object to control access to it"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Decorator",
+      "Facade",
+      "Prototype",
+      "Proxy"
+    ]
+  },
+  {
+    "id": "q88",
+    "type": "multiple_choice",
+    "questionText": "An air-traffic control simulation has many aircraft that must coordinate, but you want to avoid every aircraft holding direct references to every other; instead they communicate through a central control tower. Which single design pattern is the most appropriate?",
+    "codeSnippet": null,
+    "options": [
+      "Facade",
+      "Mediator",
+      "Observer",
+      "Proxy",
+      "Chain of Responsibility",
+      "Command"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Mediator"
+    ],
+    "explanation": "Centralising many-to-many communication through one coordinator object to reduce coupling is the Mediator pattern.",
+    "_tags": [
+      "Mediator"
+    ]
+  },
+  {
+    "id": "q89",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Factory Method: PdfApp must override the creator of DocumentApp.",
+    "snippetWithDropZones": "abstract class DocumentApp {\n  public [[ZONE_1]] Document createProduct();\n  public void process() {\n    Document p = createProduct();\n  }\n}\n\nclass PdfApp extends [[ZONE_2]] {\n  public Document createProduct() {\n    return new [[ZONE_3]]();\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "abstract",
+        "static",
+        "final"
+      ],
+      "ZONE_2": [
+        "DocumentApp",
+        "Document",
+        "PdfApp"
+      ],
+      "ZONE_3": [
+        "PdfDocument",
+        "Document",
+        "PdfApp"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "abstract",
+      "ZONE_2": "DocumentApp",
+      "ZONE_3": "PdfDocument"
+    },
+    "explanation": "The creator declares an abstract factory method; the concrete creator extends it and returns the concrete product.",
+    "_tags": [
+      "Factory Method"
+    ]
+  },
+  {
+    "id": "q90",
+    "type": "dropdown_matching",
+    "questionText": "Group the following design patterns with their defining intent.",
+    "matchingEntities": [
+      "Simple Factory",
+      "Template Method",
+      "Flyweight",
+      "Mediator"
+    ],
+    "matchingOptions": [
+      "Encapsulates object creation in one method or class that returns instances based on a parameter",
+      "Shares common intrinsic state between many fine-grained objects to save memory",
+      "Defines the skeleton of an algorithm in a base method, deferring some steps to subclasses",
+      "Centralizes communication between a set of objects so they no longer refer to each other directly"
+    ],
+    "correctAnswers": {
+      "Flyweight": "Shares common intrinsic state between many fine-grained objects to save memory",
+      "Mediator": "Centralizes communication between a set of objects so they no longer refer to each other directly",
+      "Simple Factory": "Encapsulates object creation in one method or class that returns instances based on a parameter",
+      "Template Method": "Defines the skeleton of an algorithm in a base method, deferring some steps to subclasses"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Flyweight",
+      "Mediator",
+      "Simple Factory",
+      "Template Method"
+    ]
+  },
+  {
+    "id": "q91",
+    "type": "multiple_choice",
+    "questionText": "A music player must let users iterate through the current playlist (next/previous) without exposing how the tracks are stored internally, and must let users switch the play order algorithm (sequential, shuffle, repeat) at runtime. Which design patterns best fit? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "Observer",
+      "Facade",
+      "Strategy",
+      "State",
+      "Command",
+      "Memento",
+      "Composite",
+      "Iterator"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "Iterator",
+      "Strategy"
+    ],
+    "explanation": "Sequential access without exposing internal storage is Iterator; runtime-swappable ordering algorithms are Strategy.",
+    "_tags": [
+      "Iterator",
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q92",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Factory Method: SmsCreator must override the creator of NotificationCreator.",
+    "snippetWithDropZones": "abstract class NotificationCreator {\n  public [[ZONE_1]] Notification createProduct();\n  public void process() {\n    Notification p = createProduct();\n  }\n}\n\nclass SmsCreator extends [[ZONE_2]] {\n  public Notification createProduct() {\n    return new [[ZONE_3]]();\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "abstract",
+        "static",
+        "final"
+      ],
+      "ZONE_2": [
+        "NotificationCreator",
+        "Notification",
+        "SmsCreator"
+      ],
+      "ZONE_3": [
+        "SmsNotification",
+        "Notification",
+        "SmsCreator"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "abstract",
+      "ZONE_2": "NotificationCreator",
+      "ZONE_3": "SmsNotification"
+    },
+    "explanation": "The creator declares an abstract factory method; the concrete creator extends it and returns the concrete product.",
+    "_tags": [
+      "Factory Method"
+    ]
+  },
+  {
+    "id": "q93",
+    "type": "dropdown_matching",
+    "questionText": "For each design pattern below, select the statement that captures its purpose.",
+    "matchingEntities": [
+      "Strategy",
+      "Factory Method",
+      "Simple Factory",
+      "Composite",
+      "Facade",
+      "Adapter"
+    ],
+    "matchingOptions": [
+      "Defines an interface for creating an object but lets subclasses decide which class to instantiate",
+      "Converts the interface of a class into another interface that clients expect",
+      "Encapsulates object creation in one method or class that returns instances based on a parameter",
+      "Defines a family of interchangeable algorithms and makes them selectable at runtime",
+      "Composes objects into tree structures and lets clients treat individual objects and compositions uniformly",
+      "Provides a unified, simplified interface to a set of interfaces in a subsystem"
+    ],
+    "correctAnswers": {
+      "Adapter": "Converts the interface of a class into another interface that clients expect",
+      "Composite": "Composes objects into tree structures and lets clients treat individual objects and compositions uniformly",
+      "Facade": "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Factory Method": "Defines an interface for creating an object but lets subclasses decide which class to instantiate",
+      "Simple Factory": "Encapsulates object creation in one method or class that returns instances based on a parameter",
+      "Strategy": "Defines a family of interchangeable algorithms and makes them selectable at runtime"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Adapter",
+      "Composite",
+      "Facade",
+      "Factory Method",
+      "Simple Factory",
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q94",
+    "type": "multiple_choice",
+    "questionText": "A reporting tool must add a new export operation (to XML, then later to LaTeX) across an existing hierarchy of document-element classes (paragraph, table, image) WITHOUT modifying those element classes each time a new export format is added. Which single design pattern is the most appropriate?",
+    "codeSnippet": null,
+    "options": [
+      "Visitor",
+      "Template Method",
+      "Composite",
+      "Decorator",
+      "Strategy",
+      "Command"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Visitor"
+    ],
+    "explanation": "Adding new operations over a fixed set of element classes without changing them is the Visitor pattern (double dispatch).",
+    "_tags": [
+      "Visitor"
+    ]
+  },
+  {
+    "id": "q95",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Observer pattern where Stock notifies its Investor objects.",
+    "snippetWithDropZones": "interface Investor {\n  void update(String event);\n}\n\nclass Stock {\n  private List<[[ZONE_1]]> observers = new ArrayList<>();\n  public void subscribe(Investor o) {\n    observers.add(o);\n  }\n  public void notifyObservers(String event) {\n    for (Investor o : observers) {\n      o.[[ZONE_2]];\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Investor",
+        "Stock",
+        "String"
+      ],
+      "ZONE_2": [
+        "update(event)",
+        "subscribe(event)",
+        "notifyObservers(event)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Investor",
+      "ZONE_2": "update(event)"
+    },
+    "explanation": "The subject keeps a list of observers and calls update() on each one when it changes.",
+    "_tags": [
+      "Observer"
+    ]
+  },
+  {
+    "id": "q96",
+    "type": "dropdown_matching",
+    "questionText": "Associate every design pattern with the goal it is meant to achieve.",
+    "matchingEntities": [
+      "Abstract Factory",
+      "Command",
+      "Adapter",
+      "Composite",
+      "Chain of Responsibility"
+    ],
+    "matchingOptions": [
+      "Composes objects into tree structures and lets clients treat individual objects and compositions uniformly",
+      "Encapsulates a request as an object, allowing parameterization, queuing, and undo",
+      "Passes a request along a chain of handlers until one of them handles it",
+      "Converts the interface of a class into another interface that clients expect",
+      "Provides an interface for creating families of related objects without specifying their concrete classes"
+    ],
+    "correctAnswers": {
+      "Abstract Factory": "Provides an interface for creating families of related objects without specifying their concrete classes",
+      "Adapter": "Converts the interface of a class into another interface that clients expect",
+      "Chain of Responsibility": "Passes a request along a chain of handlers until one of them handles it",
+      "Command": "Encapsulates a request as an object, allowing parameterization, queuing, and undo",
+      "Composite": "Composes objects into tree structures and lets clients treat individual objects and compositions uniformly"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Abstract Factory",
+      "Adapter",
+      "Chain of Responsibility",
+      "Command",
+      "Composite"
+    ]
+  },
+  {
+    "id": "q97",
+    "type": "multiple_choice",
+    "questionText": "A simple calculator app must parse and evaluate arithmetic expressions written in a small custom language such as '3 + 4 * 2'. Which single design pattern is most associated with defining and evaluating such a grammar?",
+    "codeSnippet": null,
+    "options": [
+      "Strategy",
+      "Visitor",
+      "Interpreter",
+      "Composite",
+      "Command",
+      "Iterator"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Interpreter"
+    ],
+    "explanation": "Defining a grammar and an evaluator for sentences in a small language is the Interpreter pattern.",
+    "_tags": [
+      "Interpreter"
+    ]
+  },
+  {
+    "id": "q98",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Observer pattern where NewsAgency notifies its Subscriber objects.",
+    "snippetWithDropZones": "interface Subscriber {\n  void update(String event);\n}\n\nclass NewsAgency {\n  private List<[[ZONE_1]]> observers = new ArrayList<>();\n  public void subscribe(Subscriber o) {\n    observers.add(o);\n  }\n  public void notifyObservers(String event) {\n    for (Subscriber o : observers) {\n      o.[[ZONE_2]];\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Subscriber",
+        "NewsAgency",
+        "String"
+      ],
+      "ZONE_2": [
+        "update(event)",
+        "subscribe(event)",
+        "notifyObservers(event)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Subscriber",
+      "ZONE_2": "update(event)"
+    },
+    "explanation": "The subject keeps a list of observers and calls update() on each one when it changes.",
+    "_tags": [
+      "Observer"
+    ]
+  },
+  {
+    "id": "q99",
+    "type": "dropdown_matching",
+    "questionText": "Match each design pattern to the intent that best describes it.",
+    "matchingEntities": [
+      "Abstract Factory",
+      "State",
+      "Composite",
+      "Bridge",
+      "Builder"
+    ],
+    "matchingOptions": [
+      "Composes objects into tree structures and lets clients treat individual objects and compositions uniformly",
+      "Decouples an abstraction from its implementation so that the two can vary independently",
+      "Provides an interface for creating families of related objects without specifying their concrete classes",
+      "Separates the construction of a complex object from its representation using a step-by-step process",
+      "Allows an object to alter its behavior when its internal state changes, appearing to change its class"
+    ],
+    "correctAnswers": {
+      "Abstract Factory": "Provides an interface for creating families of related objects without specifying their concrete classes",
+      "Bridge": "Decouples an abstraction from its implementation so that the two can vary independently",
+      "Builder": "Separates the construction of a complex object from its representation using a step-by-step process",
+      "Composite": "Composes objects into tree structures and lets clients treat individual objects and compositions uniformly",
+      "State": "Allows an object to alter its behavior when its internal state changes, appearing to change its class"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Abstract Factory",
+      "Bridge",
+      "Builder",
+      "Composite",
+      "State"
+    ]
+  },
+  {
+    "id": "q100",
+    "type": "multiple_choice",
+    "questionText": "An expense-approval workflow escalates a request up a chain: a team lead can approve up to $1,000, a manager up to $10,000, and a director above that; the first level with sufficient authority handles it. Which single design pattern is the most appropriate?",
+    "codeSnippet": null,
+    "options": [
+      "Mediator",
+      "Chain of Responsibility",
+      "Strategy",
+      "Observer",
+      "State",
+      "Command"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Chain of Responsibility"
+    ],
+    "explanation": "Passing a request along a chain until a handler with enough authority processes it is Chain of Responsibility.",
+    "_tags": [
+      "Chain of Responsibility"
+    ]
+  },
+  {
+    "id": "q101",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Observer pattern where WeatherStation notifies its Display objects.",
+    "snippetWithDropZones": "interface Display {\n  void update(String event);\n}\n\nclass WeatherStation {\n  private List<[[ZONE_1]]> observers = new ArrayList<>();\n  public void subscribe(Display o) {\n    observers.add(o);\n  }\n  public void notifyObservers(String event) {\n    for (Display o : observers) {\n      o.[[ZONE_2]];\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Display",
+        "WeatherStation",
+        "String"
+      ],
+      "ZONE_2": [
+        "update(event)",
+        "subscribe(event)",
+        "notifyObservers(event)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Display",
+      "ZONE_2": "update(event)"
+    },
+    "explanation": "The subject keeps a list of observers and calls update() on each one when it changes.",
+    "_tags": [
+      "Observer"
+    ]
+  },
+  {
+    "id": "q102",
+    "type": "dropdown_matching",
+    "questionText": "Group the following design patterns with their defining intent.",
+    "matchingEntities": [
+      "Singleton",
+      "State",
+      "Observer",
+      "Proxy"
+    ],
+    "matchingOptions": [
+      "Ensures a class has only one instance and provides a global access point to it",
+      "Defines a one-to-many dependency so that when one object changes state all its dependents are notified automatically",
+      "Allows an object to alter its behavior when its internal state changes, appearing to change its class",
+      "Provides a surrogate or placeholder for another object to control access to it"
+    ],
+    "correctAnswers": {
+      "Observer": "Defines a one-to-many dependency so that when one object changes state all its dependents are notified automatically",
+      "Proxy": "Provides a surrogate or placeholder for another object to control access to it",
+      "Singleton": "Ensures a class has only one instance and provides a global access point to it",
+      "State": "Allows an object to alter its behavior when its internal state changes, appearing to change its class"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Observer",
+      "Proxy",
+      "Singleton",
+      "State"
+    ]
+  },
+  {
+    "id": "q103",
+    "type": "multiple_choice",
+    "questionText": "A travel-booking site must offer one simple bookTrip() call that internally coordinates separate flight, hotel and car-rental subsystems, hiding their complexity from the client. Which single design pattern is the most appropriate?",
+    "codeSnippet": null,
+    "options": [
+      "Facade",
+      "Adapter",
+      "Proxy",
+      "Bridge",
+      "Mediator",
+      "Composite"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Facade"
+    ],
+    "explanation": "A single unified interface that hides a complex subsystem is the Facade pattern.",
+    "_tags": [
+      "Facade"
+    ]
+  },
+  {
+    "id": "q104",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Observer pattern where Button notifies its Listener objects.",
+    "snippetWithDropZones": "interface Listener {\n  void update(String event);\n}\n\nclass Button {\n  private List<[[ZONE_1]]> observers = new ArrayList<>();\n  public void subscribe(Listener o) {\n    observers.add(o);\n  }\n  public void notifyObservers(String event) {\n    for (Listener o : observers) {\n      o.[[ZONE_2]];\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Listener",
+        "Button",
+        "String"
+      ],
+      "ZONE_2": [
+        "update(event)",
+        "subscribe(event)",
+        "notifyObservers(event)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Listener",
+      "ZONE_2": "update(event)"
+    },
+    "explanation": "The subject keeps a list of observers and calls update() on each one when it changes.",
+    "_tags": [
+      "Observer"
+    ]
+  },
+  {
+    "id": "q105",
+    "type": "dropdown_matching",
+    "questionText": "For each design pattern below, select the statement that captures its purpose.",
+    "matchingEntities": [
+      "State",
+      "Simple Factory",
+      "Facade",
+      "Bridge",
+      "Composite",
+      "Memento"
+    ],
+    "matchingOptions": [
+      "Encapsulates object creation in one method or class that returns instances based on a parameter",
+      "Captures and externalizes an object's internal state so it can be restored later without violating encapsulation",
+      "Decouples an abstraction from its implementation so that the two can vary independently",
+      "Composes objects into tree structures and lets clients treat individual objects and compositions uniformly",
+      "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Allows an object to alter its behavior when its internal state changes, appearing to change its class"
+    ],
+    "correctAnswers": {
+      "Bridge": "Decouples an abstraction from its implementation so that the two can vary independently",
+      "Composite": "Composes objects into tree structures and lets clients treat individual objects and compositions uniformly",
+      "Facade": "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Memento": "Captures and externalizes an object's internal state so it can be restored later without violating encapsulation",
+      "Simple Factory": "Encapsulates object creation in one method or class that returns instances based on a parameter",
+      "State": "Allows an object to alter its behavior when its internal state changes, appearing to change its class"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Bridge",
+      "Composite",
+      "Facade",
+      "Memento",
+      "Simple Factory",
+      "State"
+    ]
+  },
+  {
+    "id": "q106",
+    "type": "multiple_choice",
+    "questionText": "A coffee-shop ordering system starts from a base beverage and lets customers stack any number of optional add-ons (milk, syrup, whipped cream), each adding to the price and description, in any combination. Which single design pattern is the most appropriate?",
+    "codeSnippet": null,
+    "options": [
+      "Prototype",
+      "Factory Method",
+      "Decorator",
+      "Builder",
+      "Composite",
+      "Strategy"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Decorator"
+    ],
+    "explanation": "Dynamically stacking optional responsibilities onto a base object by wrapping is the Decorator pattern.",
+    "_tags": [
+      "Decorator"
+    ]
+  },
+  {
+    "id": "q107",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Observer pattern where GameServer notifies its Player objects.",
+    "snippetWithDropZones": "interface Player {\n  void update(String event);\n}\n\nclass GameServer {\n  private List<[[ZONE_1]]> observers = new ArrayList<>();\n  public void subscribe(Player o) {\n    observers.add(o);\n  }\n  public void notifyObservers(String event) {\n    for (Player o : observers) {\n      o.[[ZONE_2]];\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Player",
+        "GameServer",
+        "String"
+      ],
+      "ZONE_2": [
+        "update(event)",
+        "subscribe(event)",
+        "notifyObservers(event)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Player",
+      "ZONE_2": "update(event)"
+    },
+    "explanation": "The subject keeps a list of observers and calls update() on each one when it changes.",
+    "_tags": [
+      "Observer"
+    ]
+  },
+  {
+    "id": "q108",
+    "type": "dropdown_matching",
+    "questionText": "Associate every design pattern with the goal it is meant to achieve.",
+    "matchingEntities": [
+      "Facade",
+      "Memento",
+      "Strategy",
+      "Mediator",
+      "Adapter",
+      "Visitor"
+    ],
+    "matchingOptions": [
+      "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Captures and externalizes an object's internal state so it can be restored later without violating encapsulation",
+      "Lets you define a new operation on a set of objects without changing the classes of those objects",
+      "Defines a family of interchangeable algorithms and makes them selectable at runtime",
+      "Converts the interface of a class into another interface that clients expect",
+      "Centralizes communication between a set of objects so they no longer refer to each other directly"
+    ],
+    "correctAnswers": {
+      "Adapter": "Converts the interface of a class into another interface that clients expect",
+      "Facade": "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Mediator": "Centralizes communication between a set of objects so they no longer refer to each other directly",
+      "Memento": "Captures and externalizes an object's internal state so it can be restored later without violating encapsulation",
+      "Strategy": "Defines a family of interchangeable algorithms and makes them selectable at runtime",
+      "Visitor": "Lets you define a new operation on a set of objects without changing the classes of those objects"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Adapter",
+      "Facade",
+      "Mediator",
+      "Memento",
+      "Strategy",
+      "Visitor"
+    ]
+  },
+  {
+    "id": "q109",
+    "type": "multiple_choice",
+    "questionText": "A database access library must ensure that only one connection pool object exists across the entire application, lazily created the first time it is requested. Which single design pattern is the most appropriate?",
+    "codeSnippet": null,
+    "options": [
+      "Builder",
+      "Factory Method",
+      "Facade",
+      "Singleton",
+      "Prototype",
+      "Flyweight"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Singleton"
+    ],
+    "explanation": "Guaranteeing a single, globally accessible, lazily created instance is the Singleton pattern.",
+    "_tags": [
+      "Singleton"
+    ]
+  },
+  {
+    "id": "q110",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Strategy pattern: Checkout delegates to a swappable PaymentStrategy.",
+    "snippetWithDropZones": "interface PaymentStrategy {\n  int execute(int a, int b);\n}\n\nclass Checkout {\n  private PaymentStrategy strategy;\n  public void setStrategy([[ZONE_1]] strategy) {\n    this.strategy = strategy;\n  }\n  public int run(int a, int b) {\n    return strategy.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "PaymentStrategy",
+        "Checkout",
+        "int"
+      ],
+      "ZONE_2": [
+        "execute(a, b)",
+        "run(a, b)",
+        "setStrategy(a, b)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "PaymentStrategy",
+      "ZONE_2": "execute(a, b)"
+    },
+    "explanation": "The context holds a strategy reference, lets it be replaced, and delegates the algorithm to it.",
+    "_tags": [
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q111",
+    "type": "dropdown_matching",
+    "questionText": "Match each design pattern to the intent that best describes it.",
+    "matchingEntities": [
+      "Prototype",
+      "Flyweight",
+      "Decorator",
+      "Singleton",
+      "Strategy"
+    ],
+    "matchingOptions": [
+      "Attaches additional responsibilities to an object dynamically by wrapping it",
+      "Defines a family of interchangeable algorithms and makes them selectable at runtime",
+      "Shares common intrinsic state between many fine-grained objects to save memory",
+      "Creates new objects by cloning an existing instance instead of instantiating from scratch",
+      "Ensures a class has only one instance and provides a global access point to it"
+    ],
+    "correctAnswers": {
+      "Decorator": "Attaches additional responsibilities to an object dynamically by wrapping it",
+      "Flyweight": "Shares common intrinsic state between many fine-grained objects to save memory",
+      "Prototype": "Creates new objects by cloning an existing instance instead of instantiating from scratch",
+      "Singleton": "Ensures a class has only one instance and provides a global access point to it",
+      "Strategy": "Defines a family of interchangeable algorithms and makes them selectable at runtime"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Decorator",
+      "Flyweight",
+      "Prototype",
+      "Singleton",
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q112",
+    "type": "multiple_choice",
+    "questionText": "An IoT platform receives raw readings from many sensor vendors, each with an incompatible SDK, but the analytics engine expects one common SensorReading interface. The platform must also keep exactly one MQTT broker client. Which design patterns best fit? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "Singleton",
+      "Prototype",
+      "Observer",
+      "Bridge",
+      "Facade",
+      "Decorator",
+      "Composite",
+      "Adapter"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "Adapter",
+      "Singleton"
+    ],
+    "explanation": "Wrapping each vendor SDK to the common interface is Adapter; the single shared broker client is Singleton.",
+    "_tags": [
+      "Adapter",
+      "Singleton"
+    ]
+  },
+  {
+    "id": "q113",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Strategy pattern: Sorter delegates to a swappable SortStrategy.",
+    "snippetWithDropZones": "interface SortStrategy {\n  int execute(int a, int b);\n}\n\nclass Sorter {\n  private SortStrategy strategy;\n  public void setStrategy([[ZONE_1]] strategy) {\n    this.strategy = strategy;\n  }\n  public int run(int a, int b) {\n    return strategy.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "SortStrategy",
+        "Sorter",
+        "int"
+      ],
+      "ZONE_2": [
+        "execute(a, b)",
+        "run(a, b)",
+        "setStrategy(a, b)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "SortStrategy",
+      "ZONE_2": "execute(a, b)"
+    },
+    "explanation": "The context holds a strategy reference, lets it be replaced, and delegates the algorithm to it.",
+    "_tags": [
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q114",
+    "type": "dropdown_matching",
+    "questionText": "Group the following design patterns with their defining intent.",
+    "matchingEntities": [
+      "Visitor",
+      "State",
+      "Simple Factory",
+      "Proxy",
+      "Bridge"
+    ],
+    "matchingOptions": [
+      "Decouples an abstraction from its implementation so that the two can vary independently",
+      "Provides a surrogate or placeholder for another object to control access to it",
+      "Encapsulates object creation in one method or class that returns instances based on a parameter",
+      "Allows an object to alter its behavior when its internal state changes, appearing to change its class",
+      "Lets you define a new operation on a set of objects without changing the classes of those objects"
+    ],
+    "correctAnswers": {
+      "Bridge": "Decouples an abstraction from its implementation so that the two can vary independently",
+      "Proxy": "Provides a surrogate or placeholder for another object to control access to it",
+      "Simple Factory": "Encapsulates object creation in one method or class that returns instances based on a parameter",
+      "State": "Allows an object to alter its behavior when its internal state changes, appearing to change its class",
+      "Visitor": "Lets you define a new operation on a set of objects without changing the classes of those objects"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Bridge",
+      "Proxy",
+      "Simple Factory",
+      "State",
+      "Visitor"
+    ]
+  },
+  {
+    "id": "q115",
+    "type": "multiple_choice",
+    "questionText": "A UI theming engine must create coordinated sets of components for several themes (Material, Cupertino, Fluent), and the whole app must obtain its theme objects from a single theme manager that exists only once. Which design patterns best fit? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "Abstract Factory",
+      "Singleton",
+      "State",
+      "Factory Method",
+      "Flyweight",
+      "Builder",
+      "Bridge",
+      "Decorator"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "Abstract Factory",
+      "Singleton"
+    ],
+    "explanation": "Coordinated families of theme components are Abstract Factory; one theme manager instance is Singleton.",
+    "_tags": [
+      "Abstract Factory",
+      "Singleton"
+    ]
+  },
+  {
+    "id": "q116",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Strategy pattern: Compressor delegates to a swappable CompressionStrategy.",
+    "snippetWithDropZones": "interface CompressionStrategy {\n  int execute(int a, int b);\n}\n\nclass Compressor {\n  private CompressionStrategy strategy;\n  public void setStrategy([[ZONE_1]] strategy) {\n    this.strategy = strategy;\n  }\n  public int run(int a, int b) {\n    return strategy.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "CompressionStrategy",
+        "Compressor",
+        "int"
+      ],
+      "ZONE_2": [
+        "execute(a, b)",
+        "run(a, b)",
+        "setStrategy(a, b)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "CompressionStrategy",
+      "ZONE_2": "execute(a, b)"
+    },
+    "explanation": "The context holds a strategy reference, lets it be replaced, and delegates the algorithm to it.",
+    "_tags": [
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q117",
+    "type": "dropdown_matching",
+    "questionText": "For each design pattern below, select the statement that captures its purpose.",
+    "matchingEntities": [
+      "Strategy",
+      "Prototype",
+      "Adapter",
+      "Abstract Factory"
+    ],
+    "matchingOptions": [
+      "Provides an interface for creating families of related objects without specifying their concrete classes",
+      "Defines a family of interchangeable algorithms and makes them selectable at runtime",
+      "Creates new objects by cloning an existing instance instead of instantiating from scratch",
+      "Converts the interface of a class into another interface that clients expect"
+    ],
+    "correctAnswers": {
+      "Abstract Factory": "Provides an interface for creating families of related objects without specifying their concrete classes",
+      "Adapter": "Converts the interface of a class into another interface that clients expect",
+      "Prototype": "Creates new objects by cloning an existing instance instead of instantiating from scratch",
+      "Strategy": "Defines a family of interchangeable algorithms and makes them selectable at runtime"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Abstract Factory",
+      "Adapter",
+      "Prototype",
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q118",
+    "type": "multiple_choice",
+    "questionText": "In a vending-machine controller, the same coin-insert and button-press events must behave differently depending on whether the machine is Idle, HasMoney, Dispensing or SoldOut, with explicit transitions between these modes. Which single design pattern is the most appropriate?",
+    "codeSnippet": null,
+    "options": [
+      "Observer",
+      "Chain of Responsibility",
+      "Strategy",
+      "Command",
+      "Template Method",
+      "State"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "State"
+    ],
+    "explanation": "Behavior that changes with an explicit internal mode plus defined transitions is the State pattern.",
+    "_tags": [
+      "State"
+    ]
+  },
+  {
+    "id": "q119",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Strategy pattern: Navigator delegates to a swappable RouteStrategy.",
+    "snippetWithDropZones": "interface RouteStrategy {\n  int execute(int a, int b);\n}\n\nclass Navigator {\n  private RouteStrategy strategy;\n  public void setStrategy([[ZONE_1]] strategy) {\n    this.strategy = strategy;\n  }\n  public int run(int a, int b) {\n    return strategy.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "RouteStrategy",
+        "Navigator",
+        "int"
+      ],
+      "ZONE_2": [
+        "execute(a, b)",
+        "run(a, b)",
+        "setStrategy(a, b)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "RouteStrategy",
+      "ZONE_2": "execute(a, b)"
+    },
+    "explanation": "The context holds a strategy reference, lets it be replaced, and delegates the algorithm to it.",
+    "_tags": [
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q120",
+    "type": "dropdown_matching",
+    "questionText": "Associate every design pattern with the goal it is meant to achieve.",
+    "matchingEntities": [
+      "Singleton",
+      "Flyweight",
+      "Command",
+      "Abstract Factory",
+      "Facade"
+    ],
+    "matchingOptions": [
+      "Shares common intrinsic state between many fine-grained objects to save memory",
+      "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Provides an interface for creating families of related objects without specifying their concrete classes",
+      "Encapsulates a request as an object, allowing parameterization, queuing, and undo",
+      "Ensures a class has only one instance and provides a global access point to it"
+    ],
+    "correctAnswers": {
+      "Abstract Factory": "Provides an interface for creating families of related objects without specifying their concrete classes",
+      "Command": "Encapsulates a request as an object, allowing parameterization, queuing, and undo",
+      "Facade": "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Flyweight": "Shares common intrinsic state between many fine-grained objects to save memory",
+      "Singleton": "Ensures a class has only one instance and provides a global access point to it"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Abstract Factory",
+      "Command",
+      "Facade",
+      "Flyweight",
+      "Singleton"
+    ]
+  },
+  {
+    "id": "q121",
+    "type": "multiple_choice",
+    "questionText": "A game must spawn many enemies that are near-identical to a heavily configured prototype, copying it rather than re-running expensive setup each time. Which single design pattern is the most appropriate?",
+    "codeSnippet": null,
+    "options": [
+      "Flyweight",
+      "Builder",
+      "Factory Method",
+      "Prototype",
+      "Abstract Factory",
+      "Singleton"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Prototype"
+    ],
+    "explanation": "Creating new objects by cloning a configured instance is the Prototype pattern.",
+    "_tags": [
+      "Prototype"
+    ]
+  },
+  {
+    "id": "q122",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Strategy pattern: Cart delegates to a swappable DiscountStrategy.",
+    "snippetWithDropZones": "interface DiscountStrategy {\n  int execute(int a, int b);\n}\n\nclass Cart {\n  private DiscountStrategy strategy;\n  public void setStrategy([[ZONE_1]] strategy) {\n    this.strategy = strategy;\n  }\n  public int run(int a, int b) {\n    return strategy.[[ZONE_2]];\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "DiscountStrategy",
+        "Cart",
+        "int"
+      ],
+      "ZONE_2": [
+        "execute(a, b)",
+        "run(a, b)",
+        "setStrategy(a, b)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "DiscountStrategy",
+      "ZONE_2": "execute(a, b)"
+    },
+    "explanation": "The context holds a strategy reference, lets it be replaced, and delegates the algorithm to it.",
+    "_tags": [
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q123",
+    "type": "dropdown_matching",
+    "questionText": "Match each design pattern to the intent that best describes it.",
+    "matchingEntities": [
+      "State",
+      "Flyweight",
+      "Mediator",
+      "Iterator",
+      "Strategy"
+    ],
+    "matchingOptions": [
+      "Provides sequential access to the elements of a collection without exposing its underlying representation",
+      "Shares common intrinsic state between many fine-grained objects to save memory",
+      "Defines a family of interchangeable algorithms and makes them selectable at runtime",
+      "Allows an object to alter its behavior when its internal state changes, appearing to change its class",
+      "Centralizes communication between a set of objects so they no longer refer to each other directly"
+    ],
+    "correctAnswers": {
+      "Flyweight": "Shares common intrinsic state between many fine-grained objects to save memory",
+      "Iterator": "Provides sequential access to the elements of a collection without exposing its underlying representation",
+      "Mediator": "Centralizes communication between a set of objects so they no longer refer to each other directly",
+      "State": "Allows an object to alter its behavior when its internal state changes, appearing to change its class",
+      "Strategy": "Defines a family of interchangeable algorithms and makes them selectable at runtime"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Flyweight",
+      "Iterator",
+      "Mediator",
+      "State",
+      "Strategy"
+    ]
+  },
+  {
+    "id": "q124",
+    "type": "multiple_choice",
+    "questionText": "A shape-drawing tool must create shape objects based on a string type read from a file ('circle', 'square'), centralising the creation logic in one place even though it is not a full GoF creational pattern. Which single approach is described?",
+    "codeSnippet": null,
+    "options": [
+      "Abstract Factory",
+      "Prototype",
+      "Decorator",
+      "Bridge",
+      "Builder",
+      "Simple Factory"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Simple Factory"
+    ],
+    "explanation": "Centralising creation in one method/class that switches on a parameter is the Simple Factory idiom.",
+    "_tags": [
+      "Simple Factory"
+    ]
+  },
+  {
+    "id": "q125",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Decorator: MilkDecorator wraps a Coffee and adds Milk.",
+    "snippetWithDropZones": "interface Coffee {\n  String describe();\n}\n\nabstract class CoffeeDecorator implements [[ZONE_1]] {\n  protected Coffee wrappee;\n  public CoffeeDecorator(Coffee c) { this.wrappee = c; }\n}\n\nclass MilkDecorator extends CoffeeDecorator {\n  public MilkDecorator(Coffee c) { super(c); }\n  public String describe() {\n    return wrappee.[[ZONE_2]] + \" + Milk\";\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Coffee",
+        "SimpleCoffee",
+        "CoffeeDecorator"
+      ],
+      "ZONE_2": [
+        "describe()",
+        "wrappee()",
+        "describe"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Coffee",
+      "ZONE_2": "describe()"
+    },
+    "explanation": "A decorator implements the same component interface, holds a wrappee, and adds behavior around the delegated call.",
+    "_tags": [
+      "Decorator"
+    ]
+  },
+  {
+    "id": "q126",
+    "type": "dropdown_matching",
+    "questionText": "Group the following design patterns with their defining intent.",
+    "matchingEntities": [
+      "Prototype",
+      "Mediator",
+      "Command",
+      "Decorator",
+      "Facade"
+    ],
+    "matchingOptions": [
+      "Attaches additional responsibilities to an object dynamically by wrapping it",
+      "Encapsulates a request as an object, allowing parameterization, queuing, and undo",
+      "Creates new objects by cloning an existing instance instead of instantiating from scratch",
+      "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Centralizes communication between a set of objects so they no longer refer to each other directly"
+    ],
+    "correctAnswers": {
+      "Command": "Encapsulates a request as an object, allowing parameterization, queuing, and undo",
+      "Decorator": "Attaches additional responsibilities to an object dynamically by wrapping it",
+      "Facade": "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Mediator": "Centralizes communication between a set of objects so they no longer refer to each other directly",
+      "Prototype": "Creates new objects by cloning an existing instance instead of instantiating from scratch"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Command",
+      "Decorator",
+      "Facade",
+      "Mediator",
+      "Prototype"
+    ]
+  },
+  {
+    "id": "q127",
+    "type": "multiple_choice",
+    "questionText": "An order-processing pipeline must run a fixed sequence — validate payment, register order, ship — identical for every order type, but a notification to a courier should optionally be added on top without modifying the pipeline. Which design patterns best fit? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "Chain of Responsibility",
+      "Observer",
+      "Strategy",
+      "Decorator",
+      "Adapter",
+      "State",
+      "Template Method",
+      "Command"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "Template Method",
+      "Decorator"
+    ],
+    "explanation": "The fixed step sequence is Template Method; the optional courier add-on layered on top is Decorator.",
+    "_tags": [
+      "Template Method",
+      "Decorator"
+    ]
+  },
+  {
+    "id": "q128",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Decorator: HoneyDecorator wraps a Beverage and adds Honey.",
+    "snippetWithDropZones": "interface Beverage {\n  String describe();\n}\n\nabstract class BeverageDecorator implements [[ZONE_1]] {\n  protected Beverage wrappee;\n  public BeverageDecorator(Beverage c) { this.wrappee = c; }\n}\n\nclass HoneyDecorator extends BeverageDecorator {\n  public HoneyDecorator(Beverage c) { super(c); }\n  public String describe() {\n    return wrappee.[[ZONE_2]] + \" + Honey\";\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Beverage",
+        "Tea",
+        "BeverageDecorator"
+      ],
+      "ZONE_2": [
+        "describe()",
+        "wrappee()",
+        "describe"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Beverage",
+      "ZONE_2": "describe()"
+    },
+    "explanation": "A decorator implements the same component interface, holds a wrappee, and adds behavior around the delegated call.",
+    "_tags": [
+      "Decorator"
+    ]
+  },
+  {
+    "id": "q129",
+    "type": "dropdown_matching",
+    "questionText": "For each design pattern below, select the statement that captures its purpose.",
+    "matchingEntities": [
+      "Adapter",
+      "Bridge",
+      "Chain of Responsibility",
+      "Visitor",
+      "Composite"
+    ],
+    "matchingOptions": [
+      "Decouples an abstraction from its implementation so that the two can vary independently",
+      "Converts the interface of a class into another interface that clients expect",
+      "Lets you define a new operation on a set of objects without changing the classes of those objects",
+      "Passes a request along a chain of handlers until one of them handles it",
+      "Composes objects into tree structures and lets clients treat individual objects and compositions uniformly"
+    ],
+    "correctAnswers": {
+      "Adapter": "Converts the interface of a class into another interface that clients expect",
+      "Bridge": "Decouples an abstraction from its implementation so that the two can vary independently",
+      "Chain of Responsibility": "Passes a request along a chain of handlers until one of them handles it",
+      "Composite": "Composes objects into tree structures and lets clients treat individual objects and compositions uniformly",
+      "Visitor": "Lets you define a new operation on a set of objects without changing the classes of those objects"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Adapter",
+      "Bridge",
+      "Chain of Responsibility",
+      "Composite",
+      "Visitor"
+    ]
+  },
+  {
+    "id": "q130",
+    "type": "multiple_choice",
+    "questionText": "A spreadsheet must recalculate and visually update many dependent cells and charts the instant a source cell changes. Which single design pattern is the most appropriate?",
+    "codeSnippet": null,
+    "options": [
+      "State",
+      "Chain of Responsibility",
+      "Strategy",
+      "Command",
+      "Observer",
+      "Mediator"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Observer"
+    ],
+    "explanation": "Automatically updating many dependents when one subject changes is the Observer pattern.",
+    "_tags": [
+      "Observer"
+    ]
+  },
+  {
+    "id": "q131",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Decorator: BoldDecorator wraps a TextView and adds Bold.",
+    "snippetWithDropZones": "interface TextView {\n  String describe();\n}\n\nabstract class TextDecorator implements [[ZONE_1]] {\n  protected TextView wrappee;\n  public TextDecorator(TextView c) { this.wrappee = c; }\n}\n\nclass BoldDecorator extends TextDecorator {\n  public BoldDecorator(TextView c) { super(c); }\n  public String describe() {\n    return wrappee.[[ZONE_2]] + \" + Bold\";\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "TextView",
+        "PlainText",
+        "TextDecorator"
+      ],
+      "ZONE_2": [
+        "describe()",
+        "wrappee()",
+        "describe"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "TextView",
+      "ZONE_2": "describe()"
+    },
+    "explanation": "A decorator implements the same component interface, holds a wrappee, and adds behavior around the delegated call.",
+    "_tags": [
+      "Decorator"
+    ]
+  },
+  {
+    "id": "q132",
+    "type": "dropdown_matching",
+    "questionText": "Associate every design pattern with the goal it is meant to achieve.",
+    "matchingEntities": [
+      "Template Method",
+      "Bridge",
+      "Memento",
+      "Facade",
+      "Decorator",
+      "Simple Factory"
+    ],
+    "matchingOptions": [
+      "Decouples an abstraction from its implementation so that the two can vary independently",
+      "Encapsulates object creation in one method or class that returns instances based on a parameter",
+      "Defines the skeleton of an algorithm in a base method, deferring some steps to subclasses",
+      "Captures and externalizes an object's internal state so it can be restored later without violating encapsulation",
+      "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Attaches additional responsibilities to an object dynamically by wrapping it"
+    ],
+    "correctAnswers": {
+      "Bridge": "Decouples an abstraction from its implementation so that the two can vary independently",
+      "Decorator": "Attaches additional responsibilities to an object dynamically by wrapping it",
+      "Facade": "Provides a unified, simplified interface to a set of interfaces in a subsystem",
+      "Memento": "Captures and externalizes an object's internal state so it can be restored later without violating encapsulation",
+      "Simple Factory": "Encapsulates object creation in one method or class that returns instances based on a parameter",
+      "Template Method": "Defines the skeleton of an algorithm in a base method, deferring some steps to subclasses"
+    },
+    "explanation": "Each pattern's intent is its textbook one-line purpose.",
+    "_tags": [
+      "Bridge",
+      "Decorator",
+      "Facade",
+      "Memento",
+      "Simple Factory",
+      "Template Method"
+    ]
+  }
+]

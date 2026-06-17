@@ -1,0 +1,1249 @@
+[
+  {
+    "id": "q229",
+    "type": "multiple_choice",
+    "questionText": "Considering only the test shown, what STATEMENT coverage does it achieve for abs()?",
+    "codeSnippet": "public int abs(int x) {\n  if (x < 0) {\n    return -x;\n  }\n  int y = x;\n  return y;\n}\n\n@Test\npublic void t() {\n  assertEquals(3, abs(-3));\n}",
+    "options": [
+      "50%",
+      "100%",
+      "66%",
+      "0%"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "50%"
+    ],
+    "explanation": "abs(-3) executes the if and 'return -x' (2 of 4 statements); 'return x' and the trailing line never run.",
+    "_tags": [
+      "Coverage"
+    ]
+  },
+  {
+    "id": "q230",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Proxy that guards access to RealVideoStream.",
+    "snippetWithDropZones": "interface VideoStream {\n  void request();\n}\n\nclass RealVideoStream implements VideoStream {\n  public void request() { System.out.println(\"real\"); }\n}\n\nclass VideoStreamProxy implements [[ZONE_1]] {\n  private RealVideoStream real = new RealVideoStream();\n  public void request() {\n    if (hasAccess()) {\n      real.[[ZONE_2]];\n    }\n  }\n  private boolean hasAccess() { return true; }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "VideoStream",
+        "RealVideoStream",
+        "VideoStreamProxy"
+      ],
+      "ZONE_2": [
+        "request()",
+        "hasAccess()",
+        "request"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "VideoStream",
+      "ZONE_2": "request()"
+    },
+    "explanation": "The proxy implements the same interface as the real subject and forwards to it only after its access check.",
+    "_tags": [
+      "Proxy"
+    ]
+  },
+  {
+    "id": "q231",
+    "type": "dropdown_matching",
+    "questionText": "Match each SOLID principle to a code situation that violates it.",
+    "matchingEntities": [
+      "SRP",
+      "ISP",
+      "DIP"
+    ],
+    "matchingOptions": [
+      "A high-level OrderService that directly instantiates a concrete MySqlDatabase",
+      "A class that both generates a report and also emails it and writes it to disk",
+      "A SimplePrinter forced to implement scan() and fax() with empty bodies"
+    ],
+    "correctAnswers": {
+      "DIP": "A high-level OrderService that directly instantiates a concrete MySqlDatabase",
+      "ISP": "A SimplePrinter forced to implement scan() and fax() with empty bodies",
+      "SRP": "A class that both generates a report and also emails it and writes it to disk"
+    },
+    "explanation": "Each scenario is a textbook violation of the matched principle.",
+    "_tags": [
+      "SOLID"
+    ]
+  },
+  {
+    "id": "q232",
+    "type": "multiple_choice",
+    "questionText": "What is the cyclomatic complexity (McCabe) of the following method?",
+    "codeSnippet": "public int f(int x) {\n  if (x > 0) {\n    if (x > 10) {\n      return 2;\n    }\n    return 1;\n  }\n  return 0;\n}",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "3"
+    ],
+    "explanation": "Two decision points (two ifs) → V(G) = 2 + 1 = 3.",
+    "_tags": [
+      "Cyclomatic"
+    ]
+  },
+  {
+    "id": "q233",
+    "type": "drag_and_drop",
+    "questionText": "Place the terms so the Dependency Inversion Principle is respected (Service depends on Logger).",
+    "snippetWithDropZones": "interface Logger {\n  void log(String msg);\n}\n\nclass FileLogger implements [[ZONE_1]] {\n  public void log([[ZONE_2]] msg) { }\n}\n\nclass Service {\n  private [[ZONE_3]] dep;\n  Service(Logger dep) { this.dep = dep; }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Logger",
+        "FileLogger",
+        "Service"
+      ],
+      "ZONE_2": [
+        "String",
+        "Logger",
+        "void"
+      ],
+      "ZONE_3": [
+        "Logger",
+        "FileLogger",
+        "String"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Logger",
+      "ZONE_2": "String",
+      "ZONE_3": "Logger"
+    },
+    "explanation": "The implementation realises the abstraction, the method signature matches the interface, and the client field is typed to the abstraction, not the concrete class.",
+    "_tags": [
+      "DIP"
+    ]
+  },
+  {
+    "id": "q234",
+    "type": "dropdown_matching",
+    "questionText": "Match each SOLID principle to a code situation that violates it.",
+    "matchingEntities": [
+      "ISP",
+      "SRP",
+      "LSP",
+      "DIP"
+    ],
+    "matchingOptions": [
+      "A Square subclass of Rectangle breaks code that sets width and height independently",
+      "A class that both generates a report and also emails it and writes it to disk",
+      "A high-level OrderService that directly instantiates a concrete MySqlDatabase",
+      "A SimplePrinter forced to implement scan() and fax() with empty bodies"
+    ],
+    "correctAnswers": {
+      "DIP": "A high-level OrderService that directly instantiates a concrete MySqlDatabase",
+      "ISP": "A SimplePrinter forced to implement scan() and fax() with empty bodies",
+      "LSP": "A Square subclass of Rectangle breaks code that sets width and height independently",
+      "SRP": "A class that both generates a report and also emails it and writes it to disk"
+    },
+    "explanation": "Each scenario is a textbook violation of the matched principle.",
+    "_tags": [
+      "SOLID"
+    ]
+  },
+  {
+    "id": "q235",
+    "type": "multiple_choice",
+    "questionText": "What is the cyclomatic complexity (McCabe) of the following method?",
+    "codeSnippet": "public boolean valid(int a, int b) {\n  if (a > 0 && b > 0) {\n    return true;\n  }\n  return false;\n}",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "3"
+    ],
+    "explanation": "One if plus one && (each predicate counts) → 2 + 1 = 3.",
+    "_tags": [
+      "Cyclomatic"
+    ]
+  },
+  {
+    "id": "q236",
+    "type": "drag_and_drop",
+    "questionText": "Place the terms so the Dependency Inversion Principle is respected (Controller depends on Repository).",
+    "snippetWithDropZones": "interface Repository {\n  void save(String msg);\n}\n\nclass SqlRepository implements [[ZONE_1]] {\n  public void save([[ZONE_2]] msg) { }\n}\n\nclass Controller {\n  private [[ZONE_3]] dep;\n  Controller(Repository dep) { this.dep = dep; }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Repository",
+        "SqlRepository",
+        "Controller"
+      ],
+      "ZONE_2": [
+        "String",
+        "Repository",
+        "void"
+      ],
+      "ZONE_3": [
+        "Repository",
+        "SqlRepository",
+        "String"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Repository",
+      "ZONE_2": "String",
+      "ZONE_3": "Repository"
+    },
+    "explanation": "The implementation realises the abstraction, the method signature matches the interface, and the client field is typed to the abstraction, not the concrete class.",
+    "_tags": [
+      "DIP"
+    ]
+  },
+  {
+    "id": "q237",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@Test(timeout = 1000)",
+      "@Test(expected = ArithmeticException.class)",
+      "@Test",
+      "@Before"
+    ],
+    "matchingOptions": [
+      "Runs before every individual test method",
+      "Fails the test if it runs longer than the given number of milliseconds",
+      "Marks a method as a test case to be executed by the runner",
+      "Passes only if the test method throws the named exception"
+    ],
+    "correctAnswers": {
+      "@Before": "Runs before every individual test method",
+      "@Test": "Marks a method as a test case to be executed by the runner",
+      "@Test(expected = ArithmeticException.class)": "Passes only if the test method throws the named exception",
+      "@Test(timeout = 1000)": "Fails the test if it runs longer than the given number of milliseconds"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q238",
+    "type": "multiple_choice",
+    "questionText": "What is the cyclomatic complexity (McCabe) of the following method?",
+    "codeSnippet": "public int count(int[] a) {\n  int c = 0;\n  for (int x : a) {\n    if (x % 2 == 0) {\n      c++;\n    }\n  }\n  return c;\n}",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "3"
+    ],
+    "explanation": "One for and one if → 2 decision points + 1 = 3.",
+    "_tags": [
+      "Cyclomatic"
+    ]
+  },
+  {
+    "id": "q239",
+    "type": "drag_and_drop",
+    "questionText": "Place the terms so the Dependency Inversion Principle is respected (Notifier depends on MessageSender).",
+    "snippetWithDropZones": "interface MessageSender {\n  void send(String msg);\n}\n\nclass EmailSender implements [[ZONE_1]] {\n  public void send([[ZONE_2]] msg) { }\n}\n\nclass Notifier {\n  private [[ZONE_3]] dep;\n  Notifier(MessageSender dep) { this.dep = dep; }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "MessageSender",
+        "EmailSender",
+        "Notifier"
+      ],
+      "ZONE_2": [
+        "String",
+        "MessageSender",
+        "void"
+      ],
+      "ZONE_3": [
+        "MessageSender",
+        "EmailSender",
+        "String"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "MessageSender",
+      "ZONE_2": "String",
+      "ZONE_3": "MessageSender"
+    },
+    "explanation": "The implementation realises the abstraction, the method signature matches the interface, and the client field is typed to the abstraction, not the concrete class.",
+    "_tags": [
+      "DIP"
+    ]
+  },
+  {
+    "id": "q240",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@Before",
+      "@Test(expected = ArithmeticException.class)",
+      "@Ignore",
+      "@Test(timeout = 1000)",
+      "@Test"
+    ],
+    "matchingOptions": [
+      "Passes only if the test method throws the named exception",
+      "Tells the runner to skip this test method",
+      "Marks a method as a test case to be executed by the runner",
+      "Runs before every individual test method",
+      "Fails the test if it runs longer than the given number of milliseconds"
+    ],
+    "correctAnswers": {
+      "@Before": "Runs before every individual test method",
+      "@Ignore": "Tells the runner to skip this test method",
+      "@Test": "Marks a method as a test case to be executed by the runner",
+      "@Test(expected = ArithmeticException.class)": "Passes only if the test method throws the named exception",
+      "@Test(timeout = 1000)": "Fails the test if it runs longer than the given number of milliseconds"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q241",
+    "type": "multiple_choice",
+    "questionText": "What is the cyclomatic complexity (McCabe) of the following method?",
+    "codeSnippet": "public int price(int z) {\n  switch (z) {\n    case 1: return 10;\n    case 2: return 20;\n    case 3: return 30;\n    default: return 0;\n  }\n}",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "4"
+    ],
+    "explanation": "Three case labels are three decision points → 3 + 1 = 4.",
+    "_tags": [
+      "Cyclomatic"
+    ]
+  },
+  {
+    "id": "q242",
+    "type": "drag_and_drop",
+    "questionText": "Place the terms so the Dependency Inversion Principle is respected (Checkout depends on PaymentGateway).",
+    "snippetWithDropZones": "interface PaymentGateway {\n  void charge(String msg);\n}\n\nclass StripeGateway implements [[ZONE_1]] {\n  public void charge([[ZONE_2]] msg) { }\n}\n\nclass Checkout {\n  private [[ZONE_3]] dep;\n  Checkout(PaymentGateway dep) { this.dep = dep; }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "PaymentGateway",
+        "StripeGateway",
+        "Checkout"
+      ],
+      "ZONE_2": [
+        "String",
+        "PaymentGateway",
+        "void"
+      ],
+      "ZONE_3": [
+        "PaymentGateway",
+        "StripeGateway",
+        "String"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "PaymentGateway",
+      "ZONE_2": "String",
+      "ZONE_3": "PaymentGateway"
+    },
+    "explanation": "The implementation realises the abstraction, the method signature matches the interface, and the client field is typed to the abstraction, not the concrete class.",
+    "_tags": [
+      "DIP"
+    ]
+  },
+  {
+    "id": "q243",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@Test(timeout = 1000)",
+      "@Test",
+      "@Ignore",
+      "@After"
+    ],
+    "matchingOptions": [
+      "Fails the test if it runs longer than the given number of milliseconds",
+      "Tells the runner to skip this test method",
+      "Runs after every individual test method",
+      "Marks a method as a test case to be executed by the runner"
+    ],
+    "correctAnswers": {
+      "@After": "Runs after every individual test method",
+      "@Ignore": "Tells the runner to skip this test method",
+      "@Test": "Marks a method as a test case to be executed by the runner",
+      "@Test(timeout = 1000)": "Fails the test if it runs longer than the given number of milliseconds"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q244",
+    "type": "multiple_choice",
+    "questionText": "What is the cyclomatic complexity (McCabe) of the following method?",
+    "codeSnippet": "public int add(int a, int b) {\n  return a + b;\n}",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "1"
+    ],
+    "explanation": "No decision points → V(G) = 0 + 1 = 1.",
+    "_tags": [
+      "Cyclomatic"
+    ]
+  },
+  {
+    "id": "q245",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Prototype so ShapePrototype can clone itself.",
+    "snippetWithDropZones": "class ShapePrototype implements [[ZONE_1]] {\n  private String data;\n  public ShapePrototype(String data) { this.data = data; }\n  public ShapePrototype copy() {\n    try {\n      return (ShapePrototype) [[ZONE_2]];\n    } catch (CloneNotSupportedException e) {\n      return null;\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Cloneable",
+        "Prototype",
+        "Serializable"
+      ],
+      "ZONE_2": [
+        "super.clone()",
+        "this.copy()",
+        "new ShapePrototype(data)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Cloneable",
+      "ZONE_2": "super.clone()"
+    },
+    "explanation": "Prototype relies on Cloneable and delegates to Object.clone() via super.clone() to duplicate the instance.",
+    "_tags": [
+      "Prototype"
+    ]
+  },
+  {
+    "id": "q246",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@Test",
+      "@Test(expected = ArithmeticException.class)",
+      "@AfterClass",
+      "@BeforeClass",
+      "@After",
+      "@Before"
+    ],
+    "matchingOptions": [
+      "Runs before every individual test method",
+      "Passes only if the test method throws the named exception",
+      "Marks a method as a test case to be executed by the runner",
+      "Runs once after all tests in the class have finished; must be static",
+      "Runs after every individual test method",
+      "Runs once before any test in the class; must be static"
+    ],
+    "correctAnswers": {
+      "@After": "Runs after every individual test method",
+      "@AfterClass": "Runs once after all tests in the class have finished; must be static",
+      "@Before": "Runs before every individual test method",
+      "@BeforeClass": "Runs once before any test in the class; must be static",
+      "@Test": "Marks a method as a test case to be executed by the runner",
+      "@Test(expected = ArithmeticException.class)": "Passes only if the test method throws the named exception"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q247",
+    "type": "multiple_choice",
+    "questionText": "A field accepts integer ages from 18 to 65 inclusive. Which values are the correct BOUNDARY values to test? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "17",
+      "18",
+      "65",
+      "66",
+      "40"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "17",
+      "18",
+      "65",
+      "66"
+    ],
+    "explanation": "Boundary testing uses the edges and just-outside values: 17/18 at the lower edge and 65/66 at the upper edge. 40 is a mid-range (typical) value.",
+    "_tags": [
+      "Boundary"
+    ]
+  },
+  {
+    "id": "q248",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Prototype so DocumentTemplate can clone itself.",
+    "snippetWithDropZones": "class DocumentTemplate implements [[ZONE_1]] {\n  private String data;\n  public DocumentTemplate(String data) { this.data = data; }\n  public DocumentTemplate copy() {\n    try {\n      return (DocumentTemplate) [[ZONE_2]];\n    } catch (CloneNotSupportedException e) {\n      return null;\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Cloneable",
+        "Prototype",
+        "Serializable"
+      ],
+      "ZONE_2": [
+        "super.clone()",
+        "this.copy()",
+        "new DocumentTemplate(data)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Cloneable",
+      "ZONE_2": "super.clone()"
+    },
+    "explanation": "Prototype relies on Cloneable and delegates to Object.clone() via super.clone() to duplicate the instance.",
+    "_tags": [
+      "Prototype"
+    ]
+  },
+  {
+    "id": "q249",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@BeforeClass",
+      "@AfterClass",
+      "@Test(timeout = 1000)",
+      "@Before"
+    ],
+    "matchingOptions": [
+      "Runs before every individual test method",
+      "Runs once after all tests in the class have finished; must be static",
+      "Runs once before any test in the class; must be static",
+      "Fails the test if it runs longer than the given number of milliseconds"
+    ],
+    "correctAnswers": {
+      "@AfterClass": "Runs once after all tests in the class have finished; must be static",
+      "@Before": "Runs before every individual test method",
+      "@BeforeClass": "Runs once before any test in the class; must be static",
+      "@Test(timeout = 1000)": "Fails the test if it runs longer than the given number of milliseconds"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q250",
+    "type": "multiple_choice",
+    "questionText": "A discount applies only when the cart total is strictly greater than 100. Which are good BOUNDARY test values around the threshold? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "99",
+      "100",
+      "101",
+      "250",
+      "0"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "99",
+      "100",
+      "101"
+    ],
+    "explanation": "The interesting edge is 100: test 99 (below), 100 (on the boundary, should NOT discount) and 101 (just above, should discount).",
+    "_tags": [
+      "Boundary"
+    ]
+  },
+  {
+    "id": "q251",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Prototype so GameCharacter can clone itself.",
+    "snippetWithDropZones": "class GameCharacter implements [[ZONE_1]] {\n  private String data;\n  public GameCharacter(String data) { this.data = data; }\n  public GameCharacter copy() {\n    try {\n      return (GameCharacter) [[ZONE_2]];\n    } catch (CloneNotSupportedException e) {\n      return null;\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Cloneable",
+        "Prototype",
+        "Serializable"
+      ],
+      "ZONE_2": [
+        "super.clone()",
+        "this.copy()",
+        "new GameCharacter(data)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Cloneable",
+      "ZONE_2": "super.clone()"
+    },
+    "explanation": "Prototype relies on Cloneable and delegates to Object.clone() via super.clone() to duplicate the instance.",
+    "_tags": [
+      "Prototype"
+    ]
+  },
+  {
+    "id": "q252",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@Test",
+      "@AfterClass",
+      "@Test(timeout = 1000)",
+      "@After"
+    ],
+    "matchingOptions": [
+      "Marks a method as a test case to be executed by the runner",
+      "Runs after every individual test method",
+      "Fails the test if it runs longer than the given number of milliseconds",
+      "Runs once after all tests in the class have finished; must be static"
+    ],
+    "correctAnswers": {
+      "@After": "Runs after every individual test method",
+      "@AfterClass": "Runs once after all tests in the class have finished; must be static",
+      "@Test": "Marks a method as a test case to be executed by the runner",
+      "@Test(timeout = 1000)": "Fails the test if it runs longer than the given number of milliseconds"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q253",
+    "type": "multiple_choice",
+    "questionText": "Using equivalence partitioning for a function validating a percentage (0–100), which set best represents one value per valid/invalid partition?",
+    "codeSnippet": null,
+    "options": [
+      "-5, 50, 150",
+      "0, 50, 100",
+      "50, 51, 52",
+      "1, 2, 3"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "-5, 50, 150"
+    ],
+    "explanation": "Equivalence partitioning picks one representative per class: an invalid-low (-5), a valid mid (50) and an invalid-high (150).",
+    "_tags": [
+      "Equivalence"
+    ]
+  },
+  {
+    "id": "q254",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Prototype so Configuration can clone itself.",
+    "snippetWithDropZones": "class Configuration implements [[ZONE_1]] {\n  private String data;\n  public Configuration(String data) { this.data = data; }\n  public Configuration copy() {\n    try {\n      return (Configuration) [[ZONE_2]];\n    } catch (CloneNotSupportedException e) {\n      return null;\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Cloneable",
+        "Prototype",
+        "Serializable"
+      ],
+      "ZONE_2": [
+        "super.clone()",
+        "this.copy()",
+        "new Configuration(data)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Cloneable",
+      "ZONE_2": "super.clone()"
+    },
+    "explanation": "Prototype relies on Cloneable and delegates to Object.clone() via super.clone() to duplicate the instance.",
+    "_tags": [
+      "Prototype"
+    ]
+  },
+  {
+    "id": "q255",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@BeforeClass",
+      "@Before",
+      "@Test(expected = ArithmeticException.class)",
+      "@Test",
+      "@After"
+    ],
+    "matchingOptions": [
+      "Marks a method as a test case to be executed by the runner",
+      "Runs once before any test in the class; must be static",
+      "Runs after every individual test method",
+      "Runs before every individual test method",
+      "Passes only if the test method throws the named exception"
+    ],
+    "correctAnswers": {
+      "@After": "Runs after every individual test method",
+      "@Before": "Runs before every individual test method",
+      "@BeforeClass": "Runs once before any test in the class; must be static",
+      "@Test": "Marks a method as a test case to be executed by the runner",
+      "@Test(expected = ArithmeticException.class)": "Passes only if the test method throws the named exception"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q256",
+    "type": "multiple_choice",
+    "questionText": "Which statements about boundary value analysis are TRUE? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "It focuses on values at the edges of input ranges",
+      "It typically tests min, min+1, max-1 and max",
+      "It replaces the need for any equivalence partitioning",
+      "It is a black-box technique",
+      "It only applies to string inputs"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "It focuses on values at the edges of input ranges",
+      "It typically tests min, min+1, max-1 and max",
+      "It is a black-box technique"
+    ],
+    "explanation": "BVA is a black-box technique targeting range edges; it complements (does not replace) equivalence partitioning and is not limited to strings.",
+    "_tags": [
+      "Boundary"
+    ]
+  },
+  {
+    "id": "q257",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Prototype so Cell can clone itself.",
+    "snippetWithDropZones": "class Cell implements [[ZONE_1]] {\n  private String data;\n  public Cell(String data) { this.data = data; }\n  public Cell copy() {\n    try {\n      return (Cell) [[ZONE_2]];\n    } catch (CloneNotSupportedException e) {\n      return null;\n    }\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Cloneable",
+        "Prototype",
+        "Serializable"
+      ],
+      "ZONE_2": [
+        "super.clone()",
+        "this.copy()",
+        "new Cell(data)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Cloneable",
+      "ZONE_2": "super.clone()"
+    },
+    "explanation": "Prototype relies on Cloneable and delegates to Object.clone() via super.clone() to duplicate the instance.",
+    "_tags": [
+      "Prototype"
+    ]
+  },
+  {
+    "id": "q258",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@AfterClass",
+      "@BeforeClass",
+      "@Test(expected = ArithmeticException.class)",
+      "@Test"
+    ],
+    "matchingOptions": [
+      "Runs once before any test in the class; must be static",
+      "Runs once after all tests in the class have finished; must be static",
+      "Passes only if the test method throws the named exception",
+      "Marks a method as a test case to be executed by the runner"
+    ],
+    "correctAnswers": {
+      "@AfterClass": "Runs once after all tests in the class have finished; must be static",
+      "@BeforeClass": "Runs once before any test in the class; must be static",
+      "@Test": "Marks a method as a test case to be executed by the runner",
+      "@Test(expected = ArithmeticException.class)": "Passes only if the test method throws the named exception"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q259",
+    "type": "multiple_choice",
+    "questionText": "Given getGrade(int score) where score is valid in 0..100, which inputs are BOUNDARY values? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "getGrade(0)",
+      "getGrade(100)",
+      "getGrade(-1)",
+      "getGrade(101)",
+      "getGrade(73)"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "getGrade(0)",
+      "getGrade(100)",
+      "getGrade(-1)",
+      "getGrade(101)"
+    ],
+    "explanation": "0 and 100 are the valid edges; -1 and 101 are just outside. 73 is an ordinary interior value.",
+    "_tags": [
+      "Boundary"
+    ]
+  },
+  {
+    "id": "q260",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Iterator implementation in NameRepository.",
+    "snippetWithDropZones": "class NameRepository implements Iterable<String> {\n  private String[] items;\n  public Iterator<String> iterator() {\n    return new Iterator<String>() {\n      private int index = 0;\n      public boolean [[ZONE_1]] {\n        return index < items.length;\n      }\n      public String next() {\n        return items[[[ZONE_2]]];\n      }\n    };\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "hasNext()",
+        "next()",
+        "remove()"
+      ],
+      "ZONE_2": [
+        "index++",
+        "index",
+        "--index"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "hasNext()",
+      "ZONE_2": "index++"
+    },
+    "explanation": "An iterator exposes hasNext()/next(); next() returns the current element and advances the cursor (index++).",
+    "_tags": [
+      "Iterator"
+    ]
+  },
+  {
+    "id": "q261",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@Before",
+      "@Test(expected = ArithmeticException.class)",
+      "@Test(timeout = 1000)",
+      "@After",
+      "@BeforeClass"
+    ],
+    "matchingOptions": [
+      "Passes only if the test method throws the named exception",
+      "Runs before every individual test method",
+      "Runs after every individual test method",
+      "Runs once before any test in the class; must be static",
+      "Fails the test if it runs longer than the given number of milliseconds"
+    ],
+    "correctAnswers": {
+      "@After": "Runs after every individual test method",
+      "@Before": "Runs before every individual test method",
+      "@BeforeClass": "Runs once before any test in the class; must be static",
+      "@Test(expected = ArithmeticException.class)": "Passes only if the test method throws the named exception",
+      "@Test(timeout = 1000)": "Fails the test if it runs longer than the given number of milliseconds"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q262",
+    "type": "multiple_choice",
+    "questionText": "What is the printed output when this JUnit 4 class runs (two test methods, runner order test1 then test2)?",
+    "codeSnippet": "@BeforeClass static void a(){ print(\"A\"); }\n@AfterClass  static void b(){ print(\"B\"); }\n@Before      void c(){ print(\"C\"); }\n@After       void d(){ print(\"D\"); }\n@Test void test1(){}\n@Test void test2(){}",
+    "options": [
+      "ACDCDB",
+      "ABCD",
+      "ACCDDB",
+      "CADCDB",
+      "ACDB"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "ACDCDB"
+    ],
+    "explanation": "@BeforeClass (A) once; for each test @Before (C) then @After (D); @AfterClass (B) once → A C D C D B.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q263",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Iterator implementation in Playlist.",
+    "snippetWithDropZones": "class Playlist implements Iterable<String> {\n  private String[] items;\n  public Iterator<String> iterator() {\n    return new Iterator<String>() {\n      private int index = 0;\n      public boolean [[ZONE_1]] {\n        return index < items.length;\n      }\n      public String next() {\n        return items[[[ZONE_2]]];\n      }\n    };\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "hasNext()",
+        "next()",
+        "remove()"
+      ],
+      "ZONE_2": [
+        "index++",
+        "index",
+        "--index"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "hasNext()",
+      "ZONE_2": "index++"
+    },
+    "explanation": "An iterator exposes hasNext()/next(); next() returns the current element and advances the cursor (index++).",
+    "_tags": [
+      "Iterator"
+    ]
+  },
+  {
+    "id": "q264",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@Test",
+      "@Test(expected = ArithmeticException.class)",
+      "@Ignore",
+      "@Before"
+    ],
+    "matchingOptions": [
+      "Passes only if the test method throws the named exception",
+      "Runs before every individual test method",
+      "Marks a method as a test case to be executed by the runner",
+      "Tells the runner to skip this test method"
+    ],
+    "correctAnswers": {
+      "@Before": "Runs before every individual test method",
+      "@Ignore": "Tells the runner to skip this test method",
+      "@Test": "Marks a method as a test case to be executed by the runner",
+      "@Test(expected = ArithmeticException.class)": "Passes only if the test method throws the named exception"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q265",
+    "type": "multiple_choice",
+    "questionText": "In this JUnit 4 class, test2 is annotated @Ignore. What is printed (runner order test1, test2, test3)?",
+    "codeSnippet": "@BeforeClass static void a(){ print(\"A\"); }\n@AfterClass  static void b(){ print(\"B\"); }\n@Before      void c(){ print(\"C\"); }\n@After       void d(){ print(\"D\"); }\n@Test void test1(){}\n@Ignore @Test void test2(){}\n@Test void test3(){}",
+    "options": [
+      "ACDCDB",
+      "ACDCDCDB",
+      "ACDB",
+      "ABABAB"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "ACDCDB"
+    ],
+    "explanation": "@Ignore skips test2 entirely, so only test1 and test3 get their C…D wrapper: A, then C D twice, then B.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q266",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Iterator implementation in Menu.",
+    "snippetWithDropZones": "class Menu implements Iterable<String> {\n  private String[] items;\n  public Iterator<String> iterator() {\n    return new Iterator<String>() {\n      private int index = 0;\n      public boolean [[ZONE_1]] {\n        return index < items.length;\n      }\n      public String next() {\n        return items[[[ZONE_2]]];\n      }\n    };\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "hasNext()",
+        "next()",
+        "remove()"
+      ],
+      "ZONE_2": [
+        "index++",
+        "index",
+        "--index"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "hasNext()",
+      "ZONE_2": "index++"
+    },
+    "explanation": "An iterator exposes hasNext()/next(); next() returns the current element and advances the cursor (index++).",
+    "_tags": [
+      "Iterator"
+    ]
+  },
+  {
+    "id": "q267",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@BeforeClass",
+      "@Test(timeout = 1000)",
+      "@Test(expected = ArithmeticException.class)",
+      "@Before",
+      "@Test"
+    ],
+    "matchingOptions": [
+      "Passes only if the test method throws the named exception",
+      "Runs once before any test in the class; must be static",
+      "Runs before every individual test method",
+      "Marks a method as a test case to be executed by the runner",
+      "Fails the test if it runs longer than the given number of milliseconds"
+    ],
+    "correctAnswers": {
+      "@Before": "Runs before every individual test method",
+      "@BeforeClass": "Runs once before any test in the class; must be static",
+      "@Test": "Marks a method as a test case to be executed by the runner",
+      "@Test(expected = ArithmeticException.class)": "Passes only if the test method throws the named exception",
+      "@Test(timeout = 1000)": "Fails the test if it runs longer than the given number of milliseconds"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q268",
+    "type": "multiple_choice",
+    "questionText": "Which JUnit 4 annotation makes a test pass only if a specific exception is thrown?",
+    "codeSnippet": null,
+    "options": [
+      "@Test(expected = IllegalArgumentException.class)",
+      "@Test(timeout = 1000)",
+      "@Throws(IllegalArgumentException.class)",
+      "@Before",
+      "@Rule"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "@Test(expected = IllegalArgumentException.class)"
+    ],
+    "explanation": "@Test(expected=...) declares the exception the test must throw to pass.",
+    "_tags": [
+      "JUnit4 lifecycle",
+      "Error condition"
+    ]
+  },
+  {
+    "id": "q269",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Iterator implementation in BookShelf.",
+    "snippetWithDropZones": "class BookShelf implements Iterable<String> {\n  private String[] items;\n  public Iterator<String> iterator() {\n    return new Iterator<String>() {\n      private int index = 0;\n      public boolean [[ZONE_1]] {\n        return index < items.length;\n      }\n      public String next() {\n        return items[[[ZONE_2]]];\n      }\n    };\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "hasNext()",
+        "next()",
+        "remove()"
+      ],
+      "ZONE_2": [
+        "index++",
+        "index",
+        "--index"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "hasNext()",
+      "ZONE_2": "index++"
+    },
+    "explanation": "An iterator exposes hasNext()/next(); next() returns the current element and advances the cursor (index++).",
+    "_tags": [
+      "Iterator"
+    ]
+  },
+  {
+    "id": "q270",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 4 annotation to what it does.",
+    "matchingEntities": [
+      "@AfterClass",
+      "@BeforeClass",
+      "@After",
+      "@Before",
+      "@Test",
+      "@Test(timeout = 1000)"
+    ],
+    "matchingOptions": [
+      "Runs after every individual test method",
+      "Runs once after all tests in the class have finished; must be static",
+      "Fails the test if it runs longer than the given number of milliseconds",
+      "Runs before every individual test method",
+      "Runs once before any test in the class; must be static",
+      "Marks a method as a test case to be executed by the runner"
+    ],
+    "correctAnswers": {
+      "@After": "Runs after every individual test method",
+      "@AfterClass": "Runs once after all tests in the class have finished; must be static",
+      "@Before": "Runs before every individual test method",
+      "@BeforeClass": "Runs once before any test in the class; must be static",
+      "@Test": "Marks a method as a test case to be executed by the runner",
+      "@Test(timeout = 1000)": "Fails the test if it runs longer than the given number of milliseconds"
+    },
+    "explanation": "JUnit 4 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit4 lifecycle"
+    ]
+  },
+  {
+    "id": "q271",
+    "type": "multiple_choice",
+    "questionText": "In JUnit 5, which annotation replaces JUnit 4's @Before?",
+    "codeSnippet": null,
+    "options": [
+      "@BeforeEach",
+      "@BeforeAll",
+      "@BeforeClass",
+      "@Setup"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "@BeforeEach"
+    ],
+    "explanation": "JUnit 5 renamed @Before to @BeforeEach (run before every test).",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q272",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Iterator implementation in NumberRange.",
+    "snippetWithDropZones": "class NumberRange implements Iterable<String> {\n  private String[] items;\n  public Iterator<String> iterator() {\n    return new Iterator<String>() {\n      private int index = 0;\n      public boolean [[ZONE_1]] {\n        return index < items.length;\n      }\n      public String next() {\n        return items[[[ZONE_2]]];\n      }\n    };\n  }\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "hasNext()",
+        "next()",
+        "remove()"
+      ],
+      "ZONE_2": [
+        "index++",
+        "index",
+        "--index"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "hasNext()",
+      "ZONE_2": "index++"
+    },
+    "explanation": "An iterator exposes hasNext()/next(); next() returns the current element and advances the cursor (index++).",
+    "_tags": [
+      "Iterator"
+    ]
+  },
+  {
+    "id": "q273",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@BeforeEach",
+      "@Disabled",
+      "@BeforeAll",
+      "@AfterEach",
+      "@ParameterizedTest",
+      "@Nested"
+    ],
+    "matchingOptions": [
+      "Skips a test in JUnit 5 (the replacement for @Ignore)",
+      "Runs the same test repeatedly with different argument sets (JUnit 5)",
+      "Runs once before all tests; must be static (JUnit 5)",
+      "Runs after each test method (JUnit 5)",
+      "Runs before each test method (JUnit 5)",
+      "Marks an inner class as a nested group of tests (JUnit 5)"
+    ],
+    "correctAnswers": {
+      "@AfterEach": "Runs after each test method (JUnit 5)",
+      "@BeforeAll": "Runs once before all tests; must be static (JUnit 5)",
+      "@BeforeEach": "Runs before each test method (JUnit 5)",
+      "@Disabled": "Skips a test in JUnit 5 (the replacement for @Ignore)",
+      "@Nested": "Marks an inner class as a nested group of tests (JUnit 5)",
+      "@ParameterizedTest": "Runs the same test repeatedly with different argument sets (JUnit 5)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q274",
+    "type": "multiple_choice",
+    "questionText": "Which statements about JUnit 5 are TRUE? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "@BeforeAll and @AfterAll must be static (unless the test instance lifecycle is PER_CLASS)",
+      "@DisplayName gives a test a custom readable name",
+      "@ParameterizedTest runs a test with multiple argument sets",
+      "@Ignore is the standard way to skip a test in JUnit 5",
+      "@Test must declare an expected exception via expected="
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "@BeforeAll and @AfterAll must be static (unless the test instance lifecycle is PER_CLASS)",
+      "@DisplayName gives a test a custom readable name",
+      "@ParameterizedTest runs a test with multiple argument sets"
+    ],
+    "explanation": "JUnit 5 uses @Disabled (not @Ignore) and assertThrows (not expected=); the other three statements are correct.",
+    "_tags": [
+      "JUnit5"
+    ]
+  },
+  {
+    "id": "q275",
+    "type": "drag_and_drop",
+    "questionText": "Complete the Chain of Responsibility base class Handler.",
+    "snippetWithDropZones": "abstract class Handler {\n  protected Handler next;\n  public void setNext([[ZONE_1]] next) {\n    this.next = next;\n  }\n  public void handle(int level) {\n    if (canHandle(level)) {\n      process(level);\n    } else if (next != null) {\n      next.[[ZONE_2]];\n    }\n  }\n  protected abstract boolean canHandle(int level);\n  protected abstract void process(int level);\n}",
+    "dropZones": {
+      "ZONE_1": [
+        "Handler",
+        "int",
+        "void"
+      ],
+      "ZONE_2": [
+        "handle(level)",
+        "setNext(level)",
+        "process(level)"
+      ]
+    },
+    "correctAnswers": {
+      "ZONE_1": "Handler",
+      "ZONE_2": "handle(level)"
+    },
+    "explanation": "Each handler references the next handler and forwards the request down the chain when it cannot handle it.",
+    "_tags": [
+      "Chain of Responsibility"
+    ]
+  },
+  {
+    "id": "q276",
+    "type": "dropdown_matching",
+    "questionText": "Match each JUnit 5 annotation to what it does.",
+    "matchingEntities": [
+      "@Nested",
+      "@BeforeEach",
+      "@AfterEach",
+      "@AfterAll",
+      "@ParameterizedTest"
+    ],
+    "matchingOptions": [
+      "Runs once after all tests; must be static (JUnit 5)",
+      "Marks an inner class as a nested group of tests (JUnit 5)",
+      "Runs before each test method (JUnit 5)",
+      "Runs after each test method (JUnit 5)",
+      "Runs the same test repeatedly with different argument sets (JUnit 5)"
+    ],
+    "correctAnswers": {
+      "@AfterAll": "Runs once after all tests; must be static (JUnit 5)",
+      "@AfterEach": "Runs after each test method (JUnit 5)",
+      "@BeforeEach": "Runs before each test method (JUnit 5)",
+      "@Nested": "Marks an inner class as a nested group of tests (JUnit 5)",
+      "@ParameterizedTest": "Runs the same test repeatedly with different argument sets (JUnit 5)"
+    },
+    "explanation": "JUnit 5 lifecycle/behavior annotations.",
+    "_tags": [
+      "JUnit5"
+    ]
+  }
+]

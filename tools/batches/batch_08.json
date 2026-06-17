@@ -1,0 +1,532 @@
+[
+  {
+    "id": "q373",
+    "type": "multiple_choice",
+    "questionText": "Which two methods are the core of Java's Iterator interface?",
+    "codeSnippet": null,
+    "options": [
+      "hasNext() and next()",
+      "first() and last()",
+      "size() and get()",
+      "open() and close()"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "hasNext() and next()"
+    ],
+    "explanation": "java.util.Iterator centers on hasNext() (is there more?) and next() (return next element and advance).",
+    "_tags": [
+      "Iterator"
+    ]
+  },
+  {
+    "id": "q374",
+    "type": "dropdown_matching",
+    "questionText": "Match each testing technique to its description.",
+    "matchingEntities": [
+      "Equivalence partitioning",
+      "Error-condition testing",
+      "Cyclomatic complexity",
+      "Cardinality testing",
+      "Boundary value analysis"
+    ],
+    "matchingOptions": [
+      "Verifies the code behaves correctly when given invalid input or when exceptions occur",
+      "Tests the 0 / 1 / many cases for collections and counts",
+      "Counts the number of linearly independent paths through a method (decision points + 1)",
+      "Divides inputs into classes that should be treated the same and tests one value per class",
+      "Designs tests at the edges of valid input ranges (min, max, just inside/outside)"
+    ],
+    "correctAnswers": {
+      "Boundary value analysis": "Designs tests at the edges of valid input ranges (min, max, just inside/outside)",
+      "Cardinality testing": "Tests the 0 / 1 / many cases for collections and counts",
+      "Cyclomatic complexity": "Counts the number of linearly independent paths through a method (decision points + 1)",
+      "Equivalence partitioning": "Divides inputs into classes that should be treated the same and tests one value per class",
+      "Error-condition testing": "Verifies the code behaves correctly when given invalid input or when exceptions occur"
+    },
+    "explanation": "Core black-box / white-box testing techniques.",
+    "_tags": [
+      "Boundary",
+      "Equivalence",
+      "Cyclomatic",
+      "Cardinality"
+    ]
+  },
+  {
+    "id": "q375",
+    "type": "multiple_choice",
+    "questionText": "Which design pattern does the following code implement?",
+    "codeSnippet": "class Range implements Iterable<Integer> {\n  int from, to;\n  public Iterator<Integer> iterator(){\n    return new Iterator<>(){\n      int cur = from;\n      public boolean hasNext(){ return cur < to; }\n      public Integer next(){ return cur++; }\n    };\n  }\n}",
+    "options": [
+      "Iterator",
+      "Composite",
+      "Strategy",
+      "Observer",
+      "Visitor"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Iterator"
+    ],
+    "explanation": "An object exposing hasNext()/next() to traverse a collection without revealing its representation is the Iterator pattern.",
+    "_tags": [
+      "Iterator"
+    ]
+  },
+  {
+    "id": "q376",
+    "type": "dropdown_matching",
+    "questionText": "Match each testing technique to its description.",
+    "matchingEntities": [
+      "Cyclomatic complexity",
+      "Error-condition testing",
+      "Cardinality testing",
+      "Boundary value analysis",
+      "Regression testing"
+    ],
+    "matchingOptions": [
+      "Re-runs existing tests to confirm that new changes did not break old behavior",
+      "Verifies the code behaves correctly when given invalid input or when exceptions occur",
+      "Counts the number of linearly independent paths through a method (decision points + 1)",
+      "Tests the 0 / 1 / many cases for collections and counts",
+      "Designs tests at the edges of valid input ranges (min, max, just inside/outside)"
+    ],
+    "correctAnswers": {
+      "Boundary value analysis": "Designs tests at the edges of valid input ranges (min, max, just inside/outside)",
+      "Cardinality testing": "Tests the 0 / 1 / many cases for collections and counts",
+      "Cyclomatic complexity": "Counts the number of linearly independent paths through a method (decision points + 1)",
+      "Error-condition testing": "Verifies the code behaves correctly when given invalid input or when exceptions occur",
+      "Regression testing": "Re-runs existing tests to confirm that new changes did not break old behavior"
+    },
+    "explanation": "Core black-box / white-box testing techniques.",
+    "_tags": [
+      "Boundary",
+      "Equivalence",
+      "Cyclomatic",
+      "Cardinality"
+    ]
+  },
+  {
+    "id": "q377",
+    "type": "multiple_choice",
+    "questionText": "Why is the Iterator pattern preferable to exposing a collection's internal list directly? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "It hides the internal representation of the collection",
+      "It lets multiple traversals proceed independently",
+      "It offers a uniform traversal interface across different collections",
+      "It guarantees the collection has a single instance",
+      "It converts the collection's interface to another one"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "It hides the internal representation of the collection",
+      "It lets multiple traversals proceed independently",
+      "It offers a uniform traversal interface across different collections"
+    ],
+    "explanation": "Iterator encapsulates traversal, supports concurrent independent cursors, and unifies the interface; the last two options describe Singleton/Adapter.",
+    "_tags": [
+      "Iterator"
+    ]
+  },
+  {
+    "id": "q378",
+    "type": "dropdown_matching",
+    "questionText": "Match each testing technique to its description.",
+    "matchingEntities": [
+      "Cardinality testing",
+      "Equivalence partitioning",
+      "Boundary value analysis",
+      "Regression testing",
+      "Error-condition testing"
+    ],
+    "matchingOptions": [
+      "Verifies the code behaves correctly when given invalid input or when exceptions occur",
+      "Tests the 0 / 1 / many cases for collections and counts",
+      "Designs tests at the edges of valid input ranges (min, max, just inside/outside)",
+      "Divides inputs into classes that should be treated the same and tests one value per class",
+      "Re-runs existing tests to confirm that new changes did not break old behavior"
+    ],
+    "correctAnswers": {
+      "Boundary value analysis": "Designs tests at the edges of valid input ranges (min, max, just inside/outside)",
+      "Cardinality testing": "Tests the 0 / 1 / many cases for collections and counts",
+      "Equivalence partitioning": "Divides inputs into classes that should be treated the same and tests one value per class",
+      "Error-condition testing": "Verifies the code behaves correctly when given invalid input or when exceptions occur",
+      "Regression testing": "Re-runs existing tests to confirm that new changes did not break old behavior"
+    },
+    "explanation": "Core black-box / white-box testing techniques.",
+    "_tags": [
+      "Boundary",
+      "Equivalence",
+      "Cyclomatic",
+      "Cardinality"
+    ]
+  },
+  {
+    "id": "q379",
+    "type": "multiple_choice",
+    "questionText": "A finance app has a fixed hierarchy of account types (Checking, Savings, Loan). You must keep adding new cross-cutting operations over them — interest report this quarter, tax export next quarter — without editing the account classes each time. Which single design pattern fits best?",
+    "codeSnippet": null,
+    "options": [
+      "Composite",
+      "Decorator",
+      "Observer",
+      "Visitor",
+      "Strategy",
+      "Template Method"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Visitor"
+    ],
+    "explanation": "Adding new operations over a stable set of element classes without modifying them is the Visitor pattern.",
+    "_tags": [
+      "Visitor"
+    ]
+  },
+  {
+    "id": "q380",
+    "type": "dropdown_matching",
+    "questionText": "Match each FIRST unit-testing principle to its meaning.",
+    "matchingEntities": [
+      "Independent",
+      "Timely",
+      "Self-validating",
+      "Fast",
+      "Repeatable"
+    ],
+    "matchingOptions": [
+      "Tests should be written at the right time, ideally just before the production code",
+      "Tests must automatically report pass/fail without manual inspection",
+      "Tests must give the same result every time, in any environment",
+      "Tests must not depend on each other or on execution order",
+      "Tests should run quickly so they can be executed often"
+    ],
+    "correctAnswers": {
+      "Fast": "Tests should run quickly so they can be executed often",
+      "Independent": "Tests must not depend on each other or on execution order",
+      "Repeatable": "Tests must give the same result every time, in any environment",
+      "Self-validating": "Tests must automatically report pass/fail without manual inspection",
+      "Timely": "Tests should be written at the right time, ideally just before the production code"
+    },
+    "explanation": "FIRST = Fast, Independent, Repeatable, Self-validating, Timely.",
+    "_tags": [
+      "FIRST"
+    ]
+  },
+  {
+    "id": "q381",
+    "type": "multiple_choice",
+    "questionText": "Which design pattern does the following code implement?",
+    "codeSnippet": "interface Visitor { void visit(Book b); void visit(Dvd d); }\ninterface Item { void accept(Visitor v); }\nclass Book implements Item {\n  public void accept(Visitor v){ v.visit(this); }\n}",
+    "options": [
+      "Visitor",
+      "Strategy",
+      "Composite",
+      "Interpreter",
+      "Command"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Visitor"
+    ],
+    "explanation": "Elements exposing accept(visitor) that call back visitor.visit(this), with a visitor declaring a visit() overload per element type, is the Visitor pattern (double dispatch).",
+    "_tags": [
+      "Visitor"
+    ]
+  },
+  {
+    "id": "q382",
+    "type": "dropdown_matching",
+    "questionText": "Match each FIRST unit-testing principle to its meaning.",
+    "matchingEntities": [
+      "Self-validating",
+      "Independent",
+      "Repeatable"
+    ],
+    "matchingOptions": [
+      "Tests must not depend on each other or on execution order",
+      "Tests must give the same result every time, in any environment",
+      "Tests must automatically report pass/fail without manual inspection"
+    ],
+    "correctAnswers": {
+      "Independent": "Tests must not depend on each other or on execution order",
+      "Repeatable": "Tests must give the same result every time, in any environment",
+      "Self-validating": "Tests must automatically report pass/fail without manual inspection"
+    },
+    "explanation": "FIRST = Fast, Independent, Repeatable, Self-validating, Timely.",
+    "_tags": [
+      "FIRST"
+    ]
+  },
+  {
+    "id": "q383",
+    "type": "multiple_choice",
+    "questionText": "The Visitor pattern relies on 'double dispatch'. What does that mean here?",
+    "codeSnippet": null,
+    "options": [
+      "The operation invoked depends on both the element's runtime type and the visitor's type",
+      "Every method is called twice for safety",
+      "Two threads dispatch the call in parallel",
+      "The visitor clones itself before each visit"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "The operation invoked depends on both the element's runtime type and the visitor's type"
+    ],
+    "explanation": "accept() selects the element type; the visit() overload selects the operation — two dispatches combine to pick the behavior.",
+    "_tags": [
+      "Visitor"
+    ]
+  },
+  {
+    "id": "q384",
+    "type": "dropdown_matching",
+    "questionText": "Match each FIRST unit-testing principle to its meaning.",
+    "matchingEntities": [
+      "Self-validating",
+      "Repeatable",
+      "Fast"
+    ],
+    "matchingOptions": [
+      "Tests should run quickly so they can be executed often",
+      "Tests must automatically report pass/fail without manual inspection",
+      "Tests must give the same result every time, in any environment"
+    ],
+    "correctAnswers": {
+      "Fast": "Tests should run quickly so they can be executed often",
+      "Repeatable": "Tests must give the same result every time, in any environment",
+      "Self-validating": "Tests must automatically report pass/fail without manual inspection"
+    },
+    "explanation": "FIRST = Fast, Independent, Repeatable, Self-validating, Timely.",
+    "_tags": [
+      "FIRST"
+    ]
+  },
+  {
+    "id": "q385",
+    "type": "multiple_choice",
+    "questionText": "Which design pattern (idiom) does the following code implement?",
+    "codeSnippet": "class PizzaFactory {\n  Pizza create(String type){\n    if (type.equals(\"margherita\")) return new Margherita();\n    if (type.equals(\"pepperoni\")) return new Pepperoni();\n    return null;\n  }\n}",
+    "options": [
+      "Simple Factory",
+      "Abstract Factory",
+      "Builder",
+      "Prototype",
+      "Singleton"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Simple Factory"
+    ],
+    "explanation": "One method that switches on a parameter and returns a product instance is the Simple Factory idiom (not a formal GoF pattern).",
+    "_tags": [
+      "Simple Factory"
+    ]
+  },
+  {
+    "id": "q386",
+    "type": "dropdown_matching",
+    "questionText": "Match each FIRST unit-testing principle to its meaning.",
+    "matchingEntities": [
+      "Independent",
+      "Fast",
+      "Repeatable"
+    ],
+    "matchingOptions": [
+      "Tests must give the same result every time, in any environment",
+      "Tests should run quickly so they can be executed often",
+      "Tests must not depend on each other or on execution order"
+    ],
+    "correctAnswers": {
+      "Fast": "Tests should run quickly so they can be executed often",
+      "Independent": "Tests must not depend on each other or on execution order",
+      "Repeatable": "Tests must give the same result every time, in any environment"
+    },
+    "explanation": "FIRST = Fast, Independent, Repeatable, Self-validating, Timely.",
+    "_tags": [
+      "FIRST"
+    ]
+  },
+  {
+    "id": "q387",
+    "type": "multiple_choice",
+    "questionText": "Simple Factory vs Factory Method: which statement is TRUE?",
+    "codeSnippet": null,
+    "options": [
+      "Simple Factory centralises creation in one method/class; Factory Method defers the choice to subclasses",
+      "They are the same GoF pattern",
+      "Factory Method centralises creation in one method; Simple Factory uses subclasses",
+      "Simple Factory always returns a singleton"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Simple Factory centralises creation in one method/class; Factory Method defers the choice to subclasses"
+    ],
+    "explanation": "Simple Factory is one switch-like creator; Factory Method uses polymorphism so subclasses pick the concrete product.",
+    "_tags": [
+      "Simple Factory",
+      "Factory Method"
+    ]
+  },
+  {
+    "id": "q388",
+    "type": "dropdown_matching",
+    "questionText": "Match each FIRST unit-testing principle to its meaning.",
+    "matchingEntities": [
+      "Repeatable",
+      "Timely",
+      "Independent",
+      "Fast"
+    ],
+    "matchingOptions": [
+      "Tests should run quickly so they can be executed often",
+      "Tests must give the same result every time, in any environment",
+      "Tests must not depend on each other or on execution order",
+      "Tests should be written at the right time, ideally just before the production code"
+    ],
+    "correctAnswers": {
+      "Fast": "Tests should run quickly so they can be executed often",
+      "Independent": "Tests must not depend on each other or on execution order",
+      "Repeatable": "Tests must give the same result every time, in any environment",
+      "Timely": "Tests should be written at the right time, ideally just before the production code"
+    },
+    "explanation": "FIRST = Fast, Independent, Repeatable, Self-validating, Timely.",
+    "_tags": [
+      "FIRST"
+    ]
+  },
+  {
+    "id": "q389",
+    "type": "multiple_choice",
+    "questionText": "A document app needs one helper that, given a string extension ('pdf','docx','txt'), returns the right Document object, centralising this creation logic in a single place. Which creational approach is described (note: not a formal GoF pattern)?",
+    "codeSnippet": null,
+    "options": [
+      "Builder",
+      "Abstract Factory",
+      "Bridge",
+      "Prototype",
+      "Decorator",
+      "Simple Factory"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Simple Factory"
+    ],
+    "explanation": "Centralising parameterised object creation in a single method/class is the Simple Factory idiom.",
+    "_tags": [
+      "Simple Factory"
+    ]
+  },
+  {
+    "id": "q390",
+    "type": "multiple_choice",
+    "questionText": "Which are valid criticisms of the Simple Factory idiom? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "It tends to violate the Open/Closed Principle as new types are added",
+      "Its conditional chain grows with every new product",
+      "It can return null for unknown inputs",
+      "It cannot create objects at all",
+      "It forces every product to be a singleton"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "It tends to violate the Open/Closed Principle as new types are added",
+      "Its conditional chain grows with every new product",
+      "It can return null for unknown inputs"
+    ],
+    "explanation": "Adding products means editing the factory (OCP), the if/switch grows, and unknown inputs may yield null. The last two options are false.",
+    "_tags": [
+      "Simple Factory",
+      "OCP"
+    ]
+  },
+  {
+    "id": "q391",
+    "type": "multiple_choice",
+    "questionText": "Which design pattern does the following code implement?",
+    "codeSnippet": "interface GUIFactory {\n  Button createButton();\n  Checkbox createCheckbox();\n}\nclass MacFactory implements GUIFactory {\n  public Button createButton(){ return new MacButton(); }\n  public Checkbox createCheckbox(){ return new MacCheckbox(); }\n}",
+    "options": [
+      "Abstract Factory",
+      "Factory Method",
+      "Builder",
+      "Simple Factory",
+      "Prototype"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Abstract Factory"
+    ],
+    "explanation": "A factory interface declaring multiple create methods for a family of related products, implemented per family, is Abstract Factory.",
+    "_tags": [
+      "Abstract Factory"
+    ]
+  },
+  {
+    "id": "q392",
+    "type": "multiple_choice",
+    "questionText": "Factory Method vs Abstract Factory: which statement is TRUE?",
+    "codeSnippet": null,
+    "options": [
+      "Factory Method creates one product via subclassing; Abstract Factory creates whole families of related products",
+      "They are identical",
+      "Abstract Factory creates exactly one product; Factory Method creates families",
+      "Abstract Factory is a behavioral pattern"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Factory Method creates one product via subclassing; Abstract Factory creates whole families of related products"
+    ],
+    "explanation": "Factory Method = one product through overriding; Abstract Factory = a set of related products behind one factory interface.",
+    "_tags": [
+      "Abstract Factory",
+      "Factory Method"
+    ]
+  },
+  {
+    "id": "q393",
+    "type": "multiple_choice",
+    "questionText": "A cross-platform UI toolkit must produce matching sets of widgets — a Windows family (WinButton, WinScrollbar, WinMenu) and a macOS family (MacButton, MacScrollbar, MacMenu) — so that a whole consistent set is created together. Which single design pattern fits best?",
+    "codeSnippet": null,
+    "options": [
+      "Factory Method",
+      "Builder",
+      "Prototype",
+      "Composite",
+      "Bridge",
+      "Abstract Factory"
+    ],
+    "isMultiSelect": false,
+    "correctAnswers": [
+      "Abstract Factory"
+    ],
+    "explanation": "Creating coordinated families of related products behind one factory interface is the Abstract Factory pattern.",
+    "_tags": [
+      "Abstract Factory"
+    ]
+  },
+  {
+    "id": "q394",
+    "type": "multiple_choice",
+    "questionText": "Which statements about Abstract Factory are TRUE? Select 1 or more answers",
+    "codeSnippet": null,
+    "options": [
+      "It creates families of related objects without naming their concrete classes",
+      "Each concrete factory produces one consistent product family",
+      "It is a creational pattern",
+      "It guarantees a single global instance",
+      "It converts one interface into another"
+    ],
+    "isMultiSelect": true,
+    "correctAnswers": [
+      "It creates families of related objects without naming their concrete classes",
+      "Each concrete factory produces one consistent product family",
+      "It is a creational pattern"
+    ],
+    "explanation": "Abstract Factory is creational and builds consistent product families behind abstractions; it is not Singleton or Adapter.",
+    "_tags": [
+      "Abstract Factory"
+    ]
+  }
+]
